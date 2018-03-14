@@ -38,7 +38,7 @@ public class Game {
      * és kiírja a játékos(ok) pontszámát,
      * és ez alapján a nyertest is “kihirdeti”.
      */
-    public void EndGame() {
+    public static void EndGame() {
         System.out.println("> EndGame");
         // TODO implement here
         System.out.println("< EndGame");
@@ -63,4 +63,12 @@ public class Game {
         System.out.println("< RestartLevel");
     }
 
+    /**
+     * Egy adott iránynak megadja a vele ellenkező irányt.
+     * @param d Direction, irány.
+     * @return
+     */
+    static Direction GetOpposite(Direction d){
+        return d;
+    };
 }

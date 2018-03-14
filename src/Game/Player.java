@@ -35,7 +35,18 @@ public class Player extends Thing {
      */
     public void HitBy(Box b, Direction d) {
         System.out.println(">HitByBox");
-        // TODO implement here
+        
+        Tile t = tile.GetNeighbour(d);
+        
+        tile.Remove(this);
+        
+        t.Add(this);
+
+        for (Thing i :
+                t.GetThings()) {
+            i.PlayerPushedIntoIt(this);
+        }
+        
         System.out.println("<HitByBox");
     }
 
@@ -75,7 +86,19 @@ public class Player extends Thing {
      */
     public void Move(Direction d) {
         System.out.println(">Move");
-        // TODO implement here
+
+        Tile t;
+
+        t = tile.GetNeighbour(d);
+
+        tile.Remove(this);
+
+        t.Add(this);
+
+        for (Thing i : t.GetThings()){
+            this.CollideWith(i);
+        }
+
         System.out.println("<Move");
     }
 

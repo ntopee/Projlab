@@ -12,6 +12,11 @@ public class Box extends Thing {
     }
 
     /**
+     * Megadja, hogy az adott ládát lehet-e mozgatni.
+     */
+    private boolean movable;
+
+    /**
      * Megadja, hogy az adott ládával lehet-e még pontot szerezni.
      */
     private boolean valid;
@@ -28,7 +33,11 @@ public class Box extends Thing {
      */
     public void HitBy(Box b, Direction d) {
         System.out.println("> Box HitBy Box");
-        // TODO implement here
+        if (!this.movable)
+            b.HitBy(this,Game.GetOpposite(d));
+        else
+            Step(d);
+
         System.out.println("< Box HitBy Box");
     }
 
@@ -39,7 +48,11 @@ public class Box extends Thing {
      */
     public void HitBy(Player p, Direction d) {
         System.out.println("> Box HitBy Player");
-        // TODO implement here
+
+        if (!this.movable)
+            p.Move(Game.GetOpposite(d));
+        else Step(d);
+
         System.out.println("< Box HitBy Player");
     }
 
@@ -122,8 +135,28 @@ public class Box extends Thing {
      */
     public void AddPoint(Direction d) {
         System.out.println("> AddPoint");
-        // TODO implement here
+        
+        Tile t = tile.GetNeighbour(d);
+
+        for (Thing i :
+                t.GetThings()) {
+            i.AddPoint(d);
+        }
+        
         System.out.println("< AddPoint");
     }
 
+
+    private void Step (Direction d){
+        Tile t =this.tile.GetNeighbour(d);
+        tile.Remove(this);
+
+        if (isOnGoal)
+            this.SetisOnGoal();
+
+        t.Add(this);
+
+        for(Thing i : t.GetThings())
+            this.CollideWith(i);
+    }
 }

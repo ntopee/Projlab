@@ -21,7 +21,7 @@ public class Thing {
     /**
      * Azon Tile referenciája, amin a Thing található.
      */
-    private Tile tile;
+    protected Tile tile;
 
     /**
      *  A dolog ütközik egy másik dologgal.

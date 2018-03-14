@@ -25,7 +25,9 @@ public class Switch extends Thing {
      */
     public void HitBy(Box b, Direction d) {
         System.out.println(">HitByBox");
-        // TODO implement here
+
+        this.Activate();
+
         System.out.println("<HitByBox");
     }
 
@@ -34,7 +36,10 @@ public class Switch extends Thing {
      */
     public void Activate() {
         System.out.println(">Activate");
-        // TODO implement here
+        for (Hole i :
+                holes) {
+            i.SetActive();
+        }
         System.out.println("<Activate");
     }
 

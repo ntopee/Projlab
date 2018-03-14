@@ -20,7 +20,9 @@ public class Obstacle extends Thing {
      */
     public void HitBy(Box b, Direction d) {
         System.out.println("> Obstacle HitBy Box");
-        // TODO implement here
+
+        b.HitBy(this,Game.GetOpposite(d));
+
         System.out.println("< Obstacle HitBy Box");
     }
 
@@ -32,7 +34,9 @@ public class Obstacle extends Thing {
      */
     public void HitBy(Player p, Direction d) {
         System.out.println("> Obstacle HitBy Player");
-        // TODO implement here
+
+        p.Move(Game.GetOpposite(d));
+
         System.out.println("< Obstacle HitBy Player");
     }
 

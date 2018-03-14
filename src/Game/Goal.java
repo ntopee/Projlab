@@ -22,7 +22,14 @@ public class Goal extends Thing {
      */
     public void HitBy(Box b, Direction d) {
         System.out.println("> Goal HitBy Box");
-        // TODO implement here
+
+        if(b.GetValid()){
+            b.SetValid();
+            b.SetisOnGoal();
+            b.AddPoint(Game.GetOpposite(d));
+            tile.GetMap().CheckEndGame();
+        }
+
         System.out.println("< Goal HitBy Box");
     }
 

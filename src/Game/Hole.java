@@ -24,6 +24,7 @@ public class Hole extends Thing {
      */
     public void HitBy(Player p, Direction d) {
         System.out.println("> Hole HitBy Player");
+        p.Die();
         // TODO implement here
         System.out.println("< Hole HitBy Player");
     }
@@ -35,7 +36,12 @@ public class Hole extends Thing {
      */
     public void HitBy(Box b, Direction d) {
         System.out.println("> Hole HitBy Box");
-        // TODO implement here
+
+        b.Die();
+
+        if (tile.GetMap().GetNumOfMBoxes() == 0)
+            Game.EndGame();
+
         System.out.println("< Hole HitBy Box");
     }
 

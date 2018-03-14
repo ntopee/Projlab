@@ -7,6 +7,10 @@ import java.util.Map;
  * Eltárolja a Thing-eket.
  */
 public class Tile {
+    /**
+     * Cellát tartalmazó map referenciája.
+     */
+    private Game.Map map;
 
     /**
      * Default constructor
@@ -69,4 +73,15 @@ public class Tile {
         System.out.println("<SetNeighbour");
     }
 
+    /**
+     * Visszaadja a things kollekciót.
+     * @return
+     */
+    public Set<Thing> GetThings(){
+        return things;
+    }
+
+    public Game.Map GetMap(){
+        return map;
+    }
 }
