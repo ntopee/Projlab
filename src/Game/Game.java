@@ -2,7 +2,7 @@ package Game;
 import java.util.*;
 
 /**
- * 
+ * A játékot reprezentálja, mapeket tölt be.
  */
 public class Game {
 

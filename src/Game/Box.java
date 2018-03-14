@@ -1,7 +1,7 @@
 package Game;
 
 /**
- *
+ *A játékban található ládákat reprezentálja.
  */
 public class Box extends Thing {
 

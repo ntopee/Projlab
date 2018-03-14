@@ -2,7 +2,8 @@ package Game;
 import java.util.*;
 
 /**
- * 
+ *  Tárolja a Tile-okat, amikből maga a pálya felépül. A pálya tulajdonságai is lekérdezhetőek, amelyek a pálya kirajzolásához kellenek majd.
+ *  Tudja, mikor van vége a játéknak és ekkor meghívja a Game EndGame függvényét. Ismeri a mozgatható dobozok számát és csökkenteni tudja őket.
  */
 public class Map {
 

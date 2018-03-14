@@ -2,7 +2,7 @@ package Game;
 import java.util.*;
 
 /**
- * 
+ * Felelős azért, hogy a játékos ne tudjon rajta átmenni, a dobozt ne tudjuk áttolni. A saját Tile-án egyedüli objektumnak kell lennie.
  */
 public class Pillar extends Obstacle {
 

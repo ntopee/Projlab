@@ -2,7 +2,8 @@ package Game;
 import java.util.*;
 
 /**
- * 
+ *A Thing objektumok azok az objektumok, amelyek “rajta vannak” egy Tile-on.
+ * A Thing osztály felelőssége, hogy ütközés során meghívja a CollideWith metódust, ami lekezeli a különböző Thing-ek ütközését.
  */
 public class Thing {
 

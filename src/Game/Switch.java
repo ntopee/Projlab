@@ -2,7 +2,8 @@ package Game;
 import java.util.*;
 
 /**
- * 
+ *Vannak olyan lyukak, amelyek padlónak látszanak, de egy gomb lenyomására aktiválódnak.
+ * Az aktiválást olyan mezők végzik, amiken van kapcsoló (Switch).
  */
 public class Switch extends Thing {
 

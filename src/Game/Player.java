@@ -2,7 +2,8 @@ package Game;
 import java.util.*;
 
 /**
- * 
+ * A karakter mozgását valósítja meg, egy paraméterként kapott irány szerint.
+ * Számolja a karakter pontjait.
  */
 public class Player extends Thing {
 

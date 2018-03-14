@@ -3,7 +3,8 @@ import java.util.*;
 import java.util.Map;
 
 /**
- * 
+ * A pálya mezőit reprezentálja.
+ * Eltárolja a Thing-eket.
  */
 public class Tile {
 

@@ -2,7 +2,7 @@ package Game;
 import java.util.*;
 
 /**
- * 
+ * Olyan mezőket képvisel, amelyekre a ládákat kell tolni a pontszerzéshez.
  */
 public class Goal extends Thing {
 

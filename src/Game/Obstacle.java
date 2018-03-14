@@ -2,7 +2,7 @@ package Game;
 import java.util.*;
 
 /**
- * 
+ * Olyan objektumok a pályán, amelyeken sem játékos, sem doboz nem tud átmenni.
  */
 public class Obstacle extends Thing {
 
