@@ -72,9 +72,10 @@ public class Box extends Thing {
      */
     public void HitBy(Obstacle o, Direction d) {
         System.out.println("> Box HitBy Obstacle");
-        // TODO implement here
+
+        Step(d);
+        
         System.out.println("< Box HitBy Obstacle");
-        // TODO implement here
     }
 
     /**
