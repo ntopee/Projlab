@@ -1,7 +1,7 @@
 package Game;
 
 /**
- * 
+ * asdsadsadsadasdasdasdasdasdadasdasdasdasd
  */
 public class Box extends Thing {
 
