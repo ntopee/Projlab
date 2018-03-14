@@ -3,7 +3,6 @@ import java.util.*;
 
 /**
  *A Thing objektumok azok az objektumok, amelyek “rajta vannak” egy Tile-on.
- * A Thing osztály felelőssége, hogy ütközés során meghívja a CollideWith metódust, ami lekezeli a különböző Thing-ek ütközését.
  */
 public abstract class Thing {
 
@@ -27,11 +26,11 @@ public abstract class Thing {
      *  A dolog ütközik egy másik dologgal.
      * @param t Thing referencia.
      */
-    public void CollideWith(Thing t, Direction d) {
+    /*public void CollideWith(Thing t, Direction d) {
         System.out.println(">CollideWith");
         // TODO implement here
         System.out.println("<CollideWith");
-    }
+    }*/
 
     /**
      * A művelet, amit akkor kell végrehajtani,

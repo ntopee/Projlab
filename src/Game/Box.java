@@ -27,6 +27,17 @@ public class Box extends Thing {
     private boolean isOnGoal;
 
     /**
+     * Ütközik egy dologgal.
+     * @param t Thing referencia.
+     * @param d Ütközés iránya.
+     */
+    /*public void CollideWith(Thing t, Direction d) {
+        System.out.println(">CollideWith");
+        t.HitBy(this, d);
+        System.out.println("<CollideWith");
+    }*/
+
+    /**
      * Box-ként ütközik Box-al.
      * @param b Box referencia.
      * @param d Ütközés iránya.
@@ -161,6 +172,6 @@ public class Box extends Thing {
         t.Add(this);
 
         for(Thing i : t.GetThings())
-            this.CollideWith(i,d);
+            i.HitBy(this,d);
     }
 }

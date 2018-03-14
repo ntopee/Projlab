@@ -22,11 +22,11 @@ public class Player extends Thing {
      * Player-ként ütközik egy dologgal.
      * @param t Thing referencia.
      */
-    public void CollideWith(Thing t, Direction d) {
+    /*public void CollideWith(Thing t, Direction d) {
         System.out.println(">CollideWith");
         t.HitBy(this, d);
         System.out.println("<CollideWith");
-    }
+    }*/
 
     /**
      * Player-ként ütközik egy Box-al. Meghívja a Player Move metódusát az ellenkező irányba.
@@ -96,7 +96,7 @@ public class Player extends Thing {
         t.Add(this);
 
         for (Thing i : t.GetThings()){
-            this.CollideWith(i, d);
+            i.HitBy(this, d);
         }
 
         System.out.println("<Move");
