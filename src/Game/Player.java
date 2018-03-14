@@ -20,7 +20,7 @@ public class Player extends Thing {
 
     /**
      * Player-ként ütközik egy dologgal.
-     * @param t
+     * @param t Thing referencia.
      */
     public void CollideWith(Thing t) {
         System.out.println(">CollideWith");
@@ -30,8 +30,8 @@ public class Player extends Thing {
 
     /**
      * Player-ként ütközik egy Box-al. Meghívja a Player Move metódusát az ellenkező irányba.
-     * @param b 
-     * @param d
+     * @param b Box referencia.
+     * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
         System.out.println(">HitByBox");
@@ -50,7 +50,7 @@ public class Player extends Thing {
 
     /**
      * Hozzáad a játékos pontszámához egyet.
-     * @param d
+     * @param d Megadja hogy melyik irányban van a pontszerző játékos.
      */
     public void AddPoint(Direction d) {
         System.out.println(">AddPoint");
@@ -60,8 +60,8 @@ public class Player extends Thing {
 
     /**
      * Player-ként ütközik egy másik Player-rel.
-     * @param p 
-     * @param d
+     * @param p Player referencia.
+     * @param d Ütközés iránya.
      */
     public void HitBy(Player p, Direction d) {
         System.out.println(">HitByPlayer");
@@ -71,7 +71,7 @@ public class Player extends Thing {
 
     /**
      * A Player egy mezőt megy a megadott paraméter irányába.
-     * @param d
+     * @param d Mozgás iránya.
      */
     public void Move(Direction d) {
         System.out.println(">Move");
@@ -92,7 +92,7 @@ public class Player extends Thing {
 
     /**
      * Be lehet vele állítani a Player pontszámát.
-     * @param n
+     * @param n Beállítja hogy mennyi pontja van a játékosnak.
      */
     public void SetPoints(int n) {
         System.out.println(">SetPoints");

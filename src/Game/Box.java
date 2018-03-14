@@ -23,8 +23,8 @@ public class Box extends Thing {
 
     /**
      * Box-ként ütközik Box-al.
-     * @param b 
-     * @param d
+     * @param b Box referencia.
+     * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
         System.out.println("> Box HitBy Box");
@@ -34,8 +34,8 @@ public class Box extends Thing {
 
     /**
      * Box-ként ütközik egy Player-el.
-     * @param p 
-     * @param d
+     * @param p Player referencia
+     * @param d Az ütközés iránya
      */
     public void HitBy(Player p, Direction d) {
         System.out.println("> Box HitBy Player");
@@ -54,8 +54,8 @@ public class Box extends Thing {
 
     /**
      * A függvénynek megadott irányba mozgatja a ládát egy mezővel(ha lehet).
-     * @param o 
-     * @param d
+     * @param o Obstacle referencia.
+     * @param d Ütközés iránya.
      */
     public void HitBy(Obstacle o, Direction d) {
         System.out.println("> Box HitBy Obstacle");
@@ -88,7 +88,7 @@ public class Box extends Thing {
     }
 
     /**
-     * 
+     * Beállitja az isOnGoal értékét.
      */
     public void SetisOnGoal() {
         System.out.println("> SetisOnGoal");

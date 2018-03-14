@@ -15,8 +15,8 @@ public class Obstacle extends Thing {
     /**
      * Egy akadály ütközik egy dobozzal. Meghívja a Box HitBy függvényét
      * az ellenkező irányba.
-     * @param b 
-     * @param d
+     * @param b Box referencia.
+     * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
         System.out.println("> Obstacle HitBy Box");
@@ -27,8 +27,8 @@ public class Obstacle extends Thing {
     /**
      * Egy akadály ütközik egy játékossal. Meghívja a Player move
      * függvényét az ellenkező irányba.
-     * @param p 
-     * @param d
+     * @param p Player referencia.
+     * @param d Ütközés iránya.
      */
     public void HitBy(Player p, Direction d) {
         System.out.println("> Obstacle HitBy Player");

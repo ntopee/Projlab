@@ -17,8 +17,8 @@ public class Goal extends Thing {
      * annak a playernek ad pontot. A Box valid értékét átállítja false-ra,
      * hogy ne lehessen több pontot szerezni vele.
      * Az isOnGoal értékét is igazra állítja.
-     * @param b 
-     * @param d
+     * @param b Box referencia.
+     * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
         System.out.println("> Goal HitBy Box");
