@@ -27,7 +27,6 @@ public class Wall extends Obstacle {
      * Egy akadály ütközik egy játékossal. Meghívja a Player move függvényét az ellenkező irányba.
      * @param p Player referencia.
      * @param d Ütközés iránya.
-
      */
     public void HitBy(Player p, Direction d) {
         System.out.println(">HitByPlayer");
