@@ -1,5 +1,6 @@
 package Game;
 import java.util.*;
+import java.util.Map;
 
 /**
  * 
@@ -16,12 +17,7 @@ public class Tile {
      * A cellán elhelyezkedő dolgok kollekciója.
      */
     private Set<Thing> things;
-
-
-
-
-
-
+    private Map<Direction, Tile> neighbours;
 
     /**
      * Új dolgok hozzáadása a cellához,
