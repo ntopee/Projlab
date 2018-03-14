@@ -25,7 +25,7 @@ public class Thing {
 
     /**
      *  A dolog ütközik egy másik dologgal.
-     * @param t
+     * @param t Thing referencia.
      */
     public void CollideWith(Thing t) {
         System.out.println(">CollideWith");
@@ -36,8 +36,8 @@ public class Thing {
     /**
      * A művelet, amit akkor kell végrehajtani,
      * ha a dolognak egy játékos ütközött.
-     * @param p 
-     * @param d
+     * @param p Player referencia.
+     * @param d Ütközés iránya.
      */
     public void HitBy(Player p, Direction d) {
         System.out.println(">HitByPlayer");
@@ -48,8 +48,8 @@ public class Thing {
     /**
      * A művelet, amit akkor kell végrehajtani,
      * ha a dolognak egy láda ütközött.
-     * @param b 
-     * @param d
+     * @param b Box referencia.
+     * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
         System.out.println(">HitByBox");
@@ -68,7 +68,7 @@ public class Thing {
 
     /**
      * Elintézi a pontszámítást.
-     * @param d
+     * @param d Magadja hogy melyik irányban van a pontszerző játékos.
      */
     public void AddPoint(Direction d) {
         System.out.println(">AddPoint");
@@ -78,7 +78,7 @@ public class Thing {
 
     /**
      * Azokat az eseteket kezeli le amikor egy játékos neki lökődik valaminek.
-     * @param p
+     * @param p Player referencia.
      */
     public void PlayerPushedIntoIt(Player p) {
         System.out.println(">PlayerPushedIntoIt");

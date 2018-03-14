@@ -20,8 +20,8 @@ public class Switch extends Thing {
 
     /**
      * Amikor egy ládát tol egy játékos a gombra, akkor a gomb aktiválásának következményeit kezeli.
-     * @param b 
-     * @param d
+     * @param b Box referencia.
+     * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
         System.out.println(">HitByBox");

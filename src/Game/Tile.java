@@ -18,12 +18,16 @@ public class Tile {
      * A cellán elhelyezkedő dolgok kollekciója.
      */
     private Set<Thing> things;
+
+    /**
+     * Egy cella szomszédai.
+     */
     private Map<Direction, Tile> neighbours;
 
     /**
      * Új dolgok hozzáadása a cellához,
      * és ütköztetése az ott lévő dolgokkal.
-     * @param t
+     * @param t Egy Thing referencia.
      */
     public void Add(Thing t) {
         System.out.println(">Add");
@@ -33,7 +37,7 @@ public class Tile {
 
     /**
      * Eltávolít egy adott dolgot a celláról.
-     * @param t
+     * @param t Eltávolítandó Thing referencia.
      */
     public void Remove(Thing t) {
         System.out.println(">Remove");
@@ -44,7 +48,7 @@ public class Tile {
     /**
      * Visszaadja a cellához tartozó,
      * a paraméterként kapott irányban lévő szomszédos cellát.
-     * @param d 
+     * @param d Direction, ebben az irányban kérdezzük le a szomszédot.
      * @return
      */
     public Tile GetNeighbour(Direction d) {
@@ -56,8 +60,8 @@ public class Tile {
 
     /**
      * Beállítja egy adott cella szomszédját.
-     * @param d 
-     * @param t
+     * @param d Ebben az irányban lévő szomszédot változtatjuk.
+     * @param t Ezt az értéket kapja meg a szomszéd.
      */
     public void SetNeighbour(Direction d, Tile t) {
         System.out.println(">SetNeighbour");
