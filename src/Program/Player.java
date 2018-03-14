@@ -33,7 +33,7 @@ public class Player extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
-        System.out.println(">HitByBox");
+        System.out.println("> HitBy Box");
         
         Tile t = tile.GetNeighbour(d);
         
@@ -46,16 +46,16 @@ public class Player extends Thing {
             i.PlayerPushedIntoIt(this);
         }
         
-        System.out.println("<HitByBox");
+        System.out.println("< HitBy Box");
     }
 
     /**
      * Meghal az adott játékos.
      */
     public void Die() {
-        System.out.println(">Die");
-        // TODO implement here
-        System.out.println("<Die");
+        System.out.println("> Die");
+        tile.GetMap().RemovePlayer(this);
+        System.out.println("< Die");
     }
 
     /**
@@ -63,9 +63,9 @@ public class Player extends Thing {
      * @param d Megadja hogy melyik irányban van a pontszerző játékos.
      */
     public void AddPoint(Direction d) {
-        System.out.println(">AddPoint");
+        System.out.println("> AddPoint");
         points++;
-        System.out.println("<AddPoint");
+        System.out.println("< AddPoint");
     }
 
     /**
@@ -74,9 +74,9 @@ public class Player extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Player p, Direction d) {
-        System.out.println(">HitByPlayer");
+        System.out.println("> HitBy Player");
         // TODO implement here
-        System.out.println("<HitByPlayer");
+        System.out.println("< HitBy Player");
     }
 
     /**
@@ -84,7 +84,7 @@ public class Player extends Thing {
      * @param d Mozgás iránya.
      */
     public void Move(Direction d) {
-        System.out.println(">Move");
+        System.out.println("> Move");
 
         Tile t;
 
@@ -98,7 +98,7 @@ public class Player extends Thing {
             i.HitBy(this, d);
         }
 
-        System.out.println("<Move");
+        System.out.println("< Move");
     }
 
     /**
@@ -106,9 +106,9 @@ public class Player extends Thing {
      * @return
      */
     public int GetPoints() {
-        System.out.println(">GetPoints");
+        System.out.println("> GetPoints");
 
-        System.out.println("<GetPoints");
+        System.out.println("< GetPoints");
         return points;
     }
 
@@ -117,9 +117,9 @@ public class Player extends Thing {
      * @param n Beállítja hogy mennyi pontja van a játékosnak.
      */
     public void SetPoints(int n) {
-        System.out.println(">SetPoints");
+        System.out.println("> SetPoints");
         points = n;
-        System.out.println("<SetPoints");
+        System.out.println("< SetPoints");
     }
 
 }

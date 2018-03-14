@@ -34,9 +34,9 @@ public class Tile {
      * @param t Egy Thing referencia.
      */
     public void Add(Thing t) {
-        System.out.println(">Add");
+        System.out.println("> Add");
         things.add(t);
-        System.out.println("<Add");
+        System.out.println("< Add");
     }
 
     /**
@@ -44,9 +44,9 @@ public class Tile {
      * @param t Eltávolítandó Thing referencia.
      */
     public void Remove(Thing t) {
-        System.out.println(">Remove");
+        System.out.println("> Remove");
         things.remove(t);
-        System.out.println("<Remove");
+        System.out.println("< Remove");
     }
 
     /**
@@ -56,9 +56,9 @@ public class Tile {
      * @return
      */
     public Tile GetNeighbour(Direction d) {
-        System.out.println(">GetNeighbour");
+        System.out.println("> GetNeighbour");
 
-        System.out.println("<GetNeighbour");
+        System.out.println("< GetNeighbour");
         return neighbours.get(d);
     }
 

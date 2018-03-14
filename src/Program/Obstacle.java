@@ -3,7 +3,7 @@ package Program;
 /**
  * Olyan objektumok a pályán, amelyeken sem játékos, sem doboz nem tud átmenni.
  */
-public class Obstacle extends Thing {
+public abstract class Obstacle extends Thing {
 
     /**
      * Default constructor

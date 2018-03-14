@@ -24,7 +24,9 @@ public class Hole extends Thing {
     public void HitBy(Player p, Direction d) {
         System.out.println("> Hole HitBy Player");
         p.Die();
-        // TODO implement here -- Check num of players.
+
+        this.tile.GetMap().CheckEndGame();
+
         System.out.println("< Hole HitBy Player");
     }
 
@@ -59,7 +61,7 @@ public class Hole extends Thing {
      */
     public boolean GetActive() {
         System.out.println("> GetActive");
-        // TODO implement here
+
         System.out.println("< GetActive");
         return active;
     }

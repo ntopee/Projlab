@@ -40,7 +40,7 @@ public class Map {
     /**
      * Egy Tile-ra rárak egy új játékost, amit ugyanez a függvény hoz létre.
      */
-    public void AddPlayer() {
+    public void AddPlayer() { //WHATT? miért nincs paraméter, ez mit csinál?
         System.out.println("> AddPlayer");
         // TODO implement here
         System.out.println("< AddPlayer");
@@ -52,7 +52,7 @@ public class Map {
      */
     public void RemovePlayer(Player p) {
         System.out.println("> RemovePlayer");
-        // TODO implement here
+        players.remove(p);
         System.out.println("< RemovePlayer");
     }
 
@@ -73,7 +73,7 @@ public class Map {
      */
     public void SetNumOfMBoxes(int n) {
         System.out.println("> SetNumOfMBoxes");
-        // TODO implement here
+        num_of_movable_boxes = n;
         System.out.println("< SetNumOfMBoxes");
     }
 
@@ -83,9 +83,9 @@ public class Map {
      */
     public int GetGoalCounter() {
         System.out.println("> GetGoalCounter");
-        // TODO implement here
+
         System.out.println("< GetGoalCounter");
-        return 0;
+        return goalcounter;
     }
 
     /**
@@ -94,7 +94,7 @@ public class Map {
      */
     public void SetGoalCounter(int n) {
         System.out.println("> SetGoalCounter");
-        // TODO implement here
+        goalcounter = n;
         System.out.println("< SetGoalCounter");
     }
 
@@ -106,7 +106,7 @@ public class Map {
      */
     public void CheckEndGame() {
         System.out.println("> CheckEndGame");
-        // TODO implement here
+        // TODO implement here -- minden a helyére került-e, meghalt-e mindenki, vagy már nincs mozdítható láda ami nem a helyén van.
         System.out.println("< CheckEndGame");
     }
 

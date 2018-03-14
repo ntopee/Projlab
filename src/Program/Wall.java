@@ -17,9 +17,9 @@ public class Wall extends Obstacle {
      * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
-        System.out.println(">HitByBox");
+        System.out.println("> HitBy Box");
         super.HitBy(b,d);
-        System.out.println("<HitBy");
+        System.out.println("< HitBy Box");
     }
 
     /**
@@ -28,9 +28,9 @@ public class Wall extends Obstacle {
      * @param d Ütközés iránya.
      */
     public void HitBy(Player p, Direction d) {
-        System.out.println(">HitByPlayer");
+        System.out.println("> HitBy Player");
         super.HitBy(p,d);
-        System.out.println("<HitByPlayer");
+        System.out.println("< HitBy Player");
     }
 
 }

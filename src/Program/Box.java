@@ -72,7 +72,11 @@ public class Box extends Thing {
      */
     public void Die() {
         System.out.println("> Die");
-        // TODO implement here
+        tile.Remove(this);
+        this.valid = false;
+        this.isOnGoal = false;
+        this.movable = false;
+        tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes()-1);
         System.out.println("< Die");
     }
 
@@ -107,9 +111,9 @@ public class Box extends Thing {
      */
     public boolean GetisOnGoal() {
         System.out.println("> GetisOnGoal");
-        // TODO implement here
+
         System.out.println("< GetisOnGoal");
-        return false;
+        return isOnGoal;
     }
 
     /**
@@ -117,7 +121,7 @@ public class Box extends Thing {
      */
     public void SetisOnGoal() {
         System.out.println("> SetisOnGoal");
-        // TODO implement here
+        isOnGoal = !isOnGoal;
         System.out.println("< SetisOnGoal");
     }
 
@@ -126,7 +130,7 @@ public class Box extends Thing {
      */
     public void SetValid() {
         System.out.println("> SetValid");
-        // TODO implement here
+        valid = !valid;
         System.out.println("< SetValid");
     }
 
@@ -136,9 +140,8 @@ public class Box extends Thing {
      */
     public boolean GetValid() {
         System.out.println("> GetValid");
-        // TODO implement here
         System.out.print("< GetValid");
-        return false;
+        return valid;
     }
 
     /**
