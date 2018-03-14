@@ -19,7 +19,7 @@ public class Wall extends Obstacle {
      */
     public void HitBy(Box b, Direction d) {
         System.out.println(">HitByBox");
-        // TODO implement here
+        super.HitBy(b,d);
         System.out.println("<HitBy");
     }
 
@@ -30,7 +30,7 @@ public class Wall extends Obstacle {
      */
     public void HitBy(Player p, Direction d) {
         System.out.println(">HitByPlayer");
-        // TODO implement here
+        super.HitBy(p,d);
         System.out.println("<HitByPlayer");
     }
 

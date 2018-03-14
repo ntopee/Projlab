@@ -35,7 +35,7 @@ public class Tile {
      */
     public void Add(Thing t) {
         System.out.println(">Add");
-        // TODO implement here
+        things.add(t);
         System.out.println("<Add");
     }
 
@@ -45,7 +45,7 @@ public class Tile {
      */
     public void Remove(Thing t) {
         System.out.println(">Remove");
-        // TODO implement here
+        things.remove(t);
         System.out.println("<Remove");
     }
 
@@ -57,9 +57,9 @@ public class Tile {
      */
     public Tile GetNeighbour(Direction d) {
         System.out.println(">GetNeighbour");
-        // TODO implement here
+
         System.out.println("<GetNeighbour");
-        return null;
+        return neighbours.get(d);
     }
 
     /**

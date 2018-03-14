@@ -20,7 +20,7 @@ public class Pillar extends Obstacle {
      */
     public void HitBy(Box b, Direction d) {
         System.out.println("> Pillar HitBy Box");
-        // TODO implement here
+        super.HitBy(b,d);
         System.out.println("< Pillar HitBy Box");
     }
 
@@ -32,7 +32,7 @@ public class Pillar extends Obstacle {
      */
     public void HitBy(Player p, Direction d) {
         System.out.println("> Pillar HitBy Player");
-        // TODO implement here
+        super.HitBy(p,d);
         System.out.println("< Pillar HitBy Player");
     }
 

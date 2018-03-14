@@ -25,7 +25,7 @@ public class Hole extends Thing {
     public void HitBy(Player p, Direction d) {
         System.out.println("> Hole HitBy Player");
         p.Die();
-        // TODO implement here
+        // TODO implement here -- Check num of players.
         System.out.println("< Hole HitBy Player");
     }
 
@@ -50,7 +50,7 @@ public class Hole extends Thing {
      */
     public void SetActive() {
         System.out.println("> SetActive");
-        // TODO implement here
+        active = !active;
         System.out.println("< SetActive");
     }
 
@@ -62,7 +62,7 @@ public class Hole extends Thing {
         System.out.println("> GetActive");
         // TODO implement here
         System.out.println("< GetActive");
-        return false;
+        return active;
     }
 
 }

@@ -146,7 +146,10 @@ public class Box extends Thing {
         System.out.println("< AddPoint");
     }
 
-
+    /**
+     * Lépteti a dobozokat.
+     * @param d Léptetés iránya.
+     */
     private void Step (Direction d){
         Tile t =this.tile.GetNeighbour(d);
         tile.Remove(this);
@@ -157,6 +160,6 @@ public class Box extends Thing {
         t.Add(this);
 
         for(Thing i : t.GetThings())
-            this.CollideWith(i);
+            this.CollideWith(i,d);
     }
 }

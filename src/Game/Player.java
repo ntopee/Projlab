@@ -22,9 +22,9 @@ public class Player extends Thing {
      * Player-ként ütközik egy dologgal.
      * @param t Thing referencia.
      */
-    public void CollideWith(Thing t) {
+    public void CollideWith(Thing t, Direction d) {
         System.out.println(">CollideWith");
-        // TODO implement here
+        t.HitBy(this, d);
         System.out.println("<CollideWith");
     }
 
@@ -65,7 +65,7 @@ public class Player extends Thing {
      */
     public void AddPoint(Direction d) {
         System.out.println(">AddPoint");
-        // TODO implement here
+        points++;
         System.out.println("<AddPoint");
     }
 
@@ -96,7 +96,7 @@ public class Player extends Thing {
         t.Add(this);
 
         for (Thing i : t.GetThings()){
-            this.CollideWith(i);
+            this.CollideWith(i, d);
         }
 
         System.out.println("<Move");
@@ -108,9 +108,9 @@ public class Player extends Thing {
      */
     public int GetPoints() {
         System.out.println(">GetPoints");
-        // TODO implement here
+
         System.out.println("<GetPoints");
-        return 0;
+        return points;
     }
 
     /**
@@ -119,7 +119,7 @@ public class Player extends Thing {
      */
     public void SetPoints(int n) {
         System.out.println(">SetPoints");
-        // TODO implement here
+        points = n;
         System.out.println("<SetPoints");
     }
 
