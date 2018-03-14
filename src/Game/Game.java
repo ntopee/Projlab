@@ -1,6 +1,8 @@
 package Game;
 import java.util.*;
 
+import static Game.Direction.*;
+
 /**
  * A játékot reprezentálja, mapeket tölt be.
  */
@@ -69,6 +71,17 @@ public class Game {
      * @return
      */
     static Direction GetOpposite(Direction d){
-        return d;
-    };
+        switch (d) {
+            case up:
+                return down;
+            case down:
+                return up;
+            case left:
+                return right;
+            case right:
+                return left;
+            default:
+                return d;
+        }
+    }
 }

@@ -74,7 +74,7 @@ public class Box extends Thing {
         System.out.println("> Box HitBy Obstacle");
 
         Step(d);
-        
+
         System.out.println("< Box HitBy Obstacle");
     }
 
