@@ -14,17 +14,18 @@ public class Game {
 
 
     /**
-     * 
+     * Az osztály eltárolja a játékban fellelhető szinteket.
      */
     private Set<Map> levels;
 
     /**
-     *
+     * A jelenlegi pályának egy referenciáját tárolja el, arra jó,
+     * hogy mindig tudjuk, melyik pálya van most “használatban”.
      */
     private Map currentlevel;
 
     /**
-     * 
+     * Betölti a megfelelő pályát a játékba.
      */
     public void Init() {
         System.out.println("> Innit");
@@ -33,7 +34,9 @@ public class Game {
     }
 
     /**
-     * 
+     * Megállítja a játékot (mivel vége van),
+     * és kiírja a játékos(ok) pontszámát,
+     * és ez alapján a nyertest is “kihirdeti”.
      */
     public void EndGame() {
         System.out.println("> EndGame");
@@ -42,7 +45,8 @@ public class Game {
     }
 
     /**
-     * 
+     * Beállítja a soron következő pályát,
+     * és meghívja az init() függvényt.
      */
     public void NextLevel() {
         System.out.println("> NextLevel");
@@ -51,7 +55,7 @@ public class Game {
     }
 
     /**
-     * 
+     * Újraindítja az aktuális pályát.
      */
     public void RestartLevel() {
         System.out.println("> RestartLevel");

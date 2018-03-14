@@ -13,11 +13,12 @@ public class Switch extends Thing {
     }
 
     /**
-     *
+     *Azoknak a lyukaknak a referenciáját tárolja, amelyeket az adott gomb befolyásolja.
      */
     private Set<Hole> holes;
 
     /**
+     * Amikor egy ládát tol egy játékos a gombra, akkor a gomb aktiválásának következményeit kezeli.
      * @param b 
      * @param d
      */
@@ -28,7 +29,7 @@ public class Switch extends Thing {
     }
 
     /**
-     * 
+     * Meghívja az összes, a switch-hez tartozó Hole SetActive() függvényét.
      */
     public void Activate() {
         System.out.println(">Activate");

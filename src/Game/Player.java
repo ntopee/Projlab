@@ -13,11 +13,12 @@ public class Player extends Thing {
     }
 
     /**
-     * 
+     * Az adott játékos pontjait tárolja.
      */
     private int points;
 
     /**
+     * Player-ként ütközik egy dologgal.
      * @param t
      */
     public void CollideWith(Thing t) {
@@ -27,6 +28,7 @@ public class Player extends Thing {
     }
 
     /**
+     * Player-ként ütközik egy Box-al. Meghívja a Player Move metódusát az ellenkező irányba.
      * @param b 
      * @param d
      */
@@ -37,7 +39,7 @@ public class Player extends Thing {
     }
 
     /**
-     * 
+     * Meghal az adott játékos.
      */
     public void Die() {
         System.out.println(">Die");
@@ -46,6 +48,7 @@ public class Player extends Thing {
     }
 
     /**
+     * Hozzáad a játékos pontszámához egyet.
      * @param d
      */
     public void AddPoint(Direction d) {
@@ -55,6 +58,7 @@ public class Player extends Thing {
     }
 
     /**
+     * Player-ként ütközik egy másik Player-rel.
      * @param p 
      * @param d
      */
@@ -65,6 +69,7 @@ public class Player extends Thing {
     }
 
     /**
+     * A Player egy mezőt megy a megadott paraméter irányába.
      * @param d
      */
     public void Move(Direction d) {
@@ -74,6 +79,7 @@ public class Player extends Thing {
     }
 
     /**
+     * Visszaadja a Player pontszámát.
      * @return
      */
     public int GetPoints() {
@@ -84,6 +90,7 @@ public class Player extends Thing {
     }
 
     /**
+     * Be lehet vele állítani a Player pontszámát.
      * @param n
      */
     public void SetPoints(int n) {

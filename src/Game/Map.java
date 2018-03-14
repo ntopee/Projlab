@@ -13,29 +13,31 @@ public class Map {
     }
 
     /**
-     * 
+     * A kezdőértéke egyenlő a ládák számával,
+     * majd ha egy láda mozgathatatlanná válik,
+     * akkor ez a szám eggyel csökken.
      */
     private int num_of_movable_boxes;
 
     /**
-     * 
+     * Megadja, hogy hány láda van a helyén.
      */
     private int goalcounter;
 
 
 
     /**
-     * 
+     * A player objektumok referenciái.
      */
     private Set<Player> players;
 
     /**
-     *
+     * A pályán található összes mező itt van eltárolva.
      */
     private Set<Tile> tiles;
 
     /**
-     * 
+     * Egy Tile-ra rárak egy új játékost, amit ugyanez a függvény hoz létre.
      */
     public void AddPlayer() {
         System.out.println("> AddPlayer");
@@ -44,6 +46,7 @@ public class Map {
     }
 
     /**
+     * A játékos referenciát, amit megkap a függvény, kitörli a pályáról.
      * @param p
      */
     public void RemovePlayer(Player p) {
@@ -91,7 +94,10 @@ public class Map {
     }
 
     /**
-     * 
+     * Kivonja egymásból a goalcounter-t
+     * és a num_of_moveable_boxes-t,
+     * ha nulla végeredmény,
+     * akkor meghívja az EndGame() függvényt
      */
     public void CheckEndGame() {
         System.out.println("> CheckEndGame");

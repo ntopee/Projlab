@@ -13,11 +13,12 @@ public class Hole extends Thing {
     }
 
     /**
-     * 
+     * Azt tárolja, hogy a lyuk aktív-e (lyukként viselkedik-e).
      */
     private boolean active;
 
     /**
+     *Player-el ütközik lyukként.
      * @param p 
      * @param d
      */
@@ -28,6 +29,7 @@ public class Hole extends Thing {
     }
 
     /**
+     * Box-al ütközik lyukként.
      * @param b 
      * @param d
      */
@@ -38,7 +40,7 @@ public class Hole extends Thing {
     }
 
     /**
-     * 
+     * Az active attribútumot az aktuális értékének az ellentetjére állítja.
      */
     public void SetActive() {
         System.out.println("> SetActive");
@@ -47,6 +49,7 @@ public class Hole extends Thing {
     }
 
     /**
+     * Visszaadja az active attribútum aktuális értékét.
      * @return
      */
     public boolean GetActive() {

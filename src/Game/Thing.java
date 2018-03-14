@@ -13,16 +13,17 @@ public class Thing {
     }
 
     /**
-     * 
+     * Megadja, hogy lehet-e még mozgatni az adott dolgot.
      */
     private boolean movable;
 
     /**
-     * 
+     * Azon Tile referenciája, amin a Thing található.
      */
     private Tile tile;
 
     /**
+     *  A dolog ütközik egy másik dologgal.
      * @param t
      */
     public void CollideWith(Thing t) {
@@ -32,6 +33,8 @@ public class Thing {
     }
 
     /**
+     * A művelet, amit akkor kell végrehajtani,
+     * ha a dolognak egy játékos ütközött.
      * @param p 
      * @param d
      */
@@ -42,6 +45,8 @@ public class Thing {
     }
 
     /**
+     * A művelet, amit akkor kell végrehajtani,
+     * ha a dolognak egy láda ütközött.
      * @param b 
      * @param d
      */
@@ -52,7 +57,7 @@ public class Thing {
     }
 
     /**
-     * 
+     * Egy cellán elhelyezkedő dolog megsemmisítése.
      */
     public void Die() {
         System.out.println(">Die");
@@ -61,6 +66,7 @@ public class Thing {
     }
 
     /**
+     * Elintézi a pontszámítást.
      * @param d
      */
     public void AddPoint(Direction d) {
@@ -70,6 +76,7 @@ public class Thing {
     }
 
     /**
+     * Azokat az eseteket kezeli le amikor egy játékos neki lökődik valaminek.
      * @param p
      */
     public void PlayerPushedIntoIt(Player p) {

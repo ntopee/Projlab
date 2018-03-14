@@ -13,7 +13,7 @@ public class Tile {
     }
 
     /**
-     *
+     * A cellán elhelyezkedő dolgok kollekciója.
      */
     private Set<Thing> things;
 
@@ -24,6 +24,8 @@ public class Tile {
 
 
     /**
+     * Új dolgok hozzáadása a cellához,
+     * és ütköztetése az ott lévő dolgokkal.
      * @param t
      */
     public void Add(Thing t) {
@@ -33,6 +35,7 @@ public class Tile {
     }
 
     /**
+     * Eltávolít egy adott dolgot a celláról.
      * @param t
      */
     public void Remove(Thing t) {
@@ -42,6 +45,8 @@ public class Tile {
     }
 
     /**
+     * Visszaadja a cellához tartozó,
+     * a paraméterként kapott irányban lévő szomszédos cellát.
      * @param d 
      * @return
      */
@@ -53,6 +58,7 @@ public class Tile {
     }
 
     /**
+     * Beállítja egy adott cella szomszédját.
      * @param d 
      * @param t
      */
