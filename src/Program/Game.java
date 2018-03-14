@@ -1,7 +1,7 @@
-package Game;
+package Program;
 import java.util.*;
 
-import static Game.Direction.*;
+import static Program.Direction.*;
 
 /**
  * A játékot reprezentálja, mapeket tölt be.

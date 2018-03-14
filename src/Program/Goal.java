@@ -1,5 +1,4 @@
-package Game;
-import java.util.*;
+package Program;
 
 /**
  * Olyan mezőket képvisel, amelyekre a ládákat kell tolni a pontszerzéshez.

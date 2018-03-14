@@ -1,5 +1,4 @@
-package Game;
-import java.util.*;
+package Program;
 
 /**
  *A Thing objektumok azok az objektumok, amelyek “rajta vannak” egy Tile-on.

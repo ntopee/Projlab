@@ -1,5 +1,4 @@
-package Game;
-import java.util.*;
+package Program;
 
 /**
  * Olyan objektumok a pályán, amelyeken sem játékos, sem doboz nem tud átmenni.

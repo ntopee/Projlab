@@ -1,4 +1,4 @@
-package Game;
+package Program;
 import java.util.*;
 import java.util.Map;
 
@@ -10,7 +10,7 @@ public class Tile {
     /**
      * Cellát tartalmazó map referenciája.
      */
-    private Game.Map map;
+    private Program.Map map;
 
     /**
      * Default constructor
@@ -81,7 +81,7 @@ public class Tile {
         return things;
     }
 
-    public Game.Map GetMap(){
+    public Program.Map GetMap(){
         return map;
     }
 }

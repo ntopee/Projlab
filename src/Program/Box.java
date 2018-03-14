@@ -1,4 +1,4 @@
-package Game;
+package Program;
 
 /**
  *A játékban található ládákat reprezentálja.

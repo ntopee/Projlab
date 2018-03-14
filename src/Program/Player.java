@@ -1,5 +1,4 @@
-package Game;
-import java.util.*;
+package Program;
 
 /**
  * A karakter mozgását valósítja meg, egy paraméterként kapott irány szerint.

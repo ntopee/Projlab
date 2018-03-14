@@ -1,5 +1,4 @@
-package Game;
-import java.util.*;
+package Program;
 
 /**
  * A raktár építőeleme, nem tudunk rajta átmenni, dobozt áttolni. Ezzel ki tudjuk jelölni egy pálya határvonalát, játékteret biztosítva a játékosoknak.
