@@ -24,23 +24,23 @@ public class Switch extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
-        System.out.println(">HitByBox");
+        System.out.println("> HitBy Box");
 
         this.Activate();
 
-        System.out.println("<HitByBox");
+        System.out.println("< HitBy Box");
     }
 
     /**
      * Meghívja az összes, a switch-hez tartozó Hole SetActive() függvényét.
      */
     public void Activate() {
-        System.out.println(">Activate");
+        System.out.println("> Activate");
         for (Hole i :
                 holes) {
             i.SetActive();
         }
-        System.out.println("<Activate");
+        System.out.println("< Activate");
     }
 
 }

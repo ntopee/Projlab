@@ -68,9 +68,9 @@ public class Tile {
      * @param t Ezt az értéket kapja meg a szomszéd.
      */
     public void SetNeighbour(Direction d, Tile t) {
-        System.out.println(">SetNeighbour");
+        System.out.println("> SetNeighbour");
         // TODO implement here
-        System.out.println("<SetNeighbour");
+        System.out.println("< SetNeighbour");
     }
 
     /**

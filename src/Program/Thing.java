@@ -38,9 +38,9 @@ public abstract class Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Player p, Direction d) {
-        System.out.println(">HitByPlayer");
+        System.out.println("> HitBy Player");
         // TODO implement here
-        System.out.println("<HitByPlayer");
+        System.out.println("< HitBy Player");
     }
 
     /**
@@ -50,18 +50,18 @@ public abstract class Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
-        System.out.println(">HitByBox");
+        System.out.println("> HitBy Box");
         // TODO implement here
-        System.out.println("<HitByBox");
+        System.out.println("< HitBy Box");
     }
 
     /**
      * Egy cellán elhelyezkedő dolog megsemmisítése.
      */
     public void Die() {
-        System.out.println(">Die");
+        System.out.println("> Die");
         // TODO implement here
-        System.out.println("<Die");
+        System.out.println("< Die");
     }
 
     /**
@@ -69,9 +69,9 @@ public abstract class Thing {
      * @param d Magadja hogy melyik irányban van a pontszerző játékos.
      */
     public void AddPoint(Direction d) {
-        System.out.println(">AddPoint");
+        System.out.println("> AddPoint");
         // TODO implement here
-        System.out.println("<AddPoint");
+        System.out.println("< AddPoint");
     }
 
     /**
@@ -79,9 +79,9 @@ public abstract class Thing {
      * @param p Player referencia.
      */
     public void PlayerPushedIntoIt(Player p) {
-        System.out.println(">PlayerPushedIntoIt");
+        System.out.println("> PlayerPushedIntoIt");
         // TODO implement here
-        System.out.println(">PlayerPushedIntoIt");
+        System.out.println("> PlayerPushedIntoIt");
     }
 
 }
