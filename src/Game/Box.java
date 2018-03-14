@@ -12,16 +12,17 @@ public class Box extends Thing {
     }
 
     /**
-     * 
+     * Megadja, hogy az adott ládával lehet-e még pontot szerezni.
      */
     private boolean valid;
 
     /**
-     * 
+     * Megadja, hogy az adott láda Goal-on van-e.
      */
     private boolean isOnGoal;
 
     /**
+     * Box-ként ütközik Box-al.
      * @param b 
      * @param d
      */
@@ -32,6 +33,7 @@ public class Box extends Thing {
     }
 
     /**
+     * Box-ként ütközik egy Player-el.
      * @param p 
      * @param d
      */
@@ -42,7 +44,7 @@ public class Box extends Thing {
     }
 
     /**
-     * 
+     * Akkor hívódik meg, ha a láda leesik egy lyukon. A láda eltűnik a pályáról.
      */
     public void Die() {
         System.out.println("> Die");
@@ -51,6 +53,7 @@ public class Box extends Thing {
     }
 
     /**
+     * A függvénynek megadott irányba mozgatja a ládát egy mezővel(ha lehet).
      * @param o 
      * @param d
      */
@@ -62,6 +65,9 @@ public class Box extends Thing {
     }
 
     /**
+     * Ha meghívódik ez a függvény, akkor megnézi,
+     * hogy még mozgatható-e a láda valamilyen irányba.
+     * Ha változik az érték, akkor annak megfelelően növeli/csökkenti a num_ofmovable_boxes-t.
      * @return
      */
     public boolean CheckMovable() {
@@ -91,7 +97,7 @@ public class Box extends Thing {
     }
 
     /**
-     * 
+     * Átállítja a valid attribútumot a mostani érték ellenkezőjére.
      */
     public void SetValid() {
         System.out.println("> SetValid");
@@ -100,6 +106,7 @@ public class Box extends Thing {
     }
 
     /**
+     * Visszaadja a valid attribútum értékét.
      * @return
      */
     public boolean GetValid() {
@@ -110,6 +117,7 @@ public class Box extends Thing {
     }
 
     /**
+     * Elintézi a pontszámítást.
      * @param d
      */
     public void AddPoint(Direction d) {

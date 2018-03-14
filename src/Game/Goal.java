@@ -13,6 +13,10 @@ public class Goal extends Thing {
     }
 
     /**
+     * Ha egy doboz rámegy a mezőre, az alapján, hogy honnan jött,
+     * annak a playernek ad pontot. A Box valid értékét átállítja false-ra,
+     * hogy ne lehessen több pontot szerezni vele.
+     * Az isOnGoal értékét is igazra állítja.
      * @param b 
      * @param d
      */
