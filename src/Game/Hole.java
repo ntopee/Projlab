@@ -19,8 +19,8 @@ public class Hole extends Thing {
 
     /**
      *Player-el ütközik lyukként.
-     * @param p 
-     * @param d
+     * @param p Player referencia.
+     * @param d Ütközés iránya.
      */
     public void HitBy(Player p, Direction d) {
         System.out.println("> Hole HitBy Player");
@@ -30,8 +30,8 @@ public class Hole extends Thing {
 
     /**
      * Box-al ütközik lyukként.
-     * @param b 
-     * @param d
+     * @param b Box referencia.
+     * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
         System.out.println("> Hole HitBy Box");

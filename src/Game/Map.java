@@ -47,7 +47,7 @@ public class Map {
 
     /**
      * A játékos referenciát, amit megkap a függvény, kitörli a pályáról.
-     * @param p
+     * @param p Eltávolítandó Player referenciája.
      */
     public void RemovePlayer(Player p) {
         System.out.println("> RemovePlayer");
@@ -56,6 +56,7 @@ public class Map {
     }
 
     /**
+     * Visszadja hogy mozdítható láda van a helyén
      * @return
      */
     public int GetNumOfMBoxes() {
@@ -66,7 +67,8 @@ public class Map {
     }
 
     /**
-     * @param n
+     * Beállítja a num_of_movable_boxes értékét.
+     * @param n Erre az értékre állítja be a num_of_movable_boxes értékét.
      */
     public void SetNumOfMBoxes(int n) {
         System.out.println("> SetNumOfMBoxes");
@@ -75,6 +77,7 @@ public class Map {
     }
 
     /**
+     * Visszaadja hogy hány láda van a helyén.
      * @return
      */
     public int GetGoalCounter() {
@@ -85,6 +88,7 @@ public class Map {
     }
 
     /**
+     * Bállítja hogy hogy hány láda van a helyén.
      * @param n
      */
     public void SetGoalCounter(int n) {
