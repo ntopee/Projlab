@@ -1,7 +1,7 @@
 package Game;
 
 /**
- *
+ *Felelős azért, hogy lekérhetőek legyenek, melyik irányba tudunk mozogni, tárgyakat mozgatni.
  */
 public enum Direction {
 
