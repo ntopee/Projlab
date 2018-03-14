@@ -77,6 +77,10 @@ public class Map {
         System.out.println("< SetNumOfMBoxes");
     }
 
+    public void DecreaseNumOfBoxes(){
+        --num_of_movable_boxes;
+    }
+
     /**
      * Visszaadja hogy hány láda van a helyén.
      * @return

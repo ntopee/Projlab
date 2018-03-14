@@ -49,6 +49,8 @@ public class Box extends Thing {
         else
             Step(d);
 
+        movable = CheckMovable();
+
         System.out.println("< Box HitBy Box");
     }
 
@@ -64,6 +66,8 @@ public class Box extends Thing {
             p.Move(Game.GetOpposite(d));
         else Step(d);
 
+        movable = CheckMovable();
+
         System.out.println("< Box HitBy Player");
     }
 
@@ -76,7 +80,7 @@ public class Box extends Thing {
         this.valid = false;
         this.isOnGoal = false;
         this.movable = false;
-        tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes()-1);
+        tile.GetMap().DecreaseNumOfBoxes();
         System.out.println("< Die");
     }
 
@@ -101,7 +105,7 @@ public class Box extends Thing {
      */
     public boolean CheckMovable() {
         System.out.println("> CheckMovable");
-        // TODO implement here
+        // TODO implement here -- meg kell nézni hogy két szomszédos szomszédja movable-e.
         System.out.println("< CheckMovable");
         return false;
     }
