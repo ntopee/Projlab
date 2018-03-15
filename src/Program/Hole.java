@@ -51,7 +51,13 @@ public class Hole extends Thing {
      */
     public void SetActive() {
         System.out.println("> SetActive");
+
         active = !active;
+        if (active)
+            for (Thing i : tile.GetThings())
+                if (!i.equals(this))
+                    i.Die();
+
         System.out.println("< SetActive");
     }
 
@@ -66,4 +72,10 @@ public class Hole extends Thing {
         return active;
     }
 
+    public void PlayerPushedIntoIt(Player p) {
+        System.out.println("> PlayerPushedIntoIt");
+        if (active)
+            p.Die();
+        System.out.println("> PlayerPushedIntoIt");
+    }
 }

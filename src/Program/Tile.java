@@ -69,7 +69,8 @@ public class Tile {
      */
     public void SetNeighbour(Direction d, Tile t) {
         System.out.println("> SetNeighbour");
-        // TODO implement here
+        neighbours.remove(d);
+        neighbours.put(d, t);
         System.out.println("< SetNeighbour");
     }
 

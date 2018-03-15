@@ -41,8 +41,7 @@ public class Player extends Thing {
         
         t.Add(this);
 
-        for (Thing i :
-                t.GetThings()) {
+        for (Thing i : t.GetThings()) {
             i.PlayerPushedIntoIt(this);
         }
         
@@ -75,7 +74,7 @@ public class Player extends Thing {
      */
     public void HitBy(Player p, Direction d) {
         System.out.println("> HitBy Player");
-        // TODO implement here
+        p.Move(Game.GetOpposite(d));
         System.out.println("< HitBy Player");
     }
 
@@ -86,9 +85,7 @@ public class Player extends Thing {
     public void Move(Direction d) {
         System.out.println("> Move");
 
-        Tile t;
-
-        t = tile.GetNeighbour(d);
+        Tile t = tile.GetNeighbour(d);
 
         tile.Remove(this);
 
@@ -122,4 +119,9 @@ public class Player extends Thing {
         System.out.println("< SetPoints");
     }
 
+    public void PlayerPushedIntoIt(Player p) {
+        System.out.println("> PlayerPushedIntoIt");
+        p.Die();
+        System.out.println("> PlayerPushedIntoIt");
+    }
 }

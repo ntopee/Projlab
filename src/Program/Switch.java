@@ -36,8 +36,7 @@ public class Switch extends Thing {
      */
     public void Activate() {
         System.out.println("> Activate");
-        for (Hole i :
-                holes) {
+        for (Hole i : holes) {
             i.SetActive();
         }
         System.out.println("< Activate");

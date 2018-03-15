@@ -134,7 +134,8 @@ public class Box extends Thing {
      */
     public void SetValid() {
         System.out.println("> SetValid");
-        valid = !valid;
+        if (valid)
+            valid = false;
         System.out.println("< SetValid");
     }
 
@@ -157,8 +158,7 @@ public class Box extends Thing {
         
         Tile t = tile.GetNeighbour(d);
 
-        for (Thing i :
-                t.GetThings()) {
+        for (Thing i : t.GetThings()) {
             i.AddPoint(d);
         }
         
@@ -180,5 +180,11 @@ public class Box extends Thing {
 
         for(Thing i : t.GetThings())
             i.HitBy(this,d);
+    }
+
+    public void PlayerPushedIntoIt(Player p) {
+        System.out.println("> PlayerPushedIntoIt");
+        p.Die();
+        System.out.println("> PlayerPushedIntoIt");
     }
 }

@@ -62,9 +62,9 @@ public class Map {
      */
     public int GetNumOfMBoxes() {
         System.out.println("> GetNumOfMBoxes");
-        // TODO implement here
+
         System.out.println("< GetNumOfMBoxes");
-        return 0;
+        return num_of_movable_boxes;
     }
 
     /**

@@ -39,4 +39,9 @@ public abstract class Obstacle extends Thing {
         System.out.println("< Obstacle HitBy Player");
     }
 
+    public void PlayerPushedIntoIt(Player p) {
+        System.out.println("> PlayerPushedIntoIt");
+        p.Die();
+        System.out.println("> PlayerPushedIntoIt");
+    }
 }
