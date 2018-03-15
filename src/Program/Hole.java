@@ -25,7 +25,7 @@ public class Hole extends Thing {
         System.out.println("> Hole HitBy Player");
         p.Die();
 
-        this.tile.GetMap().CheckEndGame();
+        tile.GetMap().CheckEndGame();
 
         System.out.println("< Hole HitBy Player");
     }
@@ -40,8 +40,7 @@ public class Hole extends Thing {
 
         b.Die();
 
-        if (tile.GetMap().GetNumOfMBoxes() == 0)
-            Game.EndGame();
+        tile.GetMap().CheckEndGame();
 
         System.out.println("< Hole HitBy Box");
     }
