@@ -20,6 +20,7 @@ public class Map {
      */
     private int num_of_movable_boxes;
 
+    private int num_of_boxes;
     /**
      * Megadja, hogy hány láda van a helyén.
      */
@@ -43,6 +44,7 @@ public class Map {
     public void AddPlayer() { //WHATT? miért nincs paraméter, ez mit csinál?
         System.out.println("> AddPlayer");
         // TODO implement here
+        players.add(new Player());
         System.out.println("< AddPlayer");
     }
 
@@ -110,7 +112,8 @@ public class Map {
      */
     public void CheckEndGame() {
         System.out.println("> CheckEndGame");
-        // TODO implement here -- minden a helyére került-e, meghalt-e mindenki, vagy már nincs mozdítható láda ami nem a helyén van.
+        if ( (players.size() == 0)&&(num_of_boxes == goalcounter + num_of_movable_boxes))
+            Game.EndGame();
         System.out.println("< CheckEndGame");
     }
 
