@@ -9,6 +9,7 @@ public class Wall extends Obstacle {
      * Default constructor
      */
     public Wall() {
+        super();
     }
 
     /**

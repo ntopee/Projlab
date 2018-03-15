@@ -9,6 +9,7 @@ public class Pillar extends Obstacle {
      * Default constructor
      */
     public Pillar() {
+        super();
     }
 
     /**

@@ -9,6 +9,7 @@ public abstract class Obstacle extends Thing {
      * Default constructor
      */
     public Obstacle() {
+            movable = false;
     }
 
     /**

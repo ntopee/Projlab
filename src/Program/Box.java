@@ -106,6 +106,13 @@ public class Box extends Thing {
     public boolean CheckMovable() {
         System.out.println("> CheckMovable");
         // TODO implement here -- meg kell nézni hogy két szomszédos szomszédja movable-e.
+        /*
+        felulnezet:
+        b = Box, O = Obstacle, x = mindegy
+          |  x  |    |  x  |     |  x  |     |  x  |
+          | xbb |    | xbb |     | xbO |     | xbO |
+          |  b  |    |  O  |     |  b  |     |  O  |
+         */
         System.out.println("< CheckMovable");
         return false;
     }
