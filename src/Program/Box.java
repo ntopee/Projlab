@@ -128,7 +128,7 @@ public class Box extends Thing {
     }
 
     /**
-     * Beállitja az isOnGoal értékét.
+     * Beállitja az isOnGoal értékét. átírt betü
      */
     public void SetisOnGoal() {
         System.out.println("> SetisOnGoal");
