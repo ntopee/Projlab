@@ -14,7 +14,7 @@ public abstract class Thing {
     /**
      * Megadja, hogy lehet-e még mozgatni az adott dolgot.
      */
-    protected boolean movable;
+    boolean movable;
 
     /**
      * Azon Tile referenciája, amin a Thing található.

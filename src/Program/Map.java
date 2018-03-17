@@ -2,8 +2,10 @@ package Program;
 import java.util.*;
 
 /**
- *  Tárolja a Tile-okat, amikből maga a pálya felépül. A pálya tulajdonságai is lekérdezhetőek, amelyek a pálya kirajzolásához kellenek majd.
- *  Tudja, mikor van vége a játéknak és ekkor meghívja a Game EndGame függvényét. Ismeri a mozgatható dobozok számát és csökkenteni tudja őket.
+ *  Tárolja a Tile-okat, amikből maga a pálya felépül.
+ *  A pálya tulajdonságai is lekérdezhetőek, amelyek a pálya kirajzolásához kellenek majd.
+ *  Tudja, mikor van vége a játéknak és ekkor meghívja a Game EndGame függvényét.
+ *  Ismeri a mozgatható dobozok számát és csökkenteni tudja őket.
  */
 public class Map {
 
@@ -20,7 +22,6 @@ public class Map {
      */
     private int num_of_movable_boxes;
 
-    private int num_of_boxes;
     /**
      * Megadja, hogy hány láda van a helyén.
      */
@@ -108,11 +109,11 @@ public class Map {
      * Kivonja egymásból a goalcounter-t
      * és a num_of_moveable_boxes-t,
      * ha nulla végeredmény,
-     * akkor meghívja az EndGame() függvényt
+     * akkor meghívja az EndGame() függvényt.
      */
     public void CheckEndGame() {
         System.out.println("> CheckEndGame");
-        if ( (players.size() == 0)&&(num_of_boxes == goalcounter + num_of_movable_boxes))
+        if ( (players.size() == 0)&&(goalcounter == num_of_movable_boxes))
             Game.EndGame();
         System.out.println("< CheckEndGame");
     }
