@@ -18,7 +18,7 @@ public abstract class Obstacle extends Thing {
      * @param b Box referencia.
      * @param d Ütközés iránya.
      */
-    public void HitBy(Box b, Direction d) {
+    public void HitBy(Box b, Direction d) {  //A két hitBy felülíródik a pillrba és az wall-ba tehát vagy ide vagy oda nem kellenekkifejtve.
         System.out.println("> Obstacle HitBy Box");
 
         b.HitBy(this,Game.GetOpposite(d));

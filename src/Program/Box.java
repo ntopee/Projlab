@@ -14,7 +14,7 @@ public class Box extends Thing {
     /**
      * Megadja, hogy az adott ládát lehet-e mozgatni.
      */
-    private boolean movable;
+  //  private boolean movable;  // Kell ez ide? #bende
 
     /**
      * Megadja, hogy az adott ládával lehet-e még pontot szerezni.
@@ -118,6 +118,7 @@ public class Box extends Thing {
     }
 
     /**
+     * Lekéri az isOnGoal értékét.
      * @return
      */
     public boolean GetisOnGoal() {
@@ -128,7 +129,7 @@ public class Box extends Thing {
     }
 
     /**
-     * Beállitja az isOnGoal értékét. átírt betü
+     * Beállitja az isOnGoal értékét.
      */
     public void SetisOnGoal() {
         System.out.println("> SetisOnGoal");
@@ -176,7 +177,7 @@ public class Box extends Thing {
      * Lépteti a dobozokat.
      * @param d Léptetés iránya.
      */
-    private void Step (Direction d){
+    private void Step (Direction d){  //ez Mi a szar? #bende
         Tile t =this.tile.GetNeighbour(d);
         tile.Remove(this);
 

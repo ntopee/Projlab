@@ -21,7 +21,7 @@ public class Hole extends Thing {
      * @param p Player referencia.
      * @param d Ütközés iránya.
      */
-    public void HitBy(Player p, Direction d) {
+    public void HitBy(Player p, Direction d) {      //Ez nem kb ugyan az mint a player PushedintoIt? valahogy a két függvényt kéne mergelni valamilyen néven #bende
         System.out.println("> Hole HitBy Player");
         p.Die();
 

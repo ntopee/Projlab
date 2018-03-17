@@ -18,7 +18,7 @@ public class Game {
     /**
      * Az osztály eltárolja a játékban fellelhető szinteket.
      */
-    private Set<Map> levels;
+    private Set<Map> levels;   // List? #Bende
 
     /**
      * A jelenlegi pályának egy referenciáját tárolja el, arra jó,

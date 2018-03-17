@@ -3,7 +3,7 @@ package Program;
 /**
  *A Thing objektumok azok az objektumok, amelyek “rajta vannak” egy Tile-on.
  */
-public abstract class Thing {
+public abstract class Thing { //Itt szerintem minden függvény kifejtése (systemout) felesleges mivel nem lesz példányosítva thing osztály tehát sosem hívódnak meg
 
     /**
      * Default constructor
