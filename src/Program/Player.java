@@ -17,7 +17,7 @@ public class Player extends Thing {
      */
     private int points;
 
-    /**
+    /*
      * Player-ként ütközik egy dologgal.
      * @param t Thing referencia.
      */

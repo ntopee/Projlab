@@ -26,7 +26,7 @@ public class Box extends Thing {
      */
     private boolean isOnGoal;
 
-    /**
+    /*
      * Ütközik egy dologgal.
      * @param t Thing referencia.
      * @param d Ütközés iránya.
@@ -113,6 +113,7 @@ public class Box extends Thing {
           | xbb |    | xbb |     | xbO |     | xbO |
           |  b  |    |  O  |     |  b  |     |  O  |
          */
+
         System.out.println("< CheckMovable");
         return false;
     }
@@ -133,6 +134,12 @@ public class Box extends Thing {
      */
     public void SetisOnGoal() {
         System.out.println("> SetisOnGoal");
+
+        if (isOnGoal)
+            tile.GetMap().SetGoalCounter(tile.GetMap().GetGoalCounter()-1);
+        else
+            tile.GetMap().SetGoalCounter(tile.GetMap().GetGoalCounter()+1);
+
         isOnGoal = !isOnGoal;
         System.out.println("< SetisOnGoal");
     }

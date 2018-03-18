@@ -2,8 +2,10 @@ package Program;
 import java.util.*;
 
 /**
- *  Tárolja a Tile-okat, amikből maga a pálya felépül. A pálya tulajdonságai is lekérdezhetőek, amelyek a pálya kirajzolásához kellenek majd.
- *  Tudja, mikor van vége a játéknak és ekkor meghívja a Game EndGame függvényét. Ismeri a mozgatható dobozok számát és csökkenteni tudja őket.
+ *  Tárolja a Tile-okat, amikből maga a pálya felépül.
+ *  A pálya tulajdonságai is lekérdezhetőek, amelyek a pálya kirajzolásához kellenek majd.
+ *  Tudja, mikor van vége a játéknak és ekkor meghívja a Game EndGame függvényét.
+ *  Ismeri a mozgatható dobozok számát és csökkenteni tudja őket.
  */
 public class Map {
 
@@ -20,11 +22,6 @@ public class Map {
      */
     private int num_of_movable_boxes;
 
-
-    /**
-     * Az összes láda száma.
-     */
-    private int num_of_boxes;
     /**
      * Megadja, hogy hány láda van a helyén.
      */
@@ -35,7 +32,7 @@ public class Map {
     /**
      * A player objektumok referenciái.
      */
-    private Set<Player> players; //List? #bende
+    private Set<Player> players;
 
     /**
      * A pályán található összes mező itt van eltárolva.
@@ -45,7 +42,7 @@ public class Map {
     /**
      * Egy Tile-ra rárak egy új játékost, amit ugyanez a függvény hoz létre.
      */
-    public void AddPlayer() { //WHATT? miért nincs paraméter, ez mit csinál?  //Hozzá ad egy játékos, jelenleg nincs paramétere, igazából lehetne neve, és akkor azt meg lehetne addni, vagy valamai kis azonosító amivel billentyű kiosztást kaphat. #bende
+    public void AddPlayer() { //WHATT? miért nincs paraméter, ez mit csinál?
         System.out.println("> AddPlayer");
         // TODO implement here
         players.add(new Player());
@@ -63,7 +60,7 @@ public class Map {
     }
 
     /**
-     * Visszadja hogy, hány mozdítható láda van a helyén
+     * Visszadja hogy mozdítható láda van a helyén
      * @return
      */
     public int GetNumOfMBoxes() {
@@ -83,9 +80,6 @@ public class Map {
         System.out.println("< SetNumOfMBoxes");
     }
 
-    /**
-     * Csökkenti a mozgatható dobozok számát
-     */
     public void DecreaseNumOfBoxes(){
         --num_of_movable_boxes;
     }
@@ -115,11 +109,11 @@ public class Map {
      * Kivonja egymásból a goalcounter-t
      * és a num_of_moveable_boxes-t,
      * ha nulla végeredmény,
-     * akkor meghívja az EndGame() függvényt
+     * akkor meghívja az EndGame() függvényt.
      */
     public void CheckEndGame() {
         System.out.println("> CheckEndGame");
-        if ( (players.size() == 0)&&(num_of_boxes == goalcounter + num_of_movable_boxes))  // szerintem ez vagy kapcsolat #Bende
+        if ( (players.size() == 0)&&(goalcounter == num_of_movable_boxes))
             Game.EndGame();
         System.out.println("< CheckEndGame");
     }

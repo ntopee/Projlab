@@ -2,7 +2,7 @@ package Program;
 import java.util.*;
 
 /**
- *Vannak olyan lyukak, amelyek padlónak látszanak, de egy gomb lenyomására aktiválódnak.
+ * Vannak olyan lyukak, amelyek padlónak látszanak, de egy gomb lenyomására aktiválódnak.
  * Az aktiválást olyan mezők végzik, amiken van kapcsoló (Switch).
  */
 public class Switch extends Thing {
@@ -14,7 +14,7 @@ public class Switch extends Thing {
     }
 
     /**
-     *Azoknak a lyukaknak a referenciáját tárolja, amelyeket az adott gomb befolyásolja.
+     * Azoknak a lyukaknak a referenciáját tárolja, amelyeket az adott gomb befolyásolja.
      */
     private Set<Hole> holes;
 
