@@ -16,10 +16,6 @@ public class Box extends Thing {
     public Box() {
     }
 
-    /**
-     * Megadja, hogy az adott ládát lehet-e mozgatni.
-     */
-  //  private boolean movable;  // Kell ez ide? #bende //nem nem kell
 
     /**
      * Megadja, hogy az adott ládával lehet-e még pontot szerezni.
@@ -68,13 +64,12 @@ public class Box extends Thing {
         System.out.println("> Box HitBy Player");
 
         if (!this.movable){
-            System.out.println("< Box HitBy Player");
-            return;
+            p.Move(Game.GetOpposite(d));
         }
         else{
             Step(d);
-            movable = CheckMovable();
-            p.Step(d);
+        movable = CheckMovable();
+
         }
 
         System.out.println("< Box HitBy Player");

@@ -49,7 +49,8 @@ public class Player extends Thing {
         t.Add(this);
 
         for (Thing i : t.GetThings()) {
-            i.PlayerPushedIntoIt(this);
+            if (!i.equals(this))
+                i.PlayerPushedIntoIt(this);
         }
         
         System.out.println("< HitBy Box");
@@ -94,26 +95,27 @@ public class Player extends Thing {
 
         Tile t = tile.GetNeighbour(d);
 
+        tile.Remove(this);
+        t.Add(this);
+
         for (Thing i : t.GetThings()){
             if (!i.equals(this))
-            i.HitBy(this, d);
+                i.HitBy(this, d);
+            
         }
-
-        if (t.GetThings()==null)
-            Step(d);
 
         System.out.println("< Move");
 
     }
 
-    public void Step(Direction d)
+ /*   public void Step(Direction d)
     {
         System.out.println("> Step Player");
         Tile t = tile.GetNeighbour(d);
         tile.Remove(this);
         t.Add(this);
         System.out.println("< Step");
-    }
+    }*/
 
     /**
      * Visszaadja a Player pontszámát.
