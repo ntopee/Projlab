@@ -10,13 +10,14 @@ public class Switch extends Thing {
     /**
      * Default constructor
      */
-    public Switch() {
+    public Switch(Hole h) {
+        holes.add(h);
     }
 
     /**
      * Azoknak a lyukaknak a referenciáját tárolja, amelyeket az adott gomb befolyásolja.
      */
-    private Set<Hole> holes;
+    private Set<Hole> holes = new HashSet<Hole>();
 
     /**
      * Amikor egy ládát tol egy játékos a gombra, akkor a gomb aktiválásának következményeit kezeli.

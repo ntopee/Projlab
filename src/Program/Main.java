@@ -8,9 +8,9 @@ public class Main {
 
     private static void elsoTeszt() throws IOException {
         Map m = new Map();
-        Tile T1 = new Tile();
-        Tile T2 = new Tile();
-        Tile T3 = new Tile();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
+        Tile T3 = new Tile(m);
         Player p = new Player();        //Néhány objektum példányosítása a példákhoz.
         Box b = new Box();
 
@@ -43,9 +43,9 @@ public class Main {
 
     private static void masodikTeszt() throws IOException {
         Map m = new Map();
-        Tile T1 = new Tile();
-        Tile T2 = new Tile();
-        Tile T3 = new Tile();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
+        Tile T3 = new Tile(m);
         Box b = new Box();        //Néhány objektum példányosítása a példákhoz.
         Box b2 = new Box();
 
@@ -78,8 +78,8 @@ public class Main {
 
     private static void harmadikTeszt() {
         Map m = new Map();
-        Tile T1 = new Tile();
-        Tile T2 = new Tile();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
         Player p = new Player();       //Néhány objektum példányosítása a példákhoz.
         Wall w = new Wall();
 
@@ -102,8 +102,8 @@ public class Main {
 
     private static void negyedikTeszt(){
         Map m = new Map();
-        Tile T1 = new Tile();
-        Tile T2 = new Tile();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
         Box b = new Box();        //Néhány objektum példányosítása a példákhoz.
         Wall w = new Wall();
 
@@ -126,8 +126,8 @@ public class Main {
 
     public  static void otodikTeszt() {
         Map m = new Map();
-        Tile T1 = new Tile();
-        Tile T2 = new Tile();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
         Box b = new Box();        //Néhány objektum példányosítása a példákhoz.
         Goal g = new Goal();
 
@@ -225,15 +225,56 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
+
+    public static void tizedikTeszt(){
+
+        //Néhány objektum példányosítása a példákhoz.
+        Map m = new Map();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
+        Tile T3 = new Tile(m);
+        Tile T4 = new Tile(m);
+        Hole h = new Hole(true);
+        Switch s = new Switch(h);
+
+        Box b = new Box();
+        Player p = new Player();
+
+        m.tiles.add(T1);
+        m.tiles.add(T2);
+        m.tiles.add(T3);
+        m.tiles.add(T4);
+        T1.Add(s);
+        T2.Add(b);
+        T3.Add(p);
+        T4.Add(h);
+
+        //Tile-ok egymás mellé helyezése
+        T1.SetNeighbour(Direction.right,T2);
+        T2.SetNeighbour(Direction.left,T1);
+        T2.SetNeighbour(Direction.right,T3);
+        T3.SetNeighbour(Direction.left,T2);
+        T3.SetNeighbour(Direction.right,T4);
+        T4.SetNeighbour(Direction.left,T3);
+
+
+
+        System.out.println("ITT KEZDŐDIK A TESZT");
+
+        p.Move(Direction.left);
+        System.out.println("\n----------------------\n");
+    }
+
     public static void main(String args[]) throws IOException{
         //Itt majd lesz egy menu amiben ki lehet valasztani a tesztesetet.
         System.out.println("Elso teszt: \n");
-        elsoTeszt();
+     /*   elsoTeszt();
         masodikTeszt();
         harmadikTeszt();
         negyedikTeszt();
         otodikTeszt();
         hatodikTeszt();
-        hetedikTeszt();
+        hetedikTeszt();*/
+        tizedikTeszt();
     }
 }
