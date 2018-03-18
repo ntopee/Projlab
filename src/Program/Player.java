@@ -1,5 +1,7 @@
 package Program;
 
+import java.util.ArrayList;
+
 /**
  * A karakter mozgását valósítja meg, egy paraméterként kapott irány szerint.
  * Számolja a karakter pontjait.
@@ -92,9 +94,6 @@ public class Player extends Thing {
 
         Tile t = tile.GetNeighbour(d);
 
-
-
-
         for (Thing i : t.GetThings()){
             if (!i.equals(this))
             i.HitBy(this, d);
@@ -104,6 +103,7 @@ public class Player extends Thing {
             Step(d);
 
         System.out.println("< Move");
+
     }
 
     public void Step(Direction d)

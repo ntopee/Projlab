@@ -38,8 +38,8 @@ public class Hole extends Thing {
      */
     public void HitBy(Box b, Direction d) {
         System.out.println("> Hole HitBy Box");
-
-        b.Die();
+        if (active)
+            b.Die();
 
         tile.GetMap().CheckEndGame();
 

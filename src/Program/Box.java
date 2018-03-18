@@ -77,9 +77,8 @@ public class Box extends Thing {
             p.Step(d);
         }
 
-
-
-
+        System.out.println("< Box HitBy Player");
+        return;
     }
 
     /**
