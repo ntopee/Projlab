@@ -26,6 +26,7 @@ public class Main {
         T3.SetNeighbour(Direction.left,T2);
 
         System.out.println("ITT KEZDŐDIK A TESZT");
+        System.out.println("Player tol Box");
 
         //Egy dobozt megtol egy játékos
         System.out.println("? A doboz mozgatható vagy sem? (true/false)");
@@ -36,12 +37,48 @@ public class Main {
         else
             b.setMovable(false);
         p.Move(Direction.right);
+
+        System.out.println("\n----------------------\n");
+    }
+
+    public static void masodikTeszt() throws IOException
+    {
+        Map m = new Map();
+        Tile T1 = new Tile();
+        Tile T2 = new Tile();
+        Tile T3 = new Tile();
+        Box b = new Box();        //Néhány objektum példányosítása a példákhoz.
+        Box b2 = new Box();
+
+        m.tiles.add(T1);
+        m.tiles.add(T2);
+        m.tiles.add(T3);
+        T1.Add(b);
+        T2.Add(b2);
+        //Tile-ok egymás mellé helyezése
+        T1.SetNeighbour(Direction.right,T2);
+        T2.SetNeighbour(Direction.left,T1);
+        T2.SetNeighbour(Direction.right,T3);
+        T3.SetNeighbour(Direction.left,T2);
+
+        System.out.println("ITT KEZDŐDIK A TESZT");
+        System.out.println("Box tol Box");
+
+        System.out.println("? A doboz mozgatható vagy sem? (true/false)");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String d = br.readLine();
+        b.setMovable(true);
+        if (d.equalsIgnoreCase("true"))
+            b2.setMovable(true);
+        else
+            b2.setMovable(false);
+        b2.HitBy(b,Direction.right);
     }
 
     public static void main(String args[]) throws IOException{
         //Itt majd lesz egy menu amiben ki lehet valasztani a tesztesetet.
         System.out.println("Elso teszt: \n");
         elsoTeszt();
- 
+        masodikTeszt();
     }
 }

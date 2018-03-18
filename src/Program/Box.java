@@ -36,11 +36,10 @@ public class Box extends Thing {
         System.out.println("> Box HitBy Box");
         if (!this.movable)
             b.HitBy(this,Game.GetOpposite(d));
-        else
+        else {
             Step(d);
-
-        movable = CheckMovable();
-
+            movable = CheckMovable();
+        }
         System.out.println("< Box HitBy Box");
     }
 
@@ -57,8 +56,7 @@ public class Box extends Thing {
         }
         else{
             Step(d);
-        movable = CheckMovable();
-
+            movable = CheckMovable();
         }
 
         System.out.println("< Box HitBy Player");
@@ -179,7 +177,7 @@ public class Box extends Thing {
      * @param d Léptetés iránya.
      */
     private void Step (Direction d){
-        Tile t =this.tile.GetNeighbour(d);
+        Tile t = tile.GetNeighbour(d);
         tile.Remove(this);
 
         if (isOnGoal)
@@ -196,5 +194,9 @@ public class Box extends Thing {
         System.out.println("> PlayerPushedIntoIt");
         p.Die();
         System.out.println("> PlayerPushedIntoIt");
+    }
+
+    public void setMovable(boolean B){
+        movable = B;
     }
 }
