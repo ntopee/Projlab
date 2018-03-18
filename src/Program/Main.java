@@ -91,7 +91,7 @@ public class Main {
         T1.SetNeighbour(Direction.right,T2);
         T2.SetNeighbour(Direction.left,T1);
         System.out.println("ITT KEZDŐDIK A TESZT");
-        System.out.println("(Box) Dobozt neki lok egy jatekos egy fallnak. " +
+        System.out.println("(Box) Dobozt neki lok egy jatekos egy falnak. " +
                 "\nA jelenlegi specifikacio szerint a fal es az oszlop ugyan ugy viselkedik, " +
                 "\ntehat ez a teszteset lefedi azt is amikor a dobozt egy oszlopnak lokjuk.");
         b.HitBy(new Player(), Direction.right);
