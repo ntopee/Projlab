@@ -14,18 +14,19 @@ public class Box extends Thing {
      * Default constructor
      */
     public Box() {
+        movable = true;
     }
 
 
     /**
      * Megadja, hogy az adott ládával lehet-e még pontot szerezni.
      */
-    private boolean valid;
+    private boolean valid = true;
 
     /**
      * Megadja, hogy az adott láda Goal-on van-e.
      */
-    private boolean isOnGoal;
+    private boolean isOnGoal = false;
 
     /**
      * Box-ként ütközik Box-al.
