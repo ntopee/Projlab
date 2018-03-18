@@ -11,6 +11,9 @@ public class Hole extends Thing {
     public Hole() {
     }
 
+    public Hole(boolean B) {
+        active = B;
+    }
     /**
      * Azt tárolja, hogy a lyuk aktív-e (lyukként viselkedik-e).
      */

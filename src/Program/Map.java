@@ -115,8 +115,8 @@ public class Map {
      */
     public void CheckEndGame() {
         System.out.println("> CheckEndGame");
-        if ( (players.size() == 0)&&(goalcounter == num_of_movable_boxes))
-            Game.EndGame();
+        /*if ( (players.size() == 0)&&(goalcounter == num_of_movable_boxes))
+            Game.EndGame();*/
         System.out.println("< CheckEndGame");
     }
 

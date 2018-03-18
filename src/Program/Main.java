@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class Main {
 
-    public static void  elsoTeszt() throws IOException {
+    private static void elsoTeszt() throws IOException {
         Map m = new Map();
         Tile T1 = new Tile();
         Tile T2 = new Tile();
@@ -41,7 +41,7 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
-    public static void masodikTeszt() throws IOException {
+    private static void masodikTeszt() throws IOException {
         Map m = new Map();
         Tile T1 = new Tile();
         Tile T2 = new Tile();
@@ -76,7 +76,7 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
-    public static void negyedikTeszt(){
+    private static void negyedikTeszt(){
         Map m = new Map();
         Tile T1 = new Tile();
         Tile T2 = new Tile();
@@ -100,7 +100,7 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
-    public static void harmadikTeszt() {
+    private static void harmadikTeszt() {
         Map m = new Map();
         Tile T1 = new Tile();
         Tile T2 = new Tile();
@@ -124,6 +124,41 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
+    private static void hetedikTeszt() throws IOException {
+        System.out.println("Box leesik egy lyukba\n" +
+                "(Box) Dobozt nem tud magatol mozogni, ezert egy jatekos tolja bele a lyukba. ");
+        System.out.println("? A lyuk aktiv? (true/false)");
+        Hole h;
+
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String d = br.readLine();
+        if (d.equalsIgnoreCase("true")) {
+            h = new Hole(true);
+        } else {
+            h = new Hole(true);
+        }
+
+        Map m = new Map();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
+        Box b = new Box();       //Néhány objektum példányosítása a példákhoz.
+
+
+        m.tiles.add(T1);
+        m.tiles.add(T2);
+        T1.Add(b);
+        T2.Add(h);
+        //Tile-ok egymás mellé helyezése
+        T1.SetNeighbour(Direction.right,T2);
+        T2.SetNeighbour(Direction.left,T1);
+
+        System.out.println("\nITT KEZDŐDIK A TESZT");
+
+        b.HitBy(new Player(),Direction.right);
+
+        System.out.println("\n----------------------\n");
+    }
+
     public static void main(String args[]) throws IOException{
         //Itt majd lesz egy menu amiben ki lehet valasztani a tesztesetet.
         System.out.println("Elso teszt: \n");
@@ -131,5 +166,6 @@ public class Main {
         masodikTeszt();
         harmadikTeszt();
         negyedikTeszt();
+        hetedikTeszt();
     }
 }

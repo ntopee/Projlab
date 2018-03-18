@@ -18,6 +18,10 @@ public class Tile {
     public Tile() {
     }
 
+    public Tile(Program.Map m) {
+        map = m;
+    }
+
     /**
      * A cellán elhelyezkedő dolgok kollekciója.
      */
