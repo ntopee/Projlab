@@ -5,6 +5,11 @@ package Program;
  */
 public class Box extends Thing {
 
+    @Override
+    public String toString() {
+        return "Box";
+    }
+
     /**
      * Default constructor
      */
@@ -62,13 +67,19 @@ public class Box extends Thing {
     public void HitBy(Player p, Direction d) {
         System.out.println("> Box HitBy Player");
 
-        if (!this.movable)
-            p.Move(Game.GetOpposite(d));
-        else Step(d);
+        if (!this.movable){
+            System.out.println("< Box HitBy Player");
+            return;
+        }
+        else{
+            Step(d);
+            movable = CheckMovable();
+            p.Step(d);
+        }
 
-        movable = CheckMovable();
 
-        System.out.println("< Box HitBy Player");
+
+
     }
 
     /**
@@ -184,7 +195,7 @@ public class Box extends Thing {
      * Lépteti a dobozokat.
      * @param d Léptetés iránya.
      */
-    private void Step (Direction d){  //ez Mi a szar? #bende
+    private void Step (Direction d){
         Tile t =this.tile.GetNeighbour(d);
         tile.Remove(this);
 
@@ -194,6 +205,7 @@ public class Box extends Thing {
         t.Add(this);
 
         for(Thing i : t.GetThings())
+            if (i != this)
             i.HitBy(this,d);
     }
 

@@ -21,12 +21,12 @@ public class Tile {
     /**
      * A cellán elhelyezkedő dolgok kollekciója.
      */
-    private Set<Thing> things;
+    private Set<Thing> things = new HashSet<Thing>();
 
     /**
      * Egy cella szomszédai.
      */
-    private Map<Direction, Tile> neighbours;
+    private Map<Direction, Tile> neighbours = new HashMap<Direction, Tile>();
 
     /**
      * Új dolgok hozzáadása a cellához,
@@ -34,8 +34,9 @@ public class Tile {
      * @param t Egy Thing referencia.
      */
     public void Add(Thing t) {
-        System.out.println("> Add");
+        System.out.println("> Add "+t.toString());
         things.add(t);
+        t.tile=this;
         System.out.println("< Add");
     }
 
@@ -44,9 +45,9 @@ public class Tile {
      * @param t Eltávolítandó Thing referencia.
      */
     public void Remove(Thing t) {
-        System.out.println("> Remove");
+        System.out.println("> Remove "+ t.toString());
         things.remove(t);
-        System.out.println("< Remove");
+        System.out.println("< Remove " );
     }
 
     /**

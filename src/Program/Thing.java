@@ -5,10 +5,24 @@ package Program;
  */
 public abstract class Thing { //Itt szerintem minden függvény kifejtése (systemout) felesleges mivel nem lesz példányosítva thing osztály tehát sosem hívódnak meg
 
+    @Override
+    public String toString() {
+        return "Thing";
+    }
+
     /**
      * Default constructor
      */
     public Thing() {
+
+    }
+
+    public boolean getMovable() {
+        return movable;
+    }
+
+    public void setMovable(boolean movable) {
+        this.movable = movable;
     }
 
     /**

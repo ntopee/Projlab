@@ -13,6 +13,7 @@ public class Map {
      * Default constructor
      */
     public Map() {
+
     }
 
     /**
@@ -37,12 +38,13 @@ public class Map {
     /**
      * A pályán található összes mező itt van eltárolva.
      */
-    private Set<Tile> tiles;
+    public Set<Tile> tiles = new HashSet<Tile>(); //ezeket kell inicializálni különben nullpointerexception #bende
+
 
     /**
      * Egy Tile-ra rárak egy új játékost, amit ugyanez a függvény hoz létre.
      */
-    public void AddPlayer() { //WHATT? miért nincs paraméter, ez mit csinál?
+    public void AddPlayer() {
         System.out.println("> AddPlayer");
         // TODO implement here
         players.add(new Player());

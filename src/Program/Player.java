@@ -6,6 +6,11 @@ package Program;
  */
 public class Player extends Thing {
 
+    @Override
+    public String toString() {
+        return "Player";
+    }
+
     /**
      * Default constructor
      */
@@ -87,15 +92,27 @@ public class Player extends Thing {
 
         Tile t = tile.GetNeighbour(d);
 
-        tile.Remove(this);
 
-        t.Add(this);
+
 
         for (Thing i : t.GetThings()){
+            if (i != this)
             i.HitBy(this, d);
         }
 
+        if (t.GetThings()==null)
+            Step(d);
+
         System.out.println("< Move");
+    }
+
+    public void Step(Direction d)
+    {
+        System.out.println("> Step Player");
+        Tile t = tile.GetNeighbour(d);
+        tile.Remove(this);
+        t.Add(this);
+        System.out.println("< Step");
     }
 
     /**
