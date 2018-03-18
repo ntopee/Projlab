@@ -334,18 +334,58 @@ public class Main {
     }
 
     public static void main(String args[]) throws IOException{
-        //Itt majd lesz egy menu amiben ki lehet valasztani a tesztesetet.
-        System.out.println("Elso teszt: \n");
-        elsoTeszt();
-        masodikTeszt();
-        harmadikTeszt();
-        negyedikTeszt();
-        otodikTeszt();
-        hatodikTeszt();
-        hetedikTeszt();
-        nyolcadikTeszt();
-        kilencedikTeszt();
-        tizedikTeszt();
-        tizenegyedikTeszt();
+        //menü amiből ki lehet választani a teszeseteket
+        while(true){
+            System.out.println("Valassz tesztet: 1 2 3 4 5 6 7 8 9 10 11 12 majd nyomj entert");
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+            String s = br.readLine();
+            int i= 0;
+            try{
+                i = Integer.parseInt(br.readLine());
+            }catch(NumberFormatException nfe){
+                System.err.println("Invalid Format!");
+            }
+
+            switch (i) {
+                case 1:
+                    elsoTeszt();
+                    break;
+                case 2:
+                    masodikTeszt();
+                    break;
+                case 3:
+                    harmadikTeszt();
+                    break;
+                case 4:
+                    negyedikTeszt();
+                    break;
+                case 5:
+                    otodikTeszt();
+                    break;
+                case 6:
+                    hatodikTeszt();
+                    break;
+                case 7:
+                    hetedikTeszt();
+                    break;
+                case 8:
+                    nyolcadikTeszt();
+                    break;
+                case 9:
+                    kilencedikTeszt();
+                    break;
+                case 10:
+                    tizedikTeszt();
+                    break;
+                case 11:
+                    tizenegyedikTeszt();
+                    break;
+                case 12:
+                    tizenkettedikTeszt();
+                    break;
+                default: System.out.println("Hibas input");
+                    return;
+            }
     }
 }
