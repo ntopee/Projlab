@@ -27,17 +27,6 @@ public class Box extends Thing {
      */
     private boolean isOnGoal;
 
-    /*
-     * Ütközik egy dologgal.
-     * @param t Thing referencia.
-     * @param d Ütközés iránya.
-     */
-    /*public void CollideWith(Thing t, Direction d) {
-        System.out.println(">CollideWith");
-        t.HitBy(this, d);
-        System.out.println("<CollideWith");
-    }*/
-
     /**
      * Box-ként ütközik Box-al.
      * @param b Box referencia.

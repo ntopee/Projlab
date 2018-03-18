@@ -36,16 +36,6 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
     protected Tile tile;
 
     /**
-     *  A dolog ütközik egy másik dologgal.
-     * @param t Thing referencia.
-     */
-    /*public void CollideWith(Thing t, Direction d) {
-        System.out.println(">CollideWith");
-        // TODO implement here
-        System.out.println("<CollideWith");
-    }*/
-
-    /**
      * A művelet, amit akkor kell végrehajtani,
      * ha a dolognak egy játékos ütközött.
      * @param p Player referencia.

@@ -24,16 +24,6 @@ public class Player extends Thing {
      */
     private int points;
 
-    /*
-     * Player-ként ütközik egy dologgal.
-     * @param t Thing referencia.
-     */
-    /*public void CollideWith(Thing t, Direction d) {
-        System.out.println(">CollideWith");
-        t.HitBy(this, d);
-        System.out.println("<CollideWith");
-    }*/
-
     /**
      * Player-ként ütközik egy Box-al. Meghívja a Player Move metódusát az ellenkező irányba.
      * @param b Box referencia.
@@ -107,15 +97,6 @@ public class Player extends Thing {
         System.out.println("< Move");
 
     }
-
- /*   public void Step(Direction d)
-    {
-        System.out.println("> Step Player");
-        Tile t = tile.GetNeighbour(d);
-        tile.Remove(this);
-        t.Add(this);
-        System.out.println("< Step");
-    }*/
 
     /**
      * Visszaadja a Player pontszámát.
