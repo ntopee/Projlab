@@ -41,8 +41,7 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
-    public static void masodikTeszt() throws IOException
-    {
+    public static void masodikTeszt() throws IOException {
         Map m = new Map();
         Tile T1 = new Tile();
         Tile T2 = new Tile();
@@ -73,8 +72,9 @@ public class Main {
         else
             b2.setMovable(false);
         b.HitBy(new Player(),Direction.right);
-    }
 
+        System.out.println("\n----------------------\n");
+    }
 
     public static void negyedikTeszt(){
         Map m = new Map();
@@ -87,14 +87,41 @@ public class Main {
         m.tiles.add(T2);
         T1.Add(b);
         T2.Add(w);
-
+        //Tile-ok egymás mellé helyezése
         T1.SetNeighbour(Direction.right,T2);
         T2.SetNeighbour(Direction.left,T1);
+
         System.out.println("ITT KEZDŐDIK A TESZT");
         System.out.println("(Box) Dobozt neki lok egy jatekos egy falnak. " +
                 "\nA jelenlegi specifikacio szerint a fal es az oszlop ugyan ugy viselkedik, " +
                 "\ntehat ez a teszteset lefedi azt is amikor a dobozt egy oszlopnak lokjuk.");
         b.HitBy(new Player(), Direction.right);
+
+        System.out.println("\n----------------------\n");
+    }
+
+    public static void harmadikTeszt() {
+        Map m = new Map();
+        Tile T1 = new Tile();
+        Tile T2 = new Tile();
+        Player p = new Player();       //Néhány objektum példányosítása a példákhoz.
+        Wall w = new Wall();
+
+        m.tiles.add(T1);
+        m.tiles.add(T2);
+        T1.Add(p);
+        T2.Add(w);
+        //Tile-ok egymás mellé helyezése
+        T1.SetNeighbour(Direction.right,T2);
+        T2.SetNeighbour(Direction.left,T1);
+
+        System.out.println("ITT KEZDŐDIK A TESZT");
+        System.out.println("Falnak megy a Player\n" +
+                "Mivel jelenlegi specifikáció szerint a Wall és a Pillar viselkedése megegysezik ezért csak az egyik kerül bemutatásra");
+
+        p.Move(Direction.right);
+
+        System.out.println("\n----------------------\n");
     }
 
     public static void main(String args[]) throws IOException{
@@ -102,6 +129,7 @@ public class Main {
         System.out.println("Elso teszt: \n");
         elsoTeszt();
         masodikTeszt();
+        harmadikTeszt();
         negyedikTeszt();
     }
 }
