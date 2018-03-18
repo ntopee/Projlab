@@ -15,12 +15,10 @@ public class Tile {
     /**
      * Default constructor
      */
-    public Tile() {
+    public Tile(Program.Map m) {map = m;
     }
 
-    public Tile(Program.Map m) {
-        map = m;
-    }
+
 
     /**
      * A cellán elhelyezkedő dolgok kollekciója.
