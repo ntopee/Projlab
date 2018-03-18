@@ -205,7 +205,7 @@ public class Box extends Thing {
         t.Add(this);
 
         for(Thing i : t.GetThings())
-            if (i != this)
+            if (!i.equals(this))
             i.HitBy(this,d);
     }
 

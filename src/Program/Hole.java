@@ -22,8 +22,9 @@ public class Hole extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Player p, Direction d) {      //Ez nem kb ugyan az mint a player PushedintoIt? valahogy a két függvényt kéne mergelni valamilyen néven #bende
-        System.out.println("> Hole HitBy Player");
-        p.Die();
+        System.out.println("> Hole HitBy Player");          //Full maskor hivodik meg, mivel nem tudunk instanceof-ot hasznalni, ezert nem tudjuk hogy minek hivjuk a fuggvenyeit.
+        if (active)
+            p.Die();
 
         tile.GetMap().CheckEndGame();
 
@@ -75,6 +76,8 @@ public class Hole extends Thing {
         System.out.println("> PlayerPushedIntoIt");
         if (active)
             p.Die();
+
+        tile.GetMap().CheckEndGame();
         System.out.println("> PlayerPushedIntoIt");
     }
 }
