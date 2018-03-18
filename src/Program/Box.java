@@ -19,7 +19,7 @@ public class Box extends Thing {
     /**
      * Megadja, hogy az adott ládát lehet-e mozgatni.
      */
-  //  private boolean movable;  // Kell ez ide? #bende
+  //  private boolean movable;  // Kell ez ide? #bende //nem nem kell
 
     /**
      * Megadja, hogy az adott ládával lehet-e még pontot szerezni.

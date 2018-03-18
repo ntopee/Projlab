@@ -4,7 +4,7 @@ package Program;
  *A Thing objektumok azok az objektumok, amelyek “rajta vannak” egy Tile-on.
  */
 public abstract class Thing { //Itt szerintem minden függvény kifejtése (systemout) felesleges mivel nem lesz példányosítva thing osztály tehát sosem hívódnak meg
-
+                                // nincs is kifejtve, alap generalo irta meg igy.
     @Override
     public String toString() {
         return "Thing";

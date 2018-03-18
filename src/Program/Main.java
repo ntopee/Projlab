@@ -39,7 +39,7 @@ public class Main {
     }
 
     public static void main(String args[]) throws IOException{
-        //Itt majd lesy egz menun amiben ki lehet valasytani a tesztesetet.
+        //Itt majd lesz egy menu amiben ki lehet valasztani a tesztesetet.
         System.out.println("Elso teszt: \n");
         elsoTeszt();
  
