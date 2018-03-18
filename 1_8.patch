@@ -1,0 +1,16 @@
+Index: src/Program/Main.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/Program/Main.java	(date 1521355898000)
++++ src/Program/Main.java	(revision )
+@@ -39,6 +39,6 @@
+         p.Move(Direction.right);
+ 
+ 
+-
++ 
+     }
+ }
+\ No newline at end of file
