@@ -225,8 +225,30 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
+    private static void nyolcadikTeszt(){
+        Map m = new Map();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
+        Player p = new Player();    //Néhány objektum példányosítása a példákhoz.
+        Player p2 = new Player();
 
-    public static void tizedikTeszt(){
+        m.tiles.add(T1);
+        m.tiles.add(T2);
+        T1.Add(p);
+        T2.Add(p2);
+        //Tile-ok egymás mellé helyezése
+        T1.SetNeighbour(Direction.right,T2);
+        T2.SetNeighbour(Direction.left,T1);
+
+        System.out.println("ITT KEZDŐDIK A TESZT");
+        System.out.println("Player nekimegy egy masik Playernek.");
+
+        p.Move(Direction.right);
+
+        System.out.println("\n----------------------\n");
+    }
+
+    public static void kilencedikTeszt(){
 
         //Néhány objektum példányosítása a példákhoz.
         Map m = new Map();
@@ -265,16 +287,65 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
+    public static void tizedikTeszt(){
+        Map m = new Map();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
+        Hole h = new Hole(true);
+        Switch s = new Switch(h);
+
+        Player p = new Player();
+        m.tiles.add(T1);
+        m.tiles.add(T2);
+
+        T1.Add(p);
+        T2.Add(s);
+
+        T1.SetNeighbour(Direction.right,T2);
+        T2.SetNeighbour(Direction.left,T1);
+
+
+        System.out.println("ITT KEZDŐDIK A TESZT");
+        s.HitBy(p, Direction.right);
+
+        System.out.println("\n----------------------\n");
+    }
+
+    public static void tizenegyedikTeszt(){
+        Map m = new Map();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
+        Player p = new Player();
+        Goal g = new Goal();
+
+
+        m.tiles.add(T1);
+        m.tiles.add(T2);
+        T1.Add(p);
+        T2.Add(g);
+
+        T1.SetNeighbour(Direction.right,T2);
+        T2.SetNeighbour(Direction.left,T1);
+
+        System.out.println("Player goal-ra lép");
+        System.out.println("ITT KEZDŐDIK A TESZT");
+
+        p.Move(Direction.right);
+    }
+
     public static void main(String args[]) throws IOException{
         //Itt majd lesz egy menu amiben ki lehet valasztani a tesztesetet.
         System.out.println("Elso teszt: \n");
-     /*   elsoTeszt();
+        elsoTeszt();
         masodikTeszt();
         harmadikTeszt();
         negyedikTeszt();
         otodikTeszt();
         hatodikTeszt();
-        hetedikTeszt();*/
+        hetedikTeszt();
+        nyolcadikTeszt();
+        kilencedikTeszt();
         tizedikTeszt();
+        tizenegyedikTeszt();
     }
 }
