@@ -1,7 +1,5 @@
 package Program;
 
-import java.util.ArrayList;
-
 /**
  * A karakter mozgását valósítja meg, egy paraméterként kapott irány szerint.
  * Számolja a karakter pontjait.

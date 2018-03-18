@@ -61,7 +61,6 @@ public class Box extends Thing {
         }
 
         System.out.println("< Box HitBy Player");
-        return;
     }
 
     /**
