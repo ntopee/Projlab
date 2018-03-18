@@ -62,7 +62,7 @@ public class Main {
         T3.SetNeighbour(Direction.left,T2);
 
         System.out.println("ITT KEZDŐDIK A TESZT");
-        System.out.println("Box tol Box");
+        System.out.println("Box tol Box\nDobozok nem tudnak maguktol mozogni, ezert egy Player tolja az elso dobozt.");
 
         System.out.println("? A doboz mozgatható vagy sem? (true/false)");
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -72,7 +72,7 @@ public class Main {
             b2.setMovable(true);
         else
             b2.setMovable(false);
-        b2.HitBy(b,Direction.right);
+        b.HitBy(new Player(),Direction.right);
     }
 
     public static void main(String args[]) throws IOException{
