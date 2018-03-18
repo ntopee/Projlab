@@ -333,17 +333,16 @@ public class Main {
         p.Move(Direction.right);
     }
 
-    public static void main(String args[]) throws IOException{
+    public static void main(String args[]) throws IOException {
         //menü amiből ki lehet választani a teszeseteket
-        while(true){
+        while (true) {
             System.out.println("Valassz tesztet: 1 2 3 4 5 6 7 8 9 10 11 12 majd nyomj entert");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-            String s = br.readLine();
-            int i= 0;
-            try{
+            int i = 0;
+            try {
                 i = Integer.parseInt(br.readLine());
-            }catch(NumberFormatException nfe){
+            } catch (NumberFormatException nfe) {
                 System.err.println("Invalid Format!");
             }
 
@@ -381,11 +380,13 @@ public class Main {
                 case 11:
                     tizenegyedikTeszt();
                     break;
-                case 12:
+                /*case 12:
                     tizenkettedikTeszt();
-                    break;
-                default: System.out.println("Hibas input");
+                    break;*/
+                default:
+                    System.out.println("Hibas input");
                     return;
             }
+        }
     }
 }
