@@ -76,6 +76,30 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
+    private static void harmadikTeszt() {
+        Map m = new Map();
+        Tile T1 = new Tile();
+        Tile T2 = new Tile();
+        Player p = new Player();       //Néhány objektum példányosítása a példákhoz.
+        Wall w = new Wall();
+
+        m.tiles.add(T1);
+        m.tiles.add(T2);
+        T1.Add(p);
+        T2.Add(w);
+        //Tile-ok egymás mellé helyezése
+        T1.SetNeighbour(Direction.right,T2);
+        T2.SetNeighbour(Direction.left,T1);
+
+        System.out.println("ITT KEZDŐDIK A TESZT");
+        System.out.println("Falnak megy a Player\n" +
+                "Mivel jelenlegi specifikáció szerint a Wall és a Pillar viselkedése megegysezik ezért csak az egyik kerül bemutatásra");
+
+        p.Move(Direction.right);
+
+        System.out.println("\n----------------------\n");
+    }
+
     private static void negyedikTeszt(){
         Map m = new Map();
         Tile T1 = new Tile();
@@ -100,28 +124,70 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
-    private static void harmadikTeszt() {
+    public  static void otodikTeszt() {
         Map m = new Map();
         Tile T1 = new Tile();
         Tile T2 = new Tile();
+        Box b = new Box();        //Néhány objektum példányosítása a példákhoz.
+        Goal g = new Goal();
+
+        m.tiles.add(T1);
+        m.tiles.add(T2);
+        T1.Add(b);
+        T2.Add(g);
+        //Tile-ok egymás mellé helyezése
+        T1.SetNeighbour(Direction.right, T2);
+        T2.SetNeighbour(Direction.left, T1);
+
+        System.out.println("ITT KEZDŐDIK A TESZT");
+        System.out.println("(Box) Dobozt neki lok egy jatekos egy celnak. " +
+                "\nDobozok nem tudnak maguktol mozogni, ezert egy Player tolja a dobozt," +
+                "\nami így a celra er.");
+        b.HitBy(new Player(), Direction.right);
+
+
+        System.out.println("\n----------------------\n");
+
+    }
+
+    private static void hatodikTeszt() throws IOException{
+        Map m = new Map();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
         Player p = new Player();       //Néhány objektum példányosítása a példákhoz.
-        Wall w = new Wall();
+        // Hole h = new Hole();
 
         m.tiles.add(T1);
         m.tiles.add(T2);
         T1.Add(p);
-        T2.Add(w);
+        //   T2.Add(h);
         //Tile-ok egymás mellé helyezése
         T1.SetNeighbour(Direction.right,T2);
         T2.SetNeighbour(Direction.left,T1);
 
+
+
+        System.out.println("Player lyukba esik");
+
+        System.out.println("? A lyuk aktív-e (true/false)");
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        String d = br.readLine();
+        if (d.equalsIgnoreCase("true"))
+        {
+            Hole h = new Hole(true);
+            T2.Add(h);
+        }
+        else
+        {
+            Hole h = new Hole(false);
+            T2.Add(h);
+        }
+
         System.out.println("ITT KEZDŐDIK A TESZT");
-        System.out.println("Falnak megy a Player\n" +
-                "Mivel jelenlegi specifikáció szerint a Wall és a Pillar viselkedése megegysezik ezért csak az egyik kerül bemutatásra");
+
+
 
         p.Move(Direction.right);
-
-        System.out.println("\n----------------------\n");
     }
 
     private static void hetedikTeszt() throws IOException {
@@ -166,6 +232,8 @@ public class Main {
         masodikTeszt();
         harmadikTeszt();
         negyedikTeszt();
+        otodikTeszt();
+        hatodikTeszt();
         hetedikTeszt();
     }
 }

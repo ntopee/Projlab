@@ -49,6 +49,7 @@ public class Player extends Thing {
      */
     public void Die() {
         System.out.println("> Die");
+        tile.Remove(this);
         tile.GetMap().RemovePlayer(this);
         System.out.println("< Die");
     }
