@@ -21,7 +21,7 @@ public class Tile {
     /**
      * A cellán elhelyezkedő dolgok kollekciója.
      */
-    private Set<Thing> things = new HashSet<Thing>();
+    private ArrayList<Thing> things = new ArrayList<Thing>();
 
     /**
      * Egy cella szomszédai.
@@ -79,7 +79,7 @@ public class Tile {
      * Visszaadja a things kollekciót.
      * @return
      */
-    public Set<Thing> GetThings(){
+    public ArrayList<Thing> GetThings(){
         return things;
     }
 
