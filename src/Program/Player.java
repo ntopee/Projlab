@@ -101,7 +101,7 @@ public class Player extends Thing {
         for (Thing i : t.GetThings()){
             if (!i.equals(this))
                 i.HitBy(this, d);
-            
+
         }
 
         System.out.println("< Move");
