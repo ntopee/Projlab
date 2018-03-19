@@ -124,7 +124,7 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
-    public  static void otodikTeszt() {
+    private static void otodikTeszt() {
         Map m = new Map();
         Tile T1 = new Tile(m);
         Tile T2 = new Tile(m);
@@ -150,7 +150,7 @@ public class Main {
 
     }
 
-    private static void hatodikTeszt() throws IOException{
+    private static void hatodikTeszt() throws IOException {
         Map m = new Map();
         Tile T1 = new Tile(m);
         Tile T2 = new Tile(m);
@@ -248,7 +248,7 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
-    public static void kilencedikTeszt(){
+    private static void kilencedikTeszt(){
 
         //Néhány objektum példányosítása a példákhoz.
         Map m = new Map();
@@ -287,7 +287,7 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
-    public static void tizedikTeszt(){
+    private static void tizedikTeszt(){
         Map m = new Map();
         Tile T1 = new Tile(m);
         Tile T2 = new Tile(m);
@@ -311,7 +311,7 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
-    public static void tizenegyedikTeszt(){
+    private static void tizenegyedikTeszt(){
         Map m = new Map();
         Tile T1 = new Tile(m);
         Tile T2 = new Tile(m);
@@ -331,6 +331,29 @@ public class Main {
         System.out.println("ITT KEZDŐDIK A TESZT");
 
         p.Move(Direction.right);
+    }
+
+    private static void tizenkettedikTeszt(){
+        Map m = new Map();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
+        Player p = new Player();
+        Box b = new Box();
+        m.tiles.add(T1);
+        m.tiles.add(T2);
+        T1.Add(p);
+        T2.Add(b);
+        T1.SetNeighbour(Direction.right,T2);
+        T2.SetNeighbour(Direction.left,T1);
+
+        System.out.println("Player HitBy box => a jatekosnak nekitolodik egy doboz." +
+                "\nSpecifikacioban ugy fogalmaztuk meg, hogy ha egy playert egy box nekitol egy playernek/boxnak/oszlopnak/falnak," +
+                "\nakkor a tolt jatekos meghal." +
+                "\nEz a teszteset lefedi mint a 4 variaciot, aminek neki lehet tolni egy playert.");
+
+        System.out.println("ITT KEZDŐDIK A TESZT");
+        p.HitBy(new Box(),Direction.right);
+
     }
 
     public static void main(String args[]) throws IOException {
@@ -380,9 +403,9 @@ public class Main {
                 case 11:
                     tizenegyedikTeszt();
                     break;
-                /*case 12:
+                case 12:
                     tizenkettedikTeszt();
-                    break;*/
+                    break;
                 default:
                     System.out.println("Hibas input");
                     return;

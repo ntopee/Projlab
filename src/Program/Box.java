@@ -67,13 +67,13 @@ public class Box extends Thing {
      * Akkor hívódik meg, ha a láda leesik egy lyukon. A láda eltűnik a pályáról.
      */
     public void Die() {
-        System.out.println("> Die");
+        System.out.println("> Die Box");
         tile.Remove(this);
         this.valid = false;
         this.isOnGoal = false;
         this.movable = false;
         tile.GetMap().DecreaseNumOfBoxes();
-        System.out.println("< Die");
+        System.out.println("< Die Box");
     }
 
     /**
