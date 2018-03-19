@@ -343,6 +343,7 @@ public class Main {
         m.tiles.add(T2);
         T1.Add(p);
         T2.Add(b);
+        //Tile-ok egymás mellé helyezése
         T1.SetNeighbour(Direction.right,T2);
         T2.SetNeighbour(Direction.left,T1);
 

@@ -33,7 +33,7 @@ public class Map {
     /**
      * A player objektumok referenciái.
      */
-    private Set<Player> players;
+    private Set<Player> players = new HashSet<>();
 
     /**
      * A pályán található összes mező itt van eltárolva.

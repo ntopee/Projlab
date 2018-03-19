@@ -121,6 +121,6 @@ public class Player extends Thing {
     public void PlayerPushedIntoIt(Player p) {
         System.out.println("> PlayerPushedIntoIt");
         p.Die();
-        System.out.println("> PlayerPushedIntoIt");
+        System.out.println("< PlayerPushedIntoIt");
     }
 }
