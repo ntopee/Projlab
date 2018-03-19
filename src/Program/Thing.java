@@ -1,5 +1,8 @@
 package Program;
 
+import static Program.Main.tabber;
+import static Program.Main.tabolo;
+
 /**
  *A Thing objektumok azok az objektumok, amelyek “rajta vannak” egy Tile-on.
  */
@@ -42,8 +45,14 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
      * @param d Ütközés iránya.
      */
     public void HitBy(Player p, Direction d) {
+        tabber++;
+        tabolo(tabber);
+
         System.out.println("> HitBy Player");
         // TODO implement here
+
+        tabolo(tabber);
+        tabber--;
         System.out.println("< HitBy Player");
     }
 
@@ -54,8 +63,13 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
      * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> HitBy Box");
         // TODO implement here
+
+        tabolo(tabber);
+        tabber--;
         System.out.println("< HitBy Box");
     }
 

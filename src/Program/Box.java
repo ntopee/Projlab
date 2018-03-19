@@ -1,5 +1,8 @@
 package Program;
 
+import static Program.Main.tabber;
+import static Program.Main.tabolo;
+
 /**
  *A játékban található ládákat reprezentálja.
  */
@@ -34,6 +37,9 @@ public class Box extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
+        tabber++;
+        tabolo(tabber);
+
         System.out.println("> Box HitBy Box");
         if (!this.movable)
             b.HitBy(this,Game.GetOpposite(d));
@@ -41,6 +47,9 @@ public class Box extends Thing {
             Step(d);
             movable = CheckMovable();
         }
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("< Box HitBy Box");
     }
 
@@ -50,6 +59,8 @@ public class Box extends Thing {
      * @param d Az ütközés iránya
      */
     public void HitBy(Player p, Direction d) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> Box HitBy Player");
 
         if (!this.movable){
@@ -59,6 +70,8 @@ public class Box extends Thing {
             Step(d);
             movable = CheckMovable();
         }
+        tabolo(tabber);
+        tabber--;
 
         System.out.println("< Box HitBy Player");
     }
@@ -67,12 +80,18 @@ public class Box extends Thing {
      * Akkor hívódik meg, ha a láda leesik egy lyukon. A láda eltűnik a pályáról.
      */
     public void Die() {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> Die Box");
+
         tile.Remove(this);
         this.valid = false;
         this.isOnGoal = false;
         this.movable = false;
         tile.GetMap().DecreaseNumOfBoxes();
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("< Die Box");
     }
 
@@ -82,9 +101,14 @@ public class Box extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Obstacle o, Direction d) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> Box HitBy Obstacle");
 
         Step(d);
+
+        tabolo(tabber);
+        tabber--;
 
         System.out.println("< Box HitBy Obstacle");
     }
@@ -96,6 +120,8 @@ public class Box extends Thing {
      * @return
      */
     public boolean CheckMovable() {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> CheckMovable");
         // TODO implement here -- meg kell nézni hogy két szomszédos szomszédja movable-e.
         /*
@@ -106,6 +132,9 @@ public class Box extends Thing {
           |  b  |    |  O  |     |  b  |     |  O  |
          */
 
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("< CheckMovable");
         return false;
     }
@@ -115,7 +144,13 @@ public class Box extends Thing {
      * @return
      */
     public boolean GetisOnGoal() {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> GetisOnGoal");
+
+
+        tabolo(tabber);
+        tabber--;
 
         System.out.println("< GetisOnGoal");
         return isOnGoal;
@@ -125,6 +160,8 @@ public class Box extends Thing {
      * Beállitja az isOnGoal értékét.
      */
     public void SetisOnGoal() {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> SetisOnGoal");
 
         if (isOnGoal)
@@ -133,6 +170,9 @@ public class Box extends Thing {
             tile.GetMap().SetGoalCounter(tile.GetMap().GetGoalCounter()+1);
 
         isOnGoal = !isOnGoal;
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("< SetisOnGoal");
     }
 
@@ -140,9 +180,14 @@ public class Box extends Thing {
      * Átállítja a valid attribútumot a mostani érték ellenkezőjére.
      */
     public void SetValid() {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> SetValid");
         if (valid)
             valid = false;
+        tabolo(tabber);
+        tabber--;
+        ;
         System.out.println("< SetValid");
     }
 
@@ -151,9 +196,17 @@ public class Box extends Thing {
      * @return
      */
     public boolean GetValid() {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> GetValid");
-        System.out.print("< GetValid");
-        return valid;
+
+        tabolo(tabber);
+        tabber--;
+
+        System.out.println("< GetValid");
+
+
+       return valid;
     }
 
     /**
@@ -161,6 +214,8 @@ public class Box extends Thing {
      * @param d
      */
     public void AddPoint(Direction d) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> AddPoint");
         
         Tile t = tile.GetNeighbour(d);
@@ -168,7 +223,10 @@ public class Box extends Thing {
         for (Thing i : t.GetThings()) {
             i.AddPoint(d);
         }
-        
+
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("< AddPoint");
     }
 
@@ -177,6 +235,8 @@ public class Box extends Thing {
      * @param d Léptetés iránya.
      */
     private void Step (Direction d){
+
+
         Tile t = tile.GetNeighbour(d);
         tile.Remove(this);
 
@@ -191,8 +251,14 @@ public class Box extends Thing {
     }
 
     public void PlayerPushedIntoIt(Player p) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> PlayerPushedIntoIt");
         p.Die();
+
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("> PlayerPushedIntoIt");
     }
 

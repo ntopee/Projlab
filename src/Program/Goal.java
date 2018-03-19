@@ -1,5 +1,8 @@
 package Program;
 
+import static Program.Main.tabber;
+import static Program.Main.tabolo;
+
 /**
  * Olyan mezőket képvisel, amelyekre a ládákat kell tolni a pontszerzéshez.
  */
@@ -20,6 +23,8 @@ public class Goal extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> Goal HitBy Box");
 
         if(b.GetValid()){
@@ -28,6 +33,9 @@ public class Goal extends Thing {
             b.AddPoint(Game.GetOpposite(d));
             tile.GetMap().CheckEndGame();
         }
+
+        tabolo(tabber);
+        tabber--;
 
         System.out.println("< Goal HitBy Box");
     }

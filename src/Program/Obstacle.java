@@ -1,5 +1,8 @@
 package Program;
 
+import static Program.Main.tabber;
+import static Program.Main.tabolo;
+
 /**
  * Olyan objektumok a pályán, amelyeken sem játékos, sem doboz nem tud átmenni.
  */
@@ -18,10 +21,15 @@ public abstract class Obstacle extends Thing {
      * @param b Box referencia.
      * @param d Ütközés iránya.
      */
-    public void HitBy(Box b, Direction d) {  //A két hitBy felülíródik a pillrba és az wall-ba tehát vagy ide vagy oda nem kellenekkifejtve.
-        System.out.println("> Obstacle HitBy Box"); //A felulirodik jelen esetben annyit jelent hogy meghivja az osenek a hitby-ait, erre alapbol semmi szukseg nem lenne, de most a tesztesetek futatasa kedveert irtam igy.
+    public void HitBy(Box b, Direction d) {
+        tabber++;
+        tabolo(tabber);
+        System.out.println("> Obstacle HitBy Box");
 
         b.HitBy(this,Game.GetOpposite(d));
+
+        tabolo(tabber);
+        tabber--;
 
         System.out.println("< Obstacle HitBy Box");
     }
@@ -33,16 +41,27 @@ public abstract class Obstacle extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Player p, Direction d) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> Obstacle HitBy Player");
 
         p.Move(Game.GetOpposite(d));
+
+        tabolo(tabber);
+        tabber--;
 
         System.out.println("< Obstacle HitBy Player");
     }
 
     public void PlayerPushedIntoIt(Player p) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> PlayerPushedIntoIt");
         p.Die();
+
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("> PlayerPushedIntoIt");
     }
 }

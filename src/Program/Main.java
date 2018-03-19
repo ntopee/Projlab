@@ -5,6 +5,14 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Main {
+    static public void tabolo(int n){
+
+        for (int i =0; i<n; i++)            //Csak a kiírás szépségét segítő függvény
+            System.out.print("       ");
+
+        return;
+    }
+    static public int tabber;
 
     private static void elsoTeszt() throws IOException {
         Map m = new Map();
@@ -330,6 +338,7 @@ public class Main {
         System.out.println("Player goal-ra lép");
         System.out.println("ITT KEZDŐDIK A TESZT");
 
+
         p.Move(Direction.right);
     }
 
@@ -357,10 +366,42 @@ public class Main {
 
     }
 
+    private static void tizenharmadikTeszt() {
+        Map m = new Map();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
+        Tile T3 = new Tile(m);
+        Player p = new Player();        //Néhány objektum példányosítása a példákhoz.
+        Box b = new Box();
+        Goal g = new Goal();
+
+        m.tiles.add(T1);
+        m.tiles.add(T2);
+        m.tiles.add(T3);
+        T1.Add(p);
+        T2.Add(b);
+        T3.Add(g);
+        //Tile-ok egymás mellé helyezése
+        T1.SetNeighbour(Direction.right,T2);
+        T2.SetNeighbour(Direction.left,T1);
+        T2.SetNeighbour(Direction.right,T3);
+        T3.SetNeighbour(Direction.left,T2);
+        System.out.println("ITT KEZDŐDIK A TESZT");
+        System.out.println("Player pontot szerez.");
+        System.out.println("Player jelenlegi pontszama: " + p.GetPoints());
+
+        p.Move(Direction.right);
+        System.out.println("\nPlayer jelenlegi pontszama: " + p.GetPoints());
+
+        System.out.println("\n----------------------\n");
+    }
+
     public static void main(String args[]) throws IOException {
+
+
         //menü amiből ki lehet választani a teszeseteket
         while (true) {
-            System.out.println("Valassz tesztet: 1 2 3 4 5 6 7 8 9 10 11 12 majd nyomj entert");
+            System.out.println("Valassz tesztet: 1 2 3 4 5 6 7 8 9 10 11 12 13 majd nyomj entert");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
             int i = 0;
@@ -407,6 +448,8 @@ public class Main {
                 case 12:
                     tizenkettedikTeszt();
                     break;
+                case 13:
+                    tizenharmadikTeszt();
                 default:
                     System.out.println("Hibas input");
                     return;

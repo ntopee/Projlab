@@ -1,6 +1,9 @@
 package Program;
 import java.util.*;
 
+import static Program.Main.tabber;
+import static Program.Main.tabolo;
+
 /**
  * Vannak olyan lyukak, amelyek padlónak látszanak, de egy gomb lenyomására aktiválódnak.
  * Az aktiválást olyan mezők végzik, amiken van kapcsoló (Switch).
@@ -25,9 +28,15 @@ public class Switch extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> HitBy Box");
 
         this.Activate();
+
+
+        tabolo(tabber);
+        tabber--;
 
         System.out.println("< HitBy Box");
     }
@@ -36,10 +45,17 @@ public class Switch extends Thing {
      * Meghívja az összes, a switch-hez tartozó Hole SetActive() függvényét.
      */
     private void Activate() {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> Activate");
         for (Hole i : holes) {
             i.SetActive();
         }
+
+
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("< Activate");
     }
 

@@ -1,6 +1,9 @@
 package Program;
 import java.util.*;
 
+import static Program.Main.tabber;
+import static Program.Main.tabolo;
+
 /**
  *  Tárolja a Tile-okat, amikből maga a pálya felépül.
  *  A pálya tulajdonságai is lekérdezhetőek, amelyek a pálya kirajzolásához kellenek majd.
@@ -56,8 +59,14 @@ public class Map {
      * @param p Eltávolítandó Player referenciája.
      */
     public void RemovePlayer(Player p) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> RemovePlayer");
         players.remove(p);
+
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("< RemovePlayer");
     }
 
@@ -66,8 +75,13 @@ public class Map {
      * @return
      */
     public int GetNumOfMBoxes() {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> GetNumOfMBoxes");
 
+
+        tabber--;
+        tabolo(tabber);
         System.out.println("< GetNumOfMBoxes");
         return num_of_movable_boxes;
     }
@@ -91,8 +105,13 @@ public class Map {
      * @return
      */
     public int GetGoalCounter() {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> GetGoalCounter");
 
+
+        tabolo(tabber);
+        tabber--;
         System.out.println("< GetGoalCounter");
         return goalcounter;
     }
@@ -102,8 +121,13 @@ public class Map {
      * @param n
      */
     public void SetGoalCounter(int n) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> SetGoalCounter");
         goalcounter = n;
+
+        tabolo(tabber);
+        tabber--;
         System.out.println("< SetGoalCounter");
     }
 
@@ -114,9 +138,15 @@ public class Map {
      * akkor meghívja az EndGame() függvényt.
      */
     public void CheckEndGame() {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> CheckEndGame");
      //   if ( (players.size() == 0)&&(goalcounter == num_of_movable_boxes))
        //     Game.EndGame();
+
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("< CheckEndGame");
     }
 

@@ -1,5 +1,8 @@
 package Program;
 
+import static Program.Main.tabber;
+import static Program.Main.tabolo;
+
 /**
  * A raktár építőeleme, nem tudunk rajta átmenni, dobozt áttolni. Ezzel ki tudjuk jelölni egy pálya határvonalát, játékteret biztosítva a játékosoknak.
  */
@@ -18,8 +21,15 @@ public class Wall extends Obstacle {
      * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> HitBy Box");
         super.HitBy(b,d);
+
+
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("< HitBy Box");
     }
 
@@ -29,8 +39,15 @@ public class Wall extends Obstacle {
      * @param d Ütközés iránya.
      */
     public void HitBy(Player p, Direction d) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> HitBy Player");
         super.HitBy(p,d);
+
+
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("< HitBy Player");
     }
 

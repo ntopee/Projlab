@@ -2,6 +2,9 @@ package Program;
 import java.util.*;
 import java.util.Map;
 
+import static Program.Main.tabber;
+import static Program.Main.tabolo;
+
 /**
  * A pálya mezőit reprezentálja.
  * Eltárolja a Thing-eket.
@@ -36,9 +39,16 @@ public class Tile {
      * @param t Egy Thing referencia.
      */
     public void Add(Thing t) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> Add "+t.toString());
         things.add(t);
         t.tile=this;
+
+
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("< Add");
     }
 
@@ -47,8 +57,15 @@ public class Tile {
      * @param t Eltávolítandó Thing referencia.
      */
     public void Remove(Thing t) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> Remove "+ t.toString());
         things.remove(t);
+
+
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("< Remove " );
     }
 
@@ -59,7 +76,12 @@ public class Tile {
      * @return
      */
     public Tile GetNeighbour(Direction d) {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> GetNeighbour");
+
+        tabolo(tabber);
+        tabber--;
 
         System.out.println("< GetNeighbour");
         return neighbours.get(d);
@@ -71,9 +93,17 @@ public class Tile {
      * @param t Ezt az értéket kapja meg a szomszéd.
      */
     public void SetNeighbour(Direction d, Tile t) {
+
+        tabber++;
+        tabolo(tabber);
         System.out.println("> SetNeighbour");
         neighbours.remove(d);
         neighbours.put(d, t);
+
+
+        tabolo(tabber);
+        tabber--;
+
         System.out.println("< SetNeighbour");
     }
 
