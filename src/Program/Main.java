@@ -338,7 +338,6 @@ public class Main {
         System.out.println("Player goal-ra lép");
         System.out.println("ITT KEZDŐDIK A TESZT");
 
-
         p.Move(Direction.right);
     }
 
@@ -397,11 +396,9 @@ public class Main {
     }
 
     public static void main(String args[]) throws IOException {
-
-
         //menü amiből ki lehet választani a teszeseteket
         while (true) {
-            System.out.println("Valassz tesztet: 1 2 3 4 5 6 7 8 9 10 11 12 13 majd nyomj entert");
+            System.out.println("Valassz tesztet: 1 2 3 4 5 6 7 8 9 10 11 12 13, kilepeshez -1 majd nyomj entert");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
             int i = 0;
@@ -450,6 +447,10 @@ public class Main {
                     break;
                 case 13:
                     tizenharmadikTeszt();
+                    break;
+                 case -1:
+                     System.out.println("Kilepes");
+                     return;
                 default:
                     System.out.println("Hibas input");
                     return;
