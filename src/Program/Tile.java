@@ -41,7 +41,7 @@ public class Tile {
     public void Add(Thing t) {
         tabber++;
         tabolo(tabber);
-        System.out.println("> Add "+t.toString());
+        System.out.println("> Add " + t.toString());
         things.add(t);
         t.tile=this;
 
@@ -49,7 +49,7 @@ public class Tile {
         tabolo(tabber);
         tabber--;
 
-        System.out.println("< Add");
+        System.out.println("< Add" + t.toString());
     }
 
     /**
@@ -59,14 +59,14 @@ public class Tile {
     public void Remove(Thing t) {
         tabber++;
         tabolo(tabber);
-        System.out.println("> Remove "+ t.toString());
+        System.out.println("> Remove " + t.toString());
         things.remove(t);
 
 
         tabolo(tabber);
         tabber--;
 
-        System.out.println("< Remove " );
+        System.out.println("< Remove " + t.toString());
     }
 
     /**

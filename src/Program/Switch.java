@@ -30,7 +30,7 @@ public class Switch extends Thing {
     public void HitBy(Box b, Direction d) {
         tabber++;
         tabolo(tabber);
-        System.out.println("> HitBy Box");
+        System.out.println("> Switch HitBy Box");
 
         this.Activate();
 
@@ -38,7 +38,7 @@ public class Switch extends Thing {
         tabolo(tabber);
         tabber--;
 
-        System.out.println("< HitBy Box");
+        System.out.println("< Switch HitBy Box");
     }
 
     /**

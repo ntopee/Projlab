@@ -33,7 +33,7 @@ public class Player extends Thing {
     public void HitBy(Box b, Direction d) {
         tabber++;
         tabolo(tabber);
-        System.out.println("> HitBy Box");
+        System.out.println("> Player HitBy Box");
         
         Tile t = tile.GetNeighbour(d);
         
@@ -50,7 +50,7 @@ public class Player extends Thing {
         tabolo(tabber);
         tabber--;
 
-        System.out.println("< HitBy Box");
+        System.out.println("< Player HitBy Box");
     }
 
     /**
@@ -59,13 +59,13 @@ public class Player extends Thing {
     public void Die() {
         tabber++;
         tabolo(tabber);
-        System.out.println("> Die");
+        System.out.println("> Die Player");
         tile.Remove(this);
         tile.GetMap().RemovePlayer(this);
         tabolo(tabber);
         tabber--;
 
-        System.out.println("< Die");
+        System.out.println("< Die Player");
     }
 
     /**
@@ -93,14 +93,14 @@ public class Player extends Thing {
         tabber++;
         tabolo(tabber);
 
-        System.out.println("> HitBy Player");
+        System.out.println("> Player HitBy Player");
         p.Move(Game.GetOpposite(d));
 
 
         tabolo(tabber);
         tabber--;
 
-        System.out.println("< HitBy Player");
+        System.out.println("< Player HitBy Player");
     }
 
     /**
