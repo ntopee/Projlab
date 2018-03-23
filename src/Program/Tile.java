@@ -14,6 +14,17 @@ public class Tile {
      * Cellát tartalmazó map referenciája.
      */
     private Program.Map map;
+    /**
+     *
+     * Egy olaj referencia, ha van a tile-on olaj.
+     */
+    private Oil oil;
+
+
+    /**
+     * Egy mez referencia, ha van a tile-on mez.
+     */
+    private Honey honey;
 
     /**
      * Default constructor
