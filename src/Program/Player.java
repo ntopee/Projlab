@@ -17,6 +17,24 @@ public class Player extends Thing {
     }
 
     /**
+     * Az atlagos player ereje
+     */
+
+    private final int avaragePlayerStrength = 50;
+
+    /**
+     * A munkas minimum ereje
+     */
+    private final int minimumPlayerStrength = 0;
+
+
+    /**
+     * A munkas maximum ereje
+     */
+    private final int maximumPlayerStrength = 100;
+
+
+    /**
      * Default constructor
      */
     public Player() {
@@ -30,12 +48,12 @@ public class Player extends Thing {
      */
     public Player(int Strength){
 
-            if(!(Strength<0 || Strength>100)){
+            if(!(Strength<minimumPlayerStrength || Strength>maximumPlayerStrength)){
             this.strength = Strength;
             }
             else {
-                this.strength = 50;
-                System.err.println("The value is inappropriate, the strength is set to 50");
+                this.strength = avaragePlayerStrength;
+                System.err.println("The value is inappropriate, the player's strength is set to 50");
             }
 
     }

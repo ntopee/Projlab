@@ -13,11 +13,47 @@ public class Box extends Thing {
         return "Box";
     }
 
+
+    /**
+     * az atlagos lada tomege
+     */
+    private final int avarageBoxWeight = 13;
+
+    /**
+     * minimum tomege a ladanak
+     */
+    private final int minimumBoxWeight = 0;
+
+    /**
+     * maximum tomege a ladanak
+     */
+
+    private final int maximumBoxWeight = 25;
+
     /**
      * Default constructor
      */
     public Box() {
         movable = true;
+        this.weight = avarageBoxWeight;
+
+    }
+
+
+    /**
+     * Parameteres konstruktor
+     * @param Weight a lada sulya
+     */
+    public Box(int Weight){
+        movable = true;
+
+        if(!(Weight<minimumBoxWeight || Weight>maximumBoxWeight)){
+            this.weight = Weight;
+        }
+        else {
+            this.weight = avarageBoxWeight;
+            System.err.println("The value is inappropriate, the box's weight is set to 13");
+        }
     }
 
 
@@ -31,11 +67,20 @@ public class Box extends Thing {
      */
     private boolean isOnGoal = false;
 
+
+    /**
+     * Megadja, hogy milyen nehez a lada
+     */
+    private int weight;
+
+
     /**
      * Box-ként ütközik Box-al.
      * @param b Box referencia.
      * @param d Ütközés iránya.
      */
+
+
     public void HitBy(Box b, Direction d) {
         tabber++;
         tabolo(tabber);
@@ -264,5 +309,20 @@ public class Box extends Thing {
 
     public void setMovable(boolean B){
         movable = B;
+    }
+
+
+    public int getWeight(){
+
+        tabber++;
+        tabolo(tabber);
+        System.out.println("> GetWeight");
+
+        tabolo(tabber);
+        tabber--;
+
+        System.out.println("< GetWeight");
+
+        return weight;
     }
 }
