@@ -9,6 +9,8 @@ import static Program.Main.tabolo;
  */
 public class Player extends Thing {
 
+
+
     @Override
     public String toString() {
         return "Player";
@@ -18,12 +20,39 @@ public class Player extends Thing {
      * Default constructor
      */
     public Player() {
+        this.strength = 50;
+    }
+
+
+    /**
+     * Paraméteres konstruktor, így megadható a player ereje
+     * @param Strength a munkás ereje
+     */
+    public Player(int Strength){
+
+            if(!(Strength<0 || Strength>100)){
+            this.strength = Strength;
+            }
+            else {
+                this.strength = 50;
+                System.err.println("The value is inappropriate, the strength is set to 50");
+            }
+
     }
 
     /**
      * Az adott játékos pontjait tárolja.
      */
     private int points;
+
+
+
+    /**
+     *
+     * Az adott játékos erejét tárolja
+     */
+
+    private int strength;
 
     /**
      * Player-ként ütközik egy Box-al. Meghívja a Player Move metódusát az ellenkező irányba.
@@ -132,7 +161,7 @@ public class Player extends Thing {
 
     /**
      * Visszaadja a Player pontszámát.
-     * @return
+     * @return visszaadja a játékos pontszámát
      */
     public int GetPoints() {
         tabber++;
@@ -175,4 +204,24 @@ public class Player extends Thing {
 
         System.out.println("< PlayerPushedIntoIt");
     }
+
+
+    public int GetStregth(){
+        tabber++;
+        tabolo(tabber);
+        System.out.println("> GetStrength");
+
+        tabolo(tabber);
+        tabber--;
+
+        System.out.println("< GetStrength");
+
+
+        return strength;
+    }
+
+
+
+
+
 }
