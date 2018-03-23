@@ -78,20 +78,23 @@ public class Box extends Thing {
      * Box-ként ütközik Box-al.
      * @param b Box referencia.
      * @param d Ütközés iránya.
+     * @param Force Az utkozes ereje
      */
 
 
-    public void HitBy(Box b, Direction d) {
+    public void HitBy(Box b, Direction d, double Force) {
         tabber++;
         tabolo(tabber);
 
         System.out.println("> Box HitBy Box");
-        if (!this.movable)
-            b.HitBy(this,Game.GetOpposite(d));
+        double tmp = Force-weight*tile.getOil().getFriction()*tile.getHoney().getFriction();
+        if (!this.movable || (tmp<=0))
+            b.HitBy(this,Game.GetOpposite(d), Force);
         else {
-            Step(d);
+            Step(d, Force);
             movable = CheckMovable();
         }
+
         tabolo(tabber);
         tabber--;
 
@@ -102,17 +105,18 @@ public class Box extends Thing {
      * Box-ként ütközik egy Player-el.
      * @param p Player referencia
      * @param d Az ütközés iránya
+     * @param Force Az utkozes ereje
      */
-    public void HitBy(Player p, Direction d) {
+    public void HitBy(Player p, Direction d, double Force) {
         tabber++;
         tabolo(tabber);
         System.out.println("> Box HitBy Player");
-
-        if (!this.movable){
+        double tmp = Force-weight*tile.getOil().getFriction()*tile.getHoney().getFriction();
+        if (!this.movable || tmp <= 0){
             p.Move(Game.GetOpposite(d));
         }
         else{
-            Step(d);
+            Step(d,Force);
             movable = CheckMovable();
         }
         tabolo(tabber);
@@ -144,13 +148,14 @@ public class Box extends Thing {
      * A függvénynek megadott irányba mozgatja a ládát egy mezővel(ha lehet).
      * @param o Obstacle referencia.
      * @param d Ütközés iránya.
+     * @param Force Az utkozes ereje
      */
-    public void HitBy(Obstacle o, Direction d) {
+    public void HitBy(Obstacle o, Direction d, double Force) {
         tabber++;
         tabolo(tabber);
         System.out.println("> Box HitBy Obstacle");
 
-        Step(d);
+        Step(d, Force);
 
         tabolo(tabber);
         tabber--;
@@ -278,8 +283,9 @@ public class Box extends Thing {
     /**
      * Lépteti a dobozokat.
      * @param d Léptetés iránya.
+     * @param Force Az utkozes ereje
      */
-    private void Step (Direction d){
+    private void Step (Direction d,double Force){
 
 
         Tile t = tile.GetNeighbour(d);
@@ -292,7 +298,7 @@ public class Box extends Thing {
 
         for(Thing i : t.GetThings())
             if (!i.equals(this))
-            i.HitBy(this,d);
+            i.HitBy(this,d,Force);
     }
 
     public void PlayerPushedIntoIt(Player p) {

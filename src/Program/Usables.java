@@ -5,8 +5,18 @@ import static Program.Main.tabolo;
 
 public abstract class Usables {
 
-    private final double friction = 1;
 
+    /**
+     * A surlodas erteke.
+     */
+    private double friction = 1;
+
+
+    /**
+     *
+     * Visszaadja a surlodas erteket.
+     * @return
+     */
 
     public double getFriction(){
         tabber++;
@@ -21,5 +31,23 @@ public abstract class Usables {
 
 
         return friction;
+    }
+
+    /**
+     * Beallitja a surlodas erteket.
+     * @param Friction Az az ertek, mit be szeretnenk allitani uj erteknek a surlodashoz.
+     */
+
+    public void setFriction(double Friction){
+        tabber++;
+        tabolo(tabber);
+        System.out.println("> SetFriction");
+
+        tabolo(tabber);
+        tabber--;
+
+        System.out.println("< SetFriction");
+
+        this.friction = Friction;
     }
 }

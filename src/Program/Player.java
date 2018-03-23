@@ -76,8 +76,9 @@ public class Player extends Thing {
      * Player-ként ütközik egy Box-al. Meghívja a Player Move metódusát az ellenkező irányba.
      * @param b Box referencia.
      * @param d Ütközés iránya.
+     * @param Force Az utkozes ereje
      */
-    public void HitBy(Box b, Direction d) {
+    public void HitBy(Box b, Direction d, double Force) {
         tabber++;
         tabolo(tabber);
         System.out.println("> Player HitBy Box");
@@ -135,8 +136,9 @@ public class Player extends Thing {
      * Player-ként ütközik egy másik Player-rel.
      * @param p Player referencia.
      * @param d Ütközés iránya.
+     * @param Force Az utkozes ereje
      */
-    public void HitBy(Player p, Direction d) {
+    public void HitBy(Player p, Direction d, double Force) {
         tabber++;
         tabolo(tabber);
 
@@ -166,7 +168,7 @@ public class Player extends Thing {
 
         for (Thing i : t.GetThings()){
             if (!i.equals(this))
-                i.HitBy(this, d);
+                i.HitBy(this, d, strength);
 
         }
 

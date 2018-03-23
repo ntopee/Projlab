@@ -43,8 +43,9 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
      * ha a dolognak egy játékos ütközött.
      * @param p Player referencia.
      * @param d Ütközés iránya.
+     * @param Force Az utkozes ereje
      */
-    public void HitBy(Player p, Direction d) {
+    public void HitBy(Player p, Direction d, double Force) {
         tabber++;
         tabolo(tabber);
 
@@ -61,8 +62,9 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
      * ha a dolognak egy láda ütközött.
      * @param b Box referencia.
      * @param d Ütközés iránya.
+     * @param Force Az utkozes ereje.
      */
-    public void HitBy(Box b, Direction d) {
+    public void HitBy(Box b, Direction d, double Force) {
         tabber++;
         tabolo(tabber);
         System.out.println("> HitBy Box");

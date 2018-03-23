@@ -21,12 +21,12 @@ public abstract class Obstacle extends Thing {
      * @param b Box referencia.
      * @param d Ütközés iránya.
      */
-    public void HitBy(Box b, Direction d) {
+    public void HitBy(Box b, Direction d, double Force) {
         tabber++;
         tabolo(tabber);
         System.out.println("> Obstacle HitBy Box");
 
-        b.HitBy(this,Game.GetOpposite(d));
+        b.HitBy(this,Game.GetOpposite(d), Force);
 
         tabolo(tabber);
         tabber--;
@@ -40,7 +40,7 @@ public abstract class Obstacle extends Thing {
      * @param p Player referencia.
      * @param d Ütközés iránya.
      */
-    public void HitBy(Player p, Direction d) {
+    public void HitBy(Player p, Direction d, double Force) {
         tabber++;
         tabolo(tabber);
         System.out.println("> Obstacle HitBy Player");
