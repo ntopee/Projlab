@@ -27,7 +27,7 @@ public class Switch extends Thing {
      * @param b Box referencia.
      * @param d Ütközés iránya.
      */
-    public void HitBy(Box b, Direction d) {
+    public void HitBy(Box b, Direction d, double Force) {
         tabber++;
         tabolo(tabber);
         System.out.println("> Switch HitBy Box");

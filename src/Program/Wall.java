@@ -20,11 +20,11 @@ public class Wall extends Obstacle {
      * @param b Box referencia.
      * @param d Ütközés iránya.
      */
-    public void HitBy(Box b, Direction d) {
+    public void HitBy(Box b, Direction d, double Force) {
         tabber++;
         tabolo(tabber);
         System.out.println("> HitBy Box");
-        super.HitBy(b,d);
+        super.HitBy(b,d, Force);
 
 
         tabolo(tabber);
@@ -38,11 +38,11 @@ public class Wall extends Obstacle {
      * @param p Player referencia.
      * @param d Ütközés iránya.
      */
-    public void HitBy(Player p, Direction d) {
+    public void HitBy(Player p, Direction d, double Force) {
         tabber++;
         tabolo(tabber);
         System.out.println("> HitBy Player");
-        super.HitBy(p,d);
+        super.HitBy(p,d, Force);
 
 
         tabolo(tabber);

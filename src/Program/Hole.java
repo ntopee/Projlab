@@ -26,7 +26,7 @@ public class Hole extends Thing {
      * @param p Player referencia.
      * @param d Ütközés iránya.
      */
-    public void HitBy(Player p, Direction d) {
+    public void HitBy(Player p, Direction d, double Force) {
         tabber++;
         tabolo(tabber);//Ez nem kb ugyan az mint a player PushedintoIt? valahogy a két függvényt kéne mergelni valamilyen néven #bende
         System.out.println("> Hole HitBy Player");          //Full maskor hivodik meg, mivel nem tudunk instanceof-ot hasznalni, ezert nem tudjuk hogy minek hivjuk a fuggvenyeit.
@@ -45,7 +45,7 @@ public class Hole extends Thing {
      * @param b Box referencia.
      * @param d Ütközés iránya.
      */
-    public void HitBy(Box b, Direction d) {
+    public void HitBy(Box b, Direction d, double Force) {
         tabber++;
         tabolo(tabber);
         System.out.println("> Hole HitBy Box");
