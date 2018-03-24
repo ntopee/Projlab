@@ -401,7 +401,7 @@ public class Main {
         Tile T2 = new Tile(m);
         Tile T3 = new Tile(m);
         Tile T4 = new Tile(m);
-        Player p = new Player(30);        //Néhány objektum példányosítása a példákhoz.
+        Player p = new Player(25);        //Néhány objektum példányosítása a példákhoz.
         Box b1 = new Box(22);
         Box b2 = new Box(5);
         Wall w = new Wall();
