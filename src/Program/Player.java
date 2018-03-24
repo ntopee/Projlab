@@ -32,7 +32,7 @@ public class Player extends Thing {
     /**
      * A munkas maximum ereje
      */
-    private final int maximumPlayerStrength = 100;
+    public static final int maximumPlayerStrength = 100;
 
 
     /**

@@ -89,7 +89,7 @@ public class Box extends Thing {
         System.out.println("> Box HitBy Box");
         double tmp = Force-weight*tile.GetOil()*tile.GetHoney();
         if (!this.movable || (tmp<=0))
-            b.HitBy(this,Game.GetOpposite(d), Force);
+            b.HitBy(this,Game.GetOpposite(d), Player.maximumPlayerStrength);
         else {
             Step(d, tmp);
             movable = CheckMovable();

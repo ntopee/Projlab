@@ -26,7 +26,7 @@ public abstract class Obstacle extends Thing {
         tabolo(tabber);
         System.out.println("> Obstacle HitBy Box");
 
-        b.HitBy(this,Game.GetOpposite(d), Force);
+        b.HitBy(this,Game.GetOpposite(d), Player.maximumPlayerStrength);
 
         tabolo(tabber);
         tabber--;

@@ -395,8 +395,38 @@ public class Main {
         System.out.println("\n----------------------\n");
     }
 
+    public static void Teszt(){
+        Map m = new Map();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
+        Tile T3 = new Tile(m);
+        Tile T4 = new Tile(m);
+        Player p = new Player(30);        //Néhány objektum példányosítása a példákhoz.
+        Box b1 = new Box(22);
+        Box b2 = new Box(5);
+        Wall w = new Wall();
+
+        m.tiles.add(T1);
+        m.tiles.add(T2);
+        m.tiles.add(T3);
+        T1.Add(p);
+        T2.Add(b1);
+        T3.Add(b2);
+        T4.Add(w);
+
+        T1.SetNeighbour(Direction.right,T2);
+        T2.SetNeighbour(Direction.left,T1);
+        T2.SetNeighbour(Direction.right,T3);
+        T3.SetNeighbour(Direction.left,T2);
+        T3.SetNeighbour(Direction.right,T4);
+        T4.SetNeighbour(Direction.left,T3);
+
+
+        p.Move(Direction.right);
+    }
+
     public static void main(String args[]) throws IOException {
-        //menü amiből ki lehet választani a teszeseteket
+        /*//menü amiből ki lehet választani a teszeseteket
         while (true) {
             System.out.println("Valassz tesztet: 1 2 3 4 5 6 7 8 9 10 11 12 13, kilepeshez -1 majd nyomj entert");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
@@ -455,6 +485,9 @@ public class Main {
                     System.out.println("Hibas input");
                     return;
             }
-        }
+
+        }*/
+        Teszt();
+
     }
 }
