@@ -79,7 +79,7 @@ public class Main {
             b2.setMovable(true);
         else
             b2.setMovable(false);
-        b.HitBy(new Player(),Direction.right);
+        b.HitBy(new Player(),Direction.right,100);
 
         System.out.println("\n----------------------\n");
     }
@@ -127,7 +127,7 @@ public class Main {
         System.out.println("(Box) Dobozt neki lok egy jatekos egy falnak. " +
                 "\nA jelenlegi specifikacio szerint a fal es az oszlop ugyan ugy viselkedik, " +
                 "\ntehat ez a teszteset lefedi azt is amikor a dobozt egy oszlopnak lokjuk.");
-        b.HitBy(new Player(), Direction.right);
+        b.HitBy(new Player(), Direction.right,100);
 
         System.out.println("\n----------------------\n");
     }
@@ -151,7 +151,7 @@ public class Main {
         System.out.println("(Box) Dobozt neki lok egy jatekos egy celnak. " +
                 "\nDobozok nem tudnak maguktol mozogni, ezert egy Player tolja a dobozt," +
                 "\nami így a celra er.");
-        b.HitBy(new Player(), Direction.right);
+        b.HitBy(new Player(), Direction.right,100);
 
 
         System.out.println("\n----------------------\n");
@@ -228,7 +228,7 @@ public class Main {
 
         System.out.println("\nITT KEZDŐDIK A TESZT");
 
-        b.HitBy(new Player(),Direction.right);
+        b.HitBy(new Player(),Direction.right,100);
 
         System.out.println("\n----------------------\n");
     }
@@ -314,7 +314,7 @@ public class Main {
 
 
         System.out.println("ITT KEZDŐDIK A TESZT");
-        s.HitBy(p, Direction.right);
+        s.HitBy(p, Direction.right, 100);
 
         System.out.println("\n----------------------\n");
     }
@@ -361,7 +361,7 @@ public class Main {
                 "\nEz a teszteset lefedi mint a 4 variaciot, aminek neki lehet tolni egy playert.");
 
         System.out.println("ITT KEZDŐDIK A TESZT");
-        p.HitBy(new Box(),Direction.right);
+        p.HitBy(new Box(),Direction.right,100);
 
     }
 

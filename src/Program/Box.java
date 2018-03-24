@@ -87,11 +87,11 @@ public class Box extends Thing {
         tabolo(tabber);
 
         System.out.println("> Box HitBy Box");
-        double tmp = Force-weight*tile.getOil().getFriction()*tile.getHoney().getFriction();
+        double tmp = Force-weight*tile.GetOil()*tile.GetHoney();
         if (!this.movable || (tmp<=0))
             b.HitBy(this,Game.GetOpposite(d), Force);
         else {
-            Step(d, Force);
+            Step(d, tmp);
             movable = CheckMovable();
         }
 
@@ -111,12 +111,12 @@ public class Box extends Thing {
         tabber++;
         tabolo(tabber);
         System.out.println("> Box HitBy Player");
-        double tmp = Force-weight*tile.getOil().getFriction()*tile.getHoney().getFriction();
+        double tmp = Force-weight*tile.GetOil()*tile.GetHoney();
         if (!this.movable || tmp <= 0){
             p.Move(Game.GetOpposite(d));
         }
         else{
-            Step(d,Force);
+            Step(d,tmp);
             movable = CheckMovable();
         }
         tabolo(tabber);

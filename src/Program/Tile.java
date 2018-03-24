@@ -18,13 +18,13 @@ public class Tile {
      *
      * Egy olaj referencia, ha van a tile-on olaj.
      */
-    private Oil oil = new Oil();
+    private double oil = 1.0;
 
 
     /**
      * Egy mez referencia, ha van a tile-on mez.
      */
-    private Honey honey = new Honey();
+    private double honey = 1.0;
 
     /**
      * Default constructor
@@ -135,20 +135,19 @@ public class Tile {
         return map;
     }
 
-
-    /**
-     * Visszaadja a mez referenciat.
-     * @return Mez visszateres.
-     */
-    public Honey getHoney(){
+    public double GetHoney(){
         return honey;
     }
 
-    /**
-     * Visszaadja az olaj referenciat.
-     * @return Olaj visszateres.
-     */
-    public Oil getOil(){
+    public void SetHoney(double n){
+        honey = n;
+    }
+
+    public double GetOil(){
         return oil;
+    }
+
+    public void SetOil(double n){
+        oil = n;
     }
 }

@@ -9,7 +9,8 @@ import static Program.Main.tabolo;
  */
 public class Player extends Thing {
 
-
+    private final double HONEY = 1.45;
+    private final double OIL = 0.55;
 
     @Override
     public String toString() {
@@ -240,8 +241,12 @@ public class Player extends Thing {
         return strength;
     }
 
+    public void Bee(){
+        tile.SetHoney(HONEY);
+    }
 
-
-
+    public void USA(){
+        tile.SetOil(OIL);
+    }
 
 }
