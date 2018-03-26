@@ -29,8 +29,7 @@ public class Tile {
     /**
      * Default constructor
      */
-    public Tile(Program.Map m) {map = m;
-    }
+    public Tile(Program.Map m) { map = m; }
 
 
 

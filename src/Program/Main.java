@@ -425,6 +425,69 @@ public class Main {
         p.Move(Direction.right);
     }
 
+
+    public static void PlayerBoxBox(){
+        Map m = new Map();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
+        Tile T3 = new Tile(m);
+        Tile T4 = new Tile(m);
+
+        Player p = new Player(35);        //Néhány objektum példányosítása a példákhoz.
+        Box b1 = new Box(22);
+        Box b2 = new Box(5);
+
+        m.tiles.add(T1);
+        m.tiles.add(T2);
+        m.tiles.add(T3);
+        m.tiles.add(T4);
+        T1.Add(p);
+        T2.Add(b1);
+        T3.Add(b2);
+
+        T1.SetNeighbour(Direction.right,T2);
+        T2.SetNeighbour(Direction.left,T1);
+        T2.SetNeighbour(Direction.right,T3);
+        T3.SetNeighbour(Direction.left,T2);
+        T3.SetNeighbour(Direction.right,T4);
+        T4.SetNeighbour(Direction.left,T3);
+
+        System.out.println("\n------------------\nSzekvencia\n-------------------\n");
+        p.Move(Direction.right);
+    }
+
+    public static void PlayerBoxPlayerBox(){
+        Map m = new Map();
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
+        Tile T3 = new Tile(m);
+        Tile T4 = new Tile(m);
+
+        Player p1 = new Player(35);
+        Player p2 = new Player(35);        //Néhány objektum példányosítása a példákhoz.
+        Box b1 = new Box(22);
+        Box b2 = new Box(5);
+
+        m.tiles.add(T1);
+        m.tiles.add(T2);
+        m.tiles.add(T3);
+        m.tiles.add(T4);
+        T1.Add(p1);
+        T2.Add(b1);
+        T3.Add(p2);
+        T4.Add(b2);
+
+        T1.SetNeighbour(Direction.right,T2);
+        T2.SetNeighbour(Direction.left,T1);
+        T2.SetNeighbour(Direction.right,T3);
+        T3.SetNeighbour(Direction.left,T2);
+        T3.SetNeighbour(Direction.right,T4);
+        T4.SetNeighbour(Direction.left,T3);
+
+        System.out.println("\n------------------\nSzekvencia\n-------------------\n");
+        p1.Move(Direction.right);
+    }
+
     public static void main(String args[]) throws IOException {
         /*//menü amiből ki lehet választani a teszeseteket
         while (true) {
@@ -487,7 +550,10 @@ public class Main {
             }
 
         }*/
-        Teszt();
+        //Teszt();
 
+        //PlayerBoxBox();
+
+        PlayerBoxPlayerBox();
     }
 }
