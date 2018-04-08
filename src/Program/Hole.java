@@ -13,6 +13,7 @@ public class Hole extends Thing {
      */
     public Hole(boolean a) {
         active = a;
+        movable = true;
     }
 
 

@@ -1,5 +1,7 @@
 package Program;
 
+import java.util.ArrayList;
+
 import static Program.Main.tabber;
 import static Program.Main.tabolo;
 
@@ -174,6 +176,29 @@ public class Box extends Thing {
         tabolo(tabber);
         System.out.println("> CheckMovable");
         // TODO implement here -- meg kell nézni hogy két szomszédos szomszédja movable-e.
+
+        ArrayList<Thing> D = tile.GetNeighbour(Direction.down).GetThings();
+        ArrayList<Thing> U = tile.GetNeighbour(Direction.up).GetThings();
+        ArrayList<Thing> L = tile.GetNeighbour(Direction.left).GetThings();
+        ArrayList<Thing> R = tile.GetNeighbour(Direction.right).GetThings();
+
+        boolean down = true;
+        boolean up = true;
+        boolean left = true;
+        boolean right = true;
+
+        for (int i = 0; i<D.size(); i++)
+            if(D.get(i).getMovable() == false) down = false;
+
+        for (int i = 0; i<U.size(); i++)
+            if(U.get(i).getMovable() == false) up = false;
+
+        for (int i = 0; i<L.size(); i++)
+            if(L.get(i).getMovable() == false) left = false;
+
+        for (int i = 0; i<R.size(); i++)
+            if(R.get(i).getMovable() == false) right = false;
+
         /*
         felulnezet:
         b = Box, O = Obstacle, x = mindegy
@@ -186,7 +211,10 @@ public class Box extends Thing {
         tabber--;
 
         System.out.println("< CheckMovable");
-        return false;
+        if((down == false && (right == false || left == false))
+                || (up == false && (right == false || left == false)) ) return false;
+
+        return true;
     }
 
     /**

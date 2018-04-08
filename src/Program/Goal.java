@@ -12,6 +12,8 @@ public class Goal extends Thing {
      * Default constructor
      */
     public Goal() {
+        movable = true;
+
     }
 
     /**

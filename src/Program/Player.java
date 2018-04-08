@@ -40,6 +40,7 @@ public class Player extends Thing {
      */
     public Player() {
         this.strength = 50;
+        movable = true;
     }
 
 
@@ -48,7 +49,7 @@ public class Player extends Thing {
      * @param Strength a munkás ereje
      */
     public Player(int Strength){
-
+            movable = true;
             if(!(Strength<minimumPlayerStrength || Strength>maximumPlayerStrength)){
             this.strength = Strength;
             }

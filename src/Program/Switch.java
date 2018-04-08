@@ -15,6 +15,7 @@ public class Switch extends Thing {
      */
     public Switch(Hole h) {
         holes.add(h);
+        movable = true;
     }
 
     /**
