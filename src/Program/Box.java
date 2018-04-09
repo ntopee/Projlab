@@ -38,9 +38,6 @@ public class Box extends Thing {
     public Box() {
         movable = true;
         this.weight = avarageBoxWeight;
-        tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes()+1);
-
-
     }
 
 
@@ -50,7 +47,6 @@ public class Box extends Thing {
      */
     public Box(int Weight){
         movable = true;
-        tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes()+1);
 
         if(!(Weight<minimumBoxWeight || Weight>maximumBoxWeight)){
             this.weight = Weight;
@@ -243,15 +239,9 @@ public class Box extends Thing {
         System.out.println("< CheckMovable");
         if((down == false && (right == false || left == false))
                 || (up == false && (right == false || left == false)) ) {
-            movable = false;
-            tile.GetMap().DecreaseNumOfBoxes();
-            return false;
+              return false;
         }
 
-        if(movable == false) {
-            movable = true;
-            tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes()+1);
-        }
         return true;
     }
 

@@ -13,7 +13,6 @@ public class Goal extends Thing {
      */
     public Goal() {
         movable = true;
-        tile.GetMap().IncreaseNumOfGoals();
     }
 
     /**
