@@ -156,51 +156,72 @@ public class Hole extends Thing {
 
 
         for (int i = 0; i<D.size(); i++)
-            if(D.get(i) instanceof Box)
-                if((D.get(i).getMovable() == false) &&
-                        (((Box) D.get(i)).GetisOnGoal()== true)) {
+            if(D.get(i) instanceof Box) {
+
+
+                if ((D.get(i).getMovable() == false) &&
+                        (((Box) D.get(i)).GetisOnGoal() == true)) {
                     D.get(i).setMovable(((Box) D.get(i)).CheckMovable());
-                    if(D.get(i).getMovable() == true) {
+                    if (D.get(i).getMovable() == true) {
                         tile.GetMap().SetCounterWeight(
                                 tile.GetMap().GetCounterWeight() - 1);
-                    tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes()+1);
+                        tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes() + 1);
                     }
                 }
+                else
+                D.get(i).setMovable(((Box) D.get(i)).CheckMovable());
+            }
 
         for (int i = 0; i<U.size(); i++)
-            if(U.get(i) instanceof Box)
-                if((U.get(i).getMovable() == false) &&
-                    (((Box) U.get(i)).GetisOnGoal()== true)) {
-                U.get(i).setMovable(((Box) U.get(i)).CheckMovable());
-                if(U.get(i).getMovable() == true) {
-                    tile.GetMap().SetCounterWeight(
-                            tile.GetMap().GetCounterWeight() - 1);
-                    tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes()+1);
+            if(U.get(i) instanceof Box) {
+
+
+                if ((U.get(i).getMovable() == false) &&
+                        (((Box) U.get(i)).GetisOnGoal() == true)) {
+                    U.get(i).setMovable(((Box) U.get(i)).CheckMovable());
+                    if (U.get(i).getMovable() == true) {
+                        tile.GetMap().SetCounterWeight(
+                                tile.GetMap().GetCounterWeight() - 1);
+                        tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes() + 1);
+                    }
                 }
+                else
+                U.get(i).setMovable(((Box) U.get(i)).CheckMovable());
             }
 
         for (int i = 0; i<L.size(); i++)
-            if(L.get(i)instanceof Box)
-                if((L.get(i).getMovable() == false) &&
-                        (((Box) L.get(i)).GetisOnGoal()== true)) {
+            if(L.get(i)instanceof Box) {
+
+
+                if ((L.get(i).getMovable() == false) &&
+                        (((Box) L.get(i)).GetisOnGoal() == true)) {
                     L.get(i).setMovable(((Box) L.get(i)).CheckMovable());
-                    if(L.get(i).getMovable() == true) {
+                    if (L.get(i).getMovable() == true) {
                         tile.GetMap().SetCounterWeight(
                                 tile.GetMap().GetCounterWeight() - 1);
-                        tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes()+1);
+                        tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes() + 1);
                     }
                 }
+                else
+                    L.get(i).setMovable(((Box) L.get(i)).CheckMovable());
+            }
 
         for (int i = 0; i<R.size(); i++)
-            if(R.get(i) instanceof Box)
-                if((R.get(i).getMovable() == false) &&
-                        (((Box) R.get(i)).GetisOnGoal()== true)) {
+            if(R.get(i) instanceof Box) {
+
+
+                if ((R.get(i).getMovable() == false) &&
+                        (((Box) R.get(i)).GetisOnGoal() == true)) {
                     R.get(i).setMovable(((Box) R.get(i)).CheckMovable());
-                    if(R.get(i).getMovable() == true) {
+                    if (R.get(i).getMovable() == true) {
                         tile.GetMap().SetCounterWeight(
                                 tile.GetMap().GetCounterWeight() - 1);
-                        tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes()+1);
+                        tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes() + 1);
                     }
                 }
+                else
+                R.get(i).setMovable(((Box) R.get(i)).CheckMovable());
+            }
+
     }
 }
