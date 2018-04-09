@@ -153,5 +153,14 @@ public class Tile {
         oil = n;
     }
 
+    public void AddThingsFromDirectionToList(Direction d, ArrayList<Thing> AL){
+        try {
+             AL.addAll(GetNeighbour(d).GetThings());
+        }
+            catch (NullPointerException except) {
+            System.out.println("No neighbour found from the direction.");
+        }
+    }
+
 
 }

@@ -253,7 +253,7 @@ public class Box extends Thing {
         System.out.println("< CheckMovable");
         if((down == false && (right == false || left == false))
                 || (up == false && (right == false || left == false)) ) {
-              return false;
+                return false;
         }
 
         return true;
