@@ -147,7 +147,7 @@ public class Map {
         tabber++;
         tabolo(tabber);
         System.out.println("> CheckEndGame");
-        if ( (players.size() == 0) || (goalcounter == (num_of_movable_boxes + counterweight)) || (num_of_movable_boxes ==0))
+        if ( (players.size() == 0) || (goalcounter == (num_of_movable_boxes + counterweight)) || (num_of_movable_boxes == 0))
             Game.EndGame();
 
         tabolo(tabber);

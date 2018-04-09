@@ -79,7 +79,7 @@ public class Hole extends Thing {
             for (Thing i : tile.GetThings())
                 if (!i.equals(this))
                     i.Die();
-           // NeighbourTeller();
+            NeighbourTeller();
         }
 
         tabolo(tabber);
@@ -155,6 +155,7 @@ public class Hole extends Thing {
         }
 
 
+
         for (int i = 0; i<D.size(); i++)
             if(D.get(i) instanceof Box) {
 
@@ -212,8 +213,11 @@ public class Hole extends Thing {
 
                 if ((R.get(i).getMovable() == false) &&
                         (((Box) R.get(i)).GetisOnGoal() == true)) {
+
                     R.get(i).setMovable(((Box) R.get(i)).CheckMovable());
+
                     if (R.get(i).getMovable() == true) {
+
                         tile.GetMap().SetCounterWeight(
                                 tile.GetMap().GetCounterWeight() - 1);
                         tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes() + 1);

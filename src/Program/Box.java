@@ -93,13 +93,15 @@ public class Box extends Thing {
             b.HitBy(this,Game.GetOpposite(d), Player.maximumPlayerStrength);
         else {
             Step(d, tmp);
-            if(movable == true){
-                movable = CheckMovable();
-                if(movable == false)
-                    tile.GetMap().DecreaseNumOfBoxes();
-            }
 
-        }
+                movable = CheckMovable();
+                if(movable == false) {
+                    tile.GetMap().DecreaseNumOfBoxes();
+                    NeighbourMovableChecker();
+
+                 }
+
+            }
 
         tabolo(tabber);
         tabber--;
@@ -123,13 +125,15 @@ public class Box extends Thing {
         }
         else{
             Step(d,tmp);
-            if(movable == true){
-                movable = CheckMovable();
-                if(movable == false)
-                    tile.GetMap().DecreaseNumOfBoxes();
-            }
 
-        }
+                movable = CheckMovable();
+                if(movable == false) {
+                    tile.GetMap().DecreaseNumOfBoxes();
+                    NeighbourMovableChecker();
+                }
+
+
+             }
         tabolo(tabber);
         tabber--;
 
@@ -365,6 +369,70 @@ public class Box extends Thing {
         for(Thing i : t.GetThings())
             if (!i.equals(this))
             i.HitBy(this,d,Force);
+    }
+
+    public void NeighbourMovableChecker(){
+
+
+        ArrayList<Thing> D = new ArrayList<Thing>();
+        ArrayList<Thing> U = new ArrayList<Thing>();;
+        ArrayList<Thing> L = new ArrayList<Thing>();;
+        ArrayList<Thing> R = new ArrayList<Thing>();;
+
+        try{
+            D.addAll(tile.GetNeighbour(Direction.down).GetThings());
+        }
+        catch (NullPointerException except){
+            System.out.println("No southern neighbour found");
+        }
+
+        try{
+            U.addAll(tile.GetNeighbour(Direction.up).GetThings()) ;
+        }
+        catch (NullPointerException except){
+            System.out.println("No Northern neighbour found");
+        }
+
+        try{
+            L.addAll(tile.GetNeighbour(Direction.left).GetThings());
+        }
+        catch (NullPointerException except){
+            System.out.println("No Western neighbour found");
+        }
+
+        try{
+            R.addAll(tile.GetNeighbour(Direction.right).GetThings());
+        }
+        catch (NullPointerException except){
+            System.out.println("No Eastern neighbour found");
+        }
+
+
+
+        for (int i = 0; i<D.size(); i++)
+            if(D.get(i) instanceof Box) {
+
+                    D.get(i).setMovable(((Box) D.get(i)).CheckMovable());
+            }
+
+        for (int i = 0; i<U.size(); i++)
+            if(U.get(i) instanceof Box) {
+
+                    U.get(i).setMovable(((Box) U.get(i)).CheckMovable());
+            }
+
+        for (int i = 0; i<L.size(); i++)
+            if(L.get(i)instanceof Box) {
+
+                    L.get(i).setMovable(((Box) L.get(i)).CheckMovable());
+            }
+
+        for (int i = 0; i<R.size(); i++)
+            if(R.get(i) instanceof Box) {
+
+                    R.get(i).setMovable(((Box) R.get(i)).CheckMovable());
+            }
+
     }
 
     public void PlayerPushedIntoIt(Player p) {
