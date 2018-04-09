@@ -28,12 +28,16 @@ public class Goal extends Thing {
         tabolo(tabber);
         System.out.println("> Goal HitBy Box");
 
-        if(b.GetValid()){
+        if(b.GetValid()) {
             b.SetValid();
-            b.SetisOnGoal();
             b.AddPoint(Game.GetOpposite(d));
-            tile.GetMap().CheckEndGame();
         }
+            b.SetisOnGoal();
+           if(b.CheckMovable() == false)
+               tile.GetMap().SetCounterWeight(
+                   tile.GetMap().GetCounterWeight()+1);
+            tile.GetMap().CheckEndGame();
+
 
         tabolo(tabber);
         tabber--;

@@ -93,7 +93,12 @@ public class Box extends Thing {
             b.HitBy(this,Game.GetOpposite(d), Player.maximumPlayerStrength);
         else {
             Step(d, tmp);
-            movable = CheckMovable();
+            if(movable == true){
+                movable = CheckMovable();
+                if(movable == false)
+                    tile.GetMap().DecreaseNumOfBoxes();
+            }
+
         }
 
         tabolo(tabber);
@@ -118,7 +123,12 @@ public class Box extends Thing {
         }
         else{
             Step(d,tmp);
-            movable = CheckMovable();
+            if(movable == true){
+                movable = CheckMovable();
+                if(movable == false)
+                    tile.GetMap().DecreaseNumOfBoxes();
+            }
+
         }
         tabolo(tabber);
         tabber--;

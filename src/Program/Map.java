@@ -32,6 +32,12 @@ public class Map {
     private int goalcounter;
 
 
+    /**
+     * Ellenszamlalas, ha egz lada a goalon van, es melle nem is mozdithato, akkor ez novekedik egyel
+     */
+    private int counterweight;
+
+
 
     /**
      * A player objektumok referenciái.
@@ -141,13 +147,41 @@ public class Map {
         tabber++;
         tabolo(tabber);
         System.out.println("> CheckEndGame");
-        /*if ( (players.size() == 0) || (goalcounter == num_of_movable_boxes))
-            Game.EndGame();*/
+        if ( (players.size() == 0) || (goalcounter == (num_of_movable_boxes + counterweight)) || (num_of_movable_boxes ==0))
+            Game.EndGame();
 
         tabolo(tabber);
         tabber--;
 
         System.out.println("< CheckEndGame");
+    }
+
+    public int GetCounterWeight() {
+        tabber++;
+        tabolo(tabber);
+        System.out.println("> GetCounterWeight");
+
+        tabolo(tabber);
+        tabber--;
+        System.out.println("< GetCounterWeight");
+
+        return counterweight;
+    }
+
+    /**
+     * Bállítja hogy hogy hány láda van a helyén.
+     * @param n
+     */
+    public void SetCounterWeight(int n) {
+        tabber++;
+        tabolo(tabber);
+        System.out.println("> SetCounterWeight");
+
+        counterweight = n;
+
+        tabolo(tabber);
+        tabber--;
+        System.out.println("< SetCounterWeight");
     }
 
 }
