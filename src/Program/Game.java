@@ -1,4 +1,5 @@
 package Program;
+import java.io.File;
 import java.util.*;
 
 import static Program.Direction.*;
@@ -12,27 +13,44 @@ public class Game {
      * Default constructor
      */
     public Game() {
+
+        //todo beolvasni a fileneveket
+        //levels.add("filename");
+        //Init(levels.get(0));
     }
 
 
     /**
      * Az osztály eltárolja a játékban fellelhető szinteket.
      */
-    private Set<Map> levels;   // List? #Bende
+   // private Set<Map> levels;   // List? #Bende
 
     /**
      * A jelenlegi pályának egy referenciáját tárolja el, arra jó,
      * hogy mindig tudjuk, melyik pálya van most “használatban”.
      */
-    private Map currentlevel;
+   // private Map currentlevel;
+
+    private String current;
+
+    private ArrayList<String> levels;
 
     /**
      * Betölti a megfelelő pályát a játékba.
      */
-    public void Init() {
-        System.out.println("> Innit");
+    public void Init(String filename) {
+        System.out.println("> Init");
         // TODO implement here
-        System.out.println("< Innit");
+
+        current = filename;
+
+        //filename.betolt
+
+        /**
+         * filename alapjan betolti a palyat
+         */
+
+        System.out.println("< Init");
     }
 
     /**
@@ -43,6 +61,11 @@ public class Game {
     public static void EndGame() {
         System.out.println("> EndGame");
         // TODO implement here
+        /**
+         * kiirja a kepernyore hogy vege van, aztan kidob menube
+         */
+
+
         System.out.println("< EndGame");
     }
 
@@ -50,9 +73,16 @@ public class Game {
      * Beállítja a soron következő pályát,
      * és meghívja az init() függvényt.
      */
-    public void NextLevel() {
+    public void NextLevel(String Filename) {
         System.out.println("> NextLevel");
         // TODO implement here
+
+        Init(Filename);
+
+        /**
+         * meghiv egy initet a kovi levellel
+         */
+
         System.out.println("< NextLevel");
     }
 
@@ -62,6 +92,11 @@ public class Game {
     public void RestartLevel() {
         System.out.println("> RestartLevel");
         // TODO implement here
+
+        Init(current);
+        /**
+         * meghivja az initet ugyanazzal a filename-el
+         */
         System.out.println("< RestartLevel");
     }
 
