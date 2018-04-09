@@ -126,10 +126,10 @@ public class Hole extends Thing {
             if(AL.get(i) instanceof Box) {
 
 
-                if ((AL.get(i).getMovable() == false) &&
-                        (((Box) AL.get(i)).GetisOnGoal() == true)) {
+                if ((!AL.get(i).getMovable()) &&
+                        (((Box) AL.get(i)).GetisOnGoal())) {
                     AL.get(i).setMovable(((Box) AL.get(i)).CheckMovable());
-                    if (AL.get(i).getMovable() == true) {
+                    if (AL.get(i).getMovable()) {
                         tile.GetMap().SetCounterWeight(
                                 tile.GetMap().GetCounterWeight() - 1);
                         tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes() + 1);
