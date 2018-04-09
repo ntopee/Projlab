@@ -176,11 +176,38 @@ public class Box extends Thing {
         tabolo(tabber);
         System.out.println("> CheckMovable");
         // TODO implement here -- meg kell nézni hogy két szomszédos szomszédja movable-e.
+        ArrayList<Thing> D = new ArrayList<Thing>();
+        ArrayList<Thing> U = new ArrayList<Thing>();;
+        ArrayList<Thing> L = new ArrayList<Thing>();;
+        ArrayList<Thing> R = new ArrayList<Thing>();;
 
-        ArrayList<Thing> D = tile.GetNeighbour(Direction.down).GetThings();
-        ArrayList<Thing> U = tile.GetNeighbour(Direction.up).GetThings();
-        ArrayList<Thing> L = tile.GetNeighbour(Direction.left).GetThings();
-        ArrayList<Thing> R = tile.GetNeighbour(Direction.right).GetThings();
+        try{
+            D.addAll(tile.GetNeighbour(Direction.down).GetThings());
+        }
+        catch (NullPointerException except){
+            System.out.println("No southern neighbour found");
+        }
+
+        try{
+            U.addAll(tile.GetNeighbour(Direction.up).GetThings()) ;
+        }
+        catch (NullPointerException except){
+        System.out.println("No Northern neighbour found");
+        }
+
+        try{
+            L.addAll(tile.GetNeighbour(Direction.left).GetThings());
+        }
+        catch (NullPointerException except){
+            System.out.println("No Western neighbour found");
+        }
+
+        try{
+                R.addAll(tile.GetNeighbour(Direction.right).GetThings());
+        }
+        catch (NullPointerException except){
+            System.out.println("No Eastern neighbour found");
+        }
 
         boolean down = true;
         boolean up = true;

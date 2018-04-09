@@ -85,7 +85,7 @@ public class Tile {
      * @param d Direction, ebben az irányban kérdezzük le a szomszédot.
      * @return
      */
-    public Tile GetNeighbour(Direction d) {
+    public Tile GetNeighbour(Direction d) throws NullPointerException{
         tabber++;
         tabolo(tabber);
         System.out.println("> GetNeighbour");
@@ -94,6 +94,7 @@ public class Tile {
         tabber--;
 
         System.out.println("< GetNeighbour");
+
         return neighbours.get(d);
     }
 
