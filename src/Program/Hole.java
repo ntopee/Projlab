@@ -50,8 +50,11 @@ public class Hole extends Thing {
         tabber++;
         tabolo(tabber);
         System.out.println("> Hole HitBy Box");
-        if (active)
+        if (active){
             b.Die();
+
+        }
+
 
         tile.GetMap().CheckEndGame();
 

@@ -62,6 +62,8 @@ public class Tile {
         System.out.println("< Add" + t.toString());
     }
 
+
+
     /**
      * Eltávolít egy adott dolgot a celláról.
      * @param t Eltávolítandó Thing referencia.
