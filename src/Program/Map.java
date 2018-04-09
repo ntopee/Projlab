@@ -16,10 +16,7 @@ public class Map {
      * Default constructor
      */
     public Map() {
-    goalcounter = 0;
-    num_of_movable_boxes = 0;
-    num_of_goals = 0;
-    num_of_boxes = 0;
+
     }
 
     /**
@@ -33,10 +30,6 @@ public class Map {
      * Megadja, hogy hány láda van a helyén.
      */
     private int goalcounter;
-
-    private int num_of_goals;
-
-    private int num_of_boxes;
 
 
 
@@ -148,36 +141,13 @@ public class Map {
         tabber++;
         tabolo(tabber);
         System.out.println("> CheckEndGame");
-        if ( (players.size() == 0) || (goalcounter == num_of_goals) || (num_of_movable_boxes == 0)
-                || ((num_of_movable_boxes - goalcounter) == 0) )
-            Game.EndGame();
+        /*if ( (players.size() == 0) || (goalcounter == num_of_movable_boxes))
+            Game.EndGame();*/
 
         tabolo(tabber);
         tabber--;
 
         System.out.println("< CheckEndGame");
     }
-
-
-    public void IncreaseNumOfGoals() {
-
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> IncreaseNumOfGoals");
-
-        num_of_goals += 1;
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< IncreaseNumOfGoals");
-    }
-
-
-
-
-
-
-
 
 }
