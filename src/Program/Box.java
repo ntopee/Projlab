@@ -95,7 +95,7 @@ public class Box extends Thing {
             Step(d, tmp);
 
                 movable = CheckMovable();
-                if(movable == false) {
+                if(!movable) {
                     tile.GetMap().DecreaseNumOfBoxes();
                     NeighbourMovableChecker();
 
@@ -127,7 +127,7 @@ public class Box extends Thing {
             Step(d,tmp);
 
                 movable = CheckMovable();
-                if(movable == false) {
+                if(!movable) {
                     tile.GetMap().DecreaseNumOfBoxes();
                     NeighbourMovableChecker();
                 }
@@ -189,38 +189,18 @@ public class Box extends Thing {
         tabolo(tabber);
         System.out.println("> CheckMovable");
         // TODO implement here -- meg kell nézni hogy két szomszédos szomszédja movable-e.
+       
+
         ArrayList<Thing> D = new ArrayList<Thing>();
-        ArrayList<Thing> U = new ArrayList<Thing>();;
-        ArrayList<Thing> L = new ArrayList<Thing>();;
-        ArrayList<Thing> R = new ArrayList<Thing>();;
-
-        try{
-            D.addAll(tile.GetNeighbour(Direction.down).GetThings());
-        }
-        catch (NullPointerException except){
-            System.out.println("No southern neighbour found");
-        }
-
-        try{
-            U.addAll(tile.GetNeighbour(Direction.up).GetThings()) ;
-        }
-        catch (NullPointerException except){
-        System.out.println("No Northern neighbour found");
-        }
-
-        try{
-            L.addAll(tile.GetNeighbour(Direction.left).GetThings());
-        }
-        catch (NullPointerException except){
-            System.out.println("No Western neighbour found");
-        }
-
-        try{
-                R.addAll(tile.GetNeighbour(Direction.right).GetThings());
-        }
-        catch (NullPointerException except){
-            System.out.println("No Eastern neighbour found");
-        }
+        ArrayList<Thing> U = new ArrayList<Thing>();
+        ArrayList<Thing> L = new ArrayList<Thing>();
+        ArrayList<Thing> R = new ArrayList<Thing>();
+        
+        tile.AddThingsFromDirectionToList(Direction.down,D);
+        tile.AddThingsFromDirectionToList(Direction.up,U);
+        tile.AddThingsFromDirectionToList(Direction.left,L);
+        tile.AddThingsFromDirectionToList(Direction.right,R);
+        
 
         boolean down = true;
         boolean up = true;
@@ -228,16 +208,16 @@ public class Box extends Thing {
         boolean right = true;
 
         for (int i = 0; i<D.size(); i++)
-            if(D.get(i).getMovable() == false) down = false;
+            if(!D.get(i).getMovable()) down = false;
 
         for (int i = 0; i<U.size(); i++)
-            if(U.get(i).getMovable() == false) up = false;
+            if(!U.get(i).getMovable()) up = false;
 
         for (int i = 0; i<L.size(); i++)
-            if(L.get(i).getMovable() == false) left = false;
+            if(!L.get(i).getMovable()) left = false;
 
         for (int i = 0; i<R.size(); i++)
-            if(R.get(i).getMovable() == false) right = false;
+            if(!R.get(i).getMovable()) right = false;
 
         /*
         felulnezet:
@@ -251,12 +231,11 @@ public class Box extends Thing {
         tabber--;
 
         System.out.println("< CheckMovable");
-        if((down == false && (right == false || left == false))
-                || (up == false && (right == false || left == false)) ) {
-                return false;
-        }
+        //Ha a lenti vagy fenti neighbour es a jobboldali vagy baloldali
+        // neighbour moveable-je false, akkor false erteket ad vissza a fgv.
 
-        return true;
+       return !((!down || !up) && (!right  || !left));
+
     }
 
     /**
@@ -371,68 +350,25 @@ public class Box extends Thing {
             i.HitBy(this,d,Force);
     }
 
-    public void NeighbourMovableChecker(){
+    private void NeighbourMovableChecker(){
 
 
-        ArrayList<Thing> D = new ArrayList<Thing>();
-        ArrayList<Thing> U = new ArrayList<Thing>();;
-        ArrayList<Thing> L = new ArrayList<Thing>();;
-        ArrayList<Thing> R = new ArrayList<Thing>();;
+        ArrayList<Thing> AL = new ArrayList<Thing>();
 
-        try{
-            D.addAll(tile.GetNeighbour(Direction.down).GetThings());
-        }
-        catch (NullPointerException except){
-            System.out.println("No southern neighbour found");
-        }
 
-        try{
-            U.addAll(tile.GetNeighbour(Direction.up).GetThings()) ;
-        }
-        catch (NullPointerException except){
-            System.out.println("No Northern neighbour found");
+        tile.AddThingsFromDirectionToList(Direction.down,AL);
+        tile.AddThingsFromDirectionToList(Direction.up,AL);
+        tile.AddThingsFromDirectionToList(Direction.left,AL);
+        tile.AddThingsFromDirectionToList(Direction.right,AL);
+
+
+
+        for (Thing t: AL) {
+            if(t instanceof  Box)
+                t.setMovable(((Box) t).CheckMovable());
         }
 
-        try{
-            L.addAll(tile.GetNeighbour(Direction.left).GetThings());
-        }
-        catch (NullPointerException except){
-            System.out.println("No Western neighbour found");
-        }
-
-        try{
-            R.addAll(tile.GetNeighbour(Direction.right).GetThings());
-        }
-        catch (NullPointerException except){
-            System.out.println("No Eastern neighbour found");
-        }
-
-
-
-        for (int i = 0; i<D.size(); i++)
-            if(D.get(i) instanceof Box) {
-
-                    D.get(i).setMovable(((Box) D.get(i)).CheckMovable());
-            }
-
-        for (int i = 0; i<U.size(); i++)
-            if(U.get(i) instanceof Box) {
-
-                    U.get(i).setMovable(((Box) U.get(i)).CheckMovable());
-            }
-
-        for (int i = 0; i<L.size(); i++)
-            if(L.get(i)instanceof Box) {
-
-                    L.get(i).setMovable(((Box) L.get(i)).CheckMovable());
-            }
-
-        for (int i = 0; i<R.size(); i++)
-            if(R.get(i) instanceof Box) {
-
-                    R.get(i).setMovable(((Box) R.get(i)).CheckMovable());
-            }
-
+       
     }
 
     public void PlayerPushedIntoIt(Player p) {

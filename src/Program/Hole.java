@@ -142,7 +142,7 @@ public class Hole extends Thing {
     }
 
 
-    public void NeighbourTeller(){
+    private void NeighbourTeller(){
 
         ArrayList<Thing> AL = new ArrayList<Thing>();
 
