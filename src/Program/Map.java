@@ -15,8 +15,8 @@ public class Map {
     /**
      * Default constructor
      */
-    public Map() {
-
+    public Map(int N, int M) {
+    tiles = new Tile[N][M];
     }
 
     /**
@@ -42,21 +42,21 @@ public class Map {
     /**
      * A player objektumok referenciái.
      */
-    private Set<Player> players = new HashSet<>();
+    private ArrayList<Player> players = new ArrayList<>();
 
     /**
      * A pályán található összes mező itt van eltárolva.
      */
-    public Set<Tile> tiles = new HashSet<Tile>(); //ezeket kell inicializálni különben nullpointerexception #bende
+    public Tile[][] tiles;
 
 
     /**
      * Egy Tile-ra rárak egy új játékost, amit ugyanez a függvény hoz létre.
      */
-    public void AddPlayer() {
+    public void AddPlayer(Player p,int N) {
         System.out.println("> AddPlayer");
         // TODO implement here
-        players.add(new Player());
+        players.add(N,p);
         System.out.println("< AddPlayer");
     }
 

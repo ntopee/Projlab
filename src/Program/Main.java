@@ -14,7 +14,7 @@ public class Main {
     }
     static public int tabber;
 
-    private static void elsoTeszt() throws IOException {
+/*    private static void elsoTeszt() throws IOException {
         Map m = new Map();
         Tile T1 = new Tile(m);
         Tile T2 = new Tile(m);
@@ -487,10 +487,10 @@ public class Main {
         System.out.println("\n------------------\nSzekvencia\n-------------------\n");
         p1.Move(Direction.right);
     }
-
+*/
     public static void main(String args[]) throws IOException {
-        /*//menü amiből ki lehet választani a teszeseteket
-        while (true) {
+        //menü amiből ki lehet választani a teszeseteket
+       /* while (true) {
             System.out.println("Valassz tesztet: 1 2 3 4 5 6 7 8 9 10 11 12 13, kilepeshez -1 majd nyomj entert");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
@@ -554,6 +554,6 @@ public class Main {
 
         //PlayerBoxBox();
 
-        PlayerBoxPlayerBox();
+       // PlayerBoxPlayerBox();
     }
 }
