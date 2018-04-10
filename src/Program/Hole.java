@@ -70,7 +70,7 @@ public class Hole extends Thing {
     }
 
     /**
-     * Az active attribútumot az aktuális értékének az ellentetjére állítja.
+     * Az active attribútumot az aktuális értékének az ellentettjére állítja.
      */
     public void SetActive() {
         tabber++;

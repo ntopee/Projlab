@@ -38,7 +38,7 @@ public class Map {
 
 
     /**
-     * Ellenszamlalas, ha egz lada a goalon van, es melle nem is mozdithato, akkor ez novekedik egyel
+     *  Ellenszámlálás, ha egy láda a goalon van, és mellé nem is mozdítható, akkor ez növekedik egyel
      */
     private int counterweight;
 
@@ -83,7 +83,7 @@ public class Map {
     }
 
     /**
-     * Visszadja hogy mozdítható láda van a helyén
+     * Visszaadja hogy mozdítható láda van a helyén
      * @return
      */
     public int GetNumOfMBoxes() {
