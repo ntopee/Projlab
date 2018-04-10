@@ -3,6 +3,8 @@ import java.io.*;
 import java.util.*;
 
 import static Program.Direction.*;
+import static Program.Main.tabber;
+import static Program.Main.tabolo;
 
 /**
  * A játékot reprezentálja, mapeket tölt be.
@@ -143,13 +145,16 @@ public class Game {
      * és ez alapján a nyertest is “kihirdeti”.
      */
     public static void EndGame() {
+        tabber++;
+        tabolo(tabber);
         System.out.println("> EndGame");
         // TODO implement here
         /**
          * kiirja a kepernyore hogy vege van, aztan kidob menube
          */
 
-
+        tabolo(tabber);
+        tabber--;
         System.out.println("< EndGame");
     }
 

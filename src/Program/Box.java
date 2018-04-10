@@ -126,14 +126,15 @@ public class Box extends Thing {
         else{
             Step(d,tmp);
 
-                movable = CheckMovable();
-                if(!movable) {
+            movable = CheckMovable();
+
+            if(!movable) {
                     tile.GetMap().DecreaseNumOfBoxes();
                     NeighbourMovableChecker();
-                }
+            }
 
 
-             }
+            }
         tabolo(tabber);
         tabber--;
 

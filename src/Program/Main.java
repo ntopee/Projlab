@@ -555,5 +555,23 @@ public class Main {
         //PlayerBoxBox();
 
        // PlayerBoxPlayerBox();
+        Map m = new Map(1,2);
+        Tile T1 = new Tile(m);
+        Tile T2 = new Tile(m);
+
+        Player p = new Player(22);
+        Hole h = new Hole(true);
+
+        T1.SetNeighbour(Direction.right,T2);
+        T2.SetNeighbour(Direction.left,T1);
+
+        m.tiles[0][0] = T1;
+        m.tiles[0][1] = T2;
+        T1.Add(p);
+        T2.Add(h);
+
+        System.out.println("\n------------------\nSzekvencia\n-------------------\n");
+        p.Move(Direction.right);
+
     }
 }
