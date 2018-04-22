@@ -14,6 +14,40 @@ public class Main {
     }
     static public int tabber;
 
+    static public void Menu() throws IOException {
+        while (true) {
+            System.out.println("Alpha teszt : 1\n" +
+                    "Beta teszt: 2\n" +
+                    "Exit: -1\n" +
+                    "Please enter the right number, then hit Enter.");
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+            int i = 0;
+            try {
+                i = Integer.parseInt(br.readLine());
+            } catch (NumberFormatException nfe) {
+                System.err.println("Invalid Format!");
+            }
+
+            switch (i) {
+                case 1:
+                    //Alphatest
+                    break;
+                case 2:
+                    //betatest
+                    break;
+
+                case -1:
+                    System.out.println("Exit");
+                    return;
+                default:
+                    System.out.println("Wrong input");
+                    return;
+            }
+
+        }
+    }
+
 /*    private static void elsoTeszt() throws IOException {
         Map m = new Map();
         Tile T1 = new Tile(m);
@@ -489,73 +523,17 @@ public class Main {
     }
 */
     public static void main(String args[]) throws IOException {
-        //menü amiből ki lehet választani a teszeseteket
-       /* while (true) {
-            System.out.println("Valassz tesztet: 1 2 3 4 5 6 7 8 9 10 11 12 13, kilepeshez -1 majd nyomj entert");
-            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-            int i = 0;
-            try {
-                i = Integer.parseInt(br.readLine());
-            } catch (NumberFormatException nfe) {
-                System.err.println("Invalid Format!");
-            }
 
-            switch (i) {
-                case 1:
-                    elsoTeszt();
-                    break;
-                case 2:
-                    masodikTeszt();
-                    break;
-                case 3:
-                    harmadikTeszt();
-                    break;
-                case 4:
-                    negyedikTeszt();
-                    break;
-                case 5:
-                    otodikTeszt();
-                    break;
-                case 6:
-                    hatodikTeszt();
-                    break;
-                case 7:
-                    hetedikTeszt();
-                    break;
-                case 8:
-                    nyolcadikTeszt();
-                    break;
-                case 9:
-                    kilencedikTeszt();
-                    break;
-                case 10:
-                    tizedikTeszt();
-                    break;
-                case 11:
-                    tizenegyedikTeszt();
-                    break;
-                case 12:
-                    tizenkettedikTeszt();
-                    break;
-                case 13:
-                    tizenharmadikTeszt();
-                    break;
-                 case -1:
-                     System.out.println("Kilepes");
-                     return;
-                default:
-                    System.out.println("Hibas input");
-                    return;
-            }
+        Menu();
 
-        }*/
+
         //Teszt();
 
         //PlayerBoxBox();
 
        // PlayerBoxPlayerBox();
-        Map m = new Map(1,2);
+       /* Map m = new Map(1,2);
         Tile T1 = new Tile(m);
         Tile T2 = new Tile(m);
 
@@ -571,7 +549,7 @@ public class Main {
         T2.Add(h);
 
         System.out.println("\n------------------\nSzekvencia\n-------------------\n");
-        p.Move(Direction.right);
+        p.Move(Direction.right);*/
 
     }
 }

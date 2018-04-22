@@ -59,6 +59,8 @@ public class Game {
                 for (int j=0 ; j<=M+1;j++)
                 {
                     m.tiles[i][j]=new Tile(m);
+
+
                 }
             for (int i = 0; i<=N+1;i++)
             {

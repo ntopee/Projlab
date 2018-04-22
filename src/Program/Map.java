@@ -47,7 +47,8 @@ public class Map {
     /**
      * A pályán található összes mező itt van eltárolva.
      */
-    public Tile[][] tiles;
+   public Tile[][] tiles;
+
 
 
     /**
@@ -183,5 +184,10 @@ public class Map {
         tabber--;
         System.out.println("< SetCounterWeight");
     }
+
+
+
+
+
 
 }
