@@ -11,7 +11,7 @@ import static Program.Main.tabolo;
  */
 public class Game {
 
-    private ArrayList<String> levels;
+    private ArrayList<String> levels = new ArrayList<>();
     private int currentLvl = 0;
     /**
      * Default constructor
@@ -19,7 +19,9 @@ public class Game {
     public Game() {
 
         //todo beolvasni a fileneveket
-        levels.add("Map.Txt");
+
+        levels.add("Map.txt");
+
     }
 
 
