@@ -44,6 +44,7 @@ public class Beta_Test {
     }
 
     public void Move(int i , Direction d){
+        System.out.println(i+""+d);
         game.GetCurrentLevel().getPlayer().get(i-1).Move(d);
     }
 
@@ -77,32 +78,30 @@ public class Beta_Test {
             if(cmd[0].equals("Move")) {
 
                int num = Integer.parseInt(cmd[1].substring(1));
-               if(num>=game.GetCurrentLevel().getPlayer().size()) return;
-               char dir ;
-               dir = cmd[2].charAt(0);
-               switch (dir){
-                   case 'U':
+              // if(num-1>game.GetCurrentLevel().getPlayer().size()) return;
+
+
+                  if(cmd[2].equals("U"))
                         Move(num,Direction.up);
-                         break;
-                   case 'D':
+
+                else if(cmd[2].equals("D"))
                         Move(num, Direction.down);
-                        break;
-                   case 'L':
+
+                else if(cmd[2].equals("L"))
                         Move(num,Direction.left);
-                        break;
-                   case 'R':
+
+                else if(cmd[2].equals("R"))
                        Move(num,Direction.right);
-                        break;
-                   default:
+                else
                        System.out.println("Wrong Input");
                }
 
-            }
+
             else if(cmd[0].equals("List"))
                 List();
             else if(cmd[0].equals("Put")){
                 int num = Integer.parseInt(cmd[1].substring(1));
-                if(num>=game.GetCurrentLevel().getPlayer().size()) return;
+                //if(num>=game.GetCurrentLevel().getPlayer().size()) return;
                 Put(num,cmd[2]);
             }
             else if(cmd[0].equals("Exit"))
