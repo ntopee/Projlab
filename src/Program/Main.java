@@ -525,8 +525,8 @@ public class Main {
     public static void main(String args[]) throws IOException {
 
 
-        Menu();
-
+        //Menu();
+        Alpha_Test.Start();
 
         //Teszt();
 

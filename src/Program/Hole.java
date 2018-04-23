@@ -18,7 +18,10 @@ public class Hole extends Thing {
         movable = true;
     }
 
-
+    @Override
+    public String toString() {
+        return "Hole ";
+    }
     /**
      * Azt tárolja, hogy a lyuk aktív-e (lyukként viselkedik-e).
      */

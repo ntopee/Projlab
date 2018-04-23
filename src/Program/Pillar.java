@@ -15,6 +15,11 @@ public class Pillar extends Obstacle {
         super();
     }
 
+    @Override
+    public String toString() {
+        return "Pillar ";
+    }
+
     /**
      * Egy akadály ütközik egy dobozzal.
      * Meghívja a Box HitBy függvényét az ellenkező irányba.

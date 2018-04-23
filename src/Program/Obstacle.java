@@ -15,6 +15,11 @@ public abstract class Obstacle extends Thing {
             movable = false;
     }
 
+    @Override
+    public String toString() {
+        return "Obstacle ";
+    }
+
     /**
      * Egy akadály ütközik egy dobozzal. Meghívja a Box HitBy függvényét
      * az ellenkező irányba.

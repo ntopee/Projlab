@@ -18,11 +18,14 @@ public class Switch extends Thing {
         movable = true;
     }
 
+    public Switch(int id){ ID = id; }
 
     /**
      * Azoknak a lyukaknak a referenciáját tárolja, amelyeket az adott gomb befolyásolja.
      */
     private Set<Hole> holes = new HashSet<Hole>();
+
+    private int ID = 0;
 
     public void Add(Hole h){
         holes.add(h);
@@ -64,5 +67,7 @@ public class Switch extends Thing {
 
         System.out.println("< Activate");
     }
+
+    public int getID(){ return ID; }
 
 }

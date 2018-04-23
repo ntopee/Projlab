@@ -15,6 +15,11 @@ public class Goal extends Thing {
         movable = true;
     }
 
+    @Override
+    public String toString() {
+        return "Goal ";
+    }
+
     /**
      * Ha egy doboz rámegy a mezőre, az alapján, hogy honnan jött,
      * annak a playernek ad pontot. A Box valid értékét átállítja false-ra,

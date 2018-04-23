@@ -12,7 +12,7 @@ public class Box extends Thing {
 
     @Override
     public String toString() {
-        return "Box";
+        return "Box ";
     }
 
 
