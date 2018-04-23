@@ -17,6 +17,8 @@ public class Map {
      */
     public Map(int N, int M) {
     tiles = new Tile[N][M];
+    tilesV = N;
+    tilesH = M;
     }
 
     /**
@@ -26,6 +28,9 @@ public class Map {
      */
     private int num_of_movable_boxes;
 
+    private int tilesV;
+
+    private int tilesH;
     /**
      * Megadja, hogy hány láda van a helyén.
      */
@@ -188,6 +193,16 @@ public class Map {
     public ArrayList<Player> getPlayer(){
         return players;
     }
+
+    public int getTilesV(){
+        return  tilesV;
+    }
+
+    public int getTilesH(){
+        return tilesH;
+    }
+
+
 
 
 
