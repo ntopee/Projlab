@@ -91,6 +91,9 @@ public class Game {
 
                 int swtch = 0;
                 int plyr = 0;
+
+                int cycle = 1;
+                
             for (int i = 0; i<=N+1; i++)
                 for (int j=0 ; j<=M+1;j++)
                 {
@@ -99,11 +102,18 @@ public class Game {
                     seg = br.read();
 
                     char c = (char) seg;
+
+                    if(cycle == 14){
+                        String line  = br.readLine();
+                        System.out.println(line);
+                        cycle = 0;
+                    }
                     switch (c){
                         case 'P':
+                            seg = br.read();
                             Player p = new Player();
                             currentlevel.tiles[i][j].Add(p);
-                            seg = br.read();
+
                             currentlevel.AddPlayer(p,plyr);
                             plyr++;
                             System.out.println(plyr);
@@ -129,7 +139,7 @@ public class Game {
                             swtch++;
 
                             break;
-                        case 'T': // nem mükszik
+                        case 'T':
                             seg = br.read();
                             seg = seg-48;
                             Hole h = new Hole(false);
@@ -138,11 +148,13 @@ public class Game {
                             swk.get(seg-1).Add(h);
                             break;
                         case 'H':
+
                             currentlevel.tiles[i][j].Add(new Hole(true));
                             break;
 
 
                     }
+                    cycle++;
 
                 }
         } catch (IOException e) {

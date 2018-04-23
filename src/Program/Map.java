@@ -17,8 +17,8 @@ public class Map {
      */
     public Map(int N, int M) {
     tiles = new Tile[N][M];
-    tilesV = N;
-    tilesH = M;
+    tilesH = N;
+    tilesV = M;
     }
 
     /**

@@ -48,15 +48,16 @@ public class Beta_Test {
     }
 
     public void List(){
-        int v = game.GetCurrentLevel().getTilesV();
         int h = game.GetCurrentLevel().getTilesH();
-        for (int i = 0; i<=v-1;i++)
-            for (int j= 0; j<=h-1;j++)
-            {
-                //System.out.println(v+" "+h);
-                game.GetCurrentLevel().tiles[i][j].GetThings().toString();
+        int v = game.GetCurrentLevel().getTilesV();
+        for (int i = 0; i<h;i++) {
+            for (int j = 0; j < v; j++) {
+
+                System.out.print(game.GetCurrentLevel().tiles[i][j].GetThings().toString());
 
             }
+            System.out.println("\n");
+        }
     }
 
     public void Put(int i, String BeUSA){
