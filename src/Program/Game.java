@@ -19,8 +19,10 @@ public class Game {
     public Game() {
 
         //todo beolvasni a fileneveket
-        levels.add("filename.txt");
+        levels.add("Map.Txt");
     }
+
+
 
 
     /**
@@ -32,7 +34,7 @@ public class Game {
      * A jelenlegi pályának egy referenciáját tárolja el, arra jó,
      * hogy mindig tudjuk, melyik pálya van most “használatban”.
      */
-   // private Map currentlevel;
+    private Map currentlevel;
 
 
     /**
@@ -43,7 +45,7 @@ public class Game {
         // TODO implement here
 
         try {
-            BufferedReader br = new BufferedReader(new FileReader("filename"));
+            BufferedReader br = new BufferedReader(new FileReader(filename));
             int N = Integer.parseInt(br.readLine());
             int M = Integer.parseInt(br.readLine());
             int sdb = Integer.parseInt(br.readLine());
@@ -53,34 +55,34 @@ public class Game {
                 Switch s = new Switch();
                 swk.add(s);
             }
-            Map m = new Map(N+2,M+2);
+            currentlevel = new Map(N+2,M+2);
 
             for (int i = 0; i<=N+1; i++)
                 for (int j=0 ; j<=M+1;j++)
                 {
-                    m.tiles[i][j]=new Tile(m);
+                    currentlevel.tiles[i][j]=new Tile(currentlevel);
 
 
                 }
             for (int i = 0; i<=N+1;i++)
             {
-                m.tiles[i][0].SetNeighbour(right,m.tiles[i][1]);
-                m.tiles[i][M+2].SetNeighbour(left,m.tiles[i][M+1]);
+                currentlevel.tiles[i][0].SetNeighbour(right,currentlevel.tiles[i][1]);
+                currentlevel.tiles[i][M+2].SetNeighbour(left,currentlevel.tiles[i][M+1]);
             }
 
             for (int i = 0; i<=M+1;i++)
             {
-                m.tiles[0][i].SetNeighbour(down,m.tiles[1][i]);
-                m.tiles[N+2][i].SetNeighbour(up,m.tiles[N+1][i]);
+                currentlevel.tiles[0][i].SetNeighbour(down,currentlevel.tiles[1][i]);
+                currentlevel.tiles[N+2][i].SetNeighbour(up,currentlevel.tiles[N+1][i]);
             }
 
             for (int i = 1;i<=N;i++)
                 for (int j= 1; j<=M;j++)
                 {
-                    m.tiles[i][j].SetNeighbour(left,m.tiles[i][j-1]);
-                    m.tiles[i][j].SetNeighbour(right,m.tiles[i][j+1]);
-                    m.tiles[i][j].SetNeighbour(up,m.tiles[i-1][j]);
-                    m.tiles[i][j].SetNeighbour(down,m.tiles[i+1][j]);
+                    currentlevel.tiles[i][j].SetNeighbour(left,currentlevel.tiles[i][j-1]);
+                    currentlevel.tiles[i][j].SetNeighbour(right,currentlevel.tiles[i][j+1]);
+                    currentlevel.tiles[i][j].SetNeighbour(up,currentlevel.tiles[i-1][j]);
+                    currentlevel.tiles[i][j].SetNeighbour(down,currentlevel.tiles[i+1][j]);
                 }
 
             for (int i = 0; i<=N+1; i++)
@@ -92,36 +94,36 @@ public class Game {
                     switch (c){
                         case 'P':
                             Player p = new Player();
-                            m.tiles[i][j].Add(p);
+                            currentlevel.tiles[i][j].Add(p);
                             seg = br.read();
-                            m.AddPlayer(p,seg);
+                            currentlevel.AddPlayer(p,seg);
 
                             break;
                         case 'B':
-                            m.tiles[i][j].Add(new Box());
+                            currentlevel.tiles[i][j].Add(new Box());
                             break;
 
                         case 'O':
-                            m.tiles[i][j].Add(new Pillar());
+                            currentlevel.tiles[i][j].Add(new Pillar());
                             break;
                         case '#':
-                            m.tiles[i][j].Add(new Wall());
+                            currentlevel.tiles[i][j].Add(new Wall());
                             break;
                         case 'G':
-                            m.tiles[i][j].Add(new Goal());
+                            currentlevel.tiles[i][j].Add(new Goal());
                             break;
                         case 'S':
                             seg = br.read();
-                            m.tiles[i][j].Add(swk.get(seg));
+                            currentlevel.tiles[i][j].Add(swk.get(seg));
                             break;
                         case 'T':
                             seg = br.read();
                             Hole h = new Hole(false);
-                            m.tiles[i][j].Add(h);
+                            currentlevel.tiles[i][j].Add(h);
                             swk.get(seg).Add(h);
                             break;
                         case 'H':
-                            m.tiles[i][j].Add(new Hole(true));
+                            currentlevel.tiles[i][j].Add(new Hole(true));
                             break;
 
 
@@ -213,5 +215,13 @@ public class Game {
             default:
                 return d;
         }
+    }
+
+    public ArrayList<String> getLevels() {
+        return levels;
+    }
+
+    public Map GetCurrentLevel(){
+        return currentlevel;
     }
 }
