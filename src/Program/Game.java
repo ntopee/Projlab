@@ -66,16 +66,19 @@ public class Game {
 
 
                 }
+
+            //currentlevel.tiles[N+2][0].SetNeighbour(up,currentlevel.tiles[N+1][0]);
+            //currentlevel.tiles[0][M+2].SetNeighbour(left,currentlevel.tiles[0][M+1]);
             for (int i = 0; i<=N+1;i++)
             {
                 currentlevel.tiles[i][0].SetNeighbour(right,currentlevel.tiles[i][1]);
-                currentlevel.tiles[i][M+2].SetNeighbour(left,currentlevel.tiles[i][M+1]);
+                currentlevel.tiles[i][M+1].SetNeighbour(left,currentlevel.tiles[i][M+1]);
             }
 
             for (int i = 0; i<=M+1;i++)
             {
                 currentlevel.tiles[0][i].SetNeighbour(down,currentlevel.tiles[1][i]);
-                currentlevel.tiles[N+2][i].SetNeighbour(up,currentlevel.tiles[N+1][i]);
+                currentlevel.tiles[N+1][i].SetNeighbour(up,currentlevel.tiles[N+1][i]);
             }
 
             for (int i = 1;i<=N;i++)
@@ -115,8 +118,10 @@ public class Game {
                             currentlevel.tiles[i][j].Add(new Goal());
                             break;
                         case 'S':
-                            seg = br.read();
-                            currentlevel.tiles[i][j].Add(swk.get(seg));
+                            int indx = br.read() ;
+                            System.out.println(indx);
+                            System.out.println(seg);
+                            currentlevel.tiles[i][j].Add(swk.get(indx));
                             break;
                         case 'T':
                             seg = br.read();

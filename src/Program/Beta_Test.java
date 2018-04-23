@@ -62,7 +62,7 @@ public class Beta_Test {
             String[] cmd = str.split(" ");
             if(cmd[0].equals("Move")) {
 
-               int num = Integer.parseInt(cmd[1].substring(1));
+               int num = Integer.parseInt(cmd[1].substring(1,cmd[1].length()-1));
                char dir ;
                dir = cmd[2].charAt(0);
                switch (dir){
