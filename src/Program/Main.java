@@ -14,7 +14,7 @@ public class Main {
     }
     static public int tabber;
 
-    static public void Menu() throws IOException {
+    static public void Menu() throws IOException { // menu megvalositasa
         while (true) {
             System.out.println("Alpha teszt : A\n" +
                     "Beta teszt: B\n" +
@@ -526,7 +526,7 @@ public class Main {
     public static void main(String args[]) throws IOException {
 
 
-        Menu();
+        Menu(); //menu elinditasa
       //  Alpha_Test.Start();
 
         //Teszt();

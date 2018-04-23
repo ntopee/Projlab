@@ -43,12 +43,12 @@ public class Beta_Test {
 
     }
 
-    public void Move(int i , Direction d){
+    public void Move(int i , Direction d){ //A megfelelo playert a megfelelo iranyba elmozditja
         System.out.println(i+""+d);
         game.GetCurrentLevel().getPlayer().get(i-1).Move(d);
     }
 
-    public void List(){
+    public void List(){ //kiirja a palya jelenlegi allasat
         int h = game.GetCurrentLevel().getTilesH();
         int v = game.GetCurrentLevel().getTilesV();
         for (int i = 0; i<h;i++) {
@@ -61,7 +61,7 @@ public class Beta_Test {
         }
     }
 
-    public void Put(int i, String BeUSA){
+    public void Put(int i, String BeUSA){ //mezet vagy olajat rak a player tile-jara
         if(BeUSA.equals("Honey"))
             game.GetCurrentLevel().getPlayer().get(i-1).Bee();
         else if(BeUSA.equals("Oil"))
@@ -69,7 +69,7 @@ public class Beta_Test {
         else System.out.println("You're not BEE-ing USA");
     }
 
-    public void InputHandler() throws IOException {
+    public void InputHandler() throws IOException { //a konzolon bejovo commandokra csinal valamit
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 
