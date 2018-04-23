@@ -6,7 +6,9 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class Alpha_Test {
-
+    /**
+     * Add parancsra objektumokat rak a mezőre.
+     */
     private static void Add(String str){
         String [] parameters = str.split(" ");
         if (parameters.length > 1){
@@ -63,10 +65,16 @@ public class Alpha_Test {
 
     }
 
+    /**
+     * Move parancsra léptetjük a játékost.
+     */
     private static void Move(){
         p.Move(Direction.right);
     }
 
+    /**
+     * Oil-t vagy Honey-t rak arra a mezőre amelyiken a player áll
+     */
     private static void Put(String str){
         String [] parameters = str.split(" ");
         if (parameters.length > 1) {
@@ -81,7 +89,9 @@ public class Alpha_Test {
         }
         System.out.println("Wrong parameter");
     }
-
+    /**
+     * Kiírja a teszt állapotát.
+     */
     private static void List(){
         for (Tile t :
                 tiles) {
@@ -107,6 +117,8 @@ public class Alpha_Test {
     private static Map map;
 
     static public void Start() throws IOException {
+        //Változók inicializálása
+
         map = new Map(1,300);
         tiles = new ArrayList<>();
         p = new Player(100);
@@ -122,6 +134,8 @@ public class Alpha_Test {
         tiles.add(tile);
         T1.SetNeighbour(Direction.right,tile);
         tile.SetNeighbour(Direction.left,T1);
+
+        //Egy kis infó a programról.
 
         System.out.println("\n------------------------------");
         System.out.println("Parancsok:");
@@ -145,6 +159,8 @@ public class Alpha_Test {
                 " amik nem fordulhatnak elő egy normális sokoban játék közben.\n" +
                 "Pl: Ugyanarra a mezőre egy ládát és egy falat tesztek.\n");
 
+
+        //Menü
 
         while (true){
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
