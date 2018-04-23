@@ -90,9 +90,12 @@ public class Game {
                     currentlevel.tiles[i][j].SetNeighbour(down,currentlevel.tiles[i+1][j]);
                 }
 
+                int swtch = 0;
+                int plyr = 0;
             for (int i = 0; i<=N+1; i++)
                 for (int j=0 ; j<=M+1;j++)
                 {
+                    int indx;
                     int seg;
                     seg = br.read();
                     char c = (char) seg;
@@ -100,8 +103,10 @@ public class Game {
                         case 'P':
                             Player p = new Player();
                             currentlevel.tiles[i][j].Add(p);
-                            seg = br.read();
-                            currentlevel.AddPlayer(p,seg);
+                            indx = br.read();
+                            currentlevel.AddPlayer(p,plyr);
+                            plyr++;
+                            System.out.println(plyr);
 
                             break;
                         case 'B':
@@ -118,14 +123,16 @@ public class Game {
                             currentlevel.tiles[i][j].Add(new Goal());
                             break;
                         case 'S':
-                            int indx = br.read() ;
-                            System.out.println(indx);
-                            System.out.println(seg);
-                            currentlevel.tiles[i][j].Add(swk.get(indx));
+                            indx = br.read() ;
+
+                            currentlevel.tiles[i][j].Add(swk.get(swtch));
+                            swtch++;
+
                             break;
-                        case 'T':
+                        case 'T': // nem mükszik
                             seg = br.read();
                             Hole h = new Hole(false);
+                            System.out.println("FASZAFSAFSAFSAFSAFSAFSAFSAFSA");
                             currentlevel.tiles[i][j].Add(h);
                             swk.get(seg).Add(h);
                             break;

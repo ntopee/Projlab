@@ -39,7 +39,7 @@ public class Beta_Test {
     }
 
     public void Move(int i , Direction d){
-        game.GetCurrentLevel().getPlayer().get(i).Move(d);
+        game.GetCurrentLevel().getPlayer().get(i-1).Move(d);
     }
 
     public void List(){
@@ -48,9 +48,9 @@ public class Beta_Test {
 
     public void Put(int i, String BeUSA){
         if(BeUSA.equals("Honey"))
-            game.GetCurrentLevel().getPlayer().get(i).Bee();
+            game.GetCurrentLevel().getPlayer().get(i-1).Bee();
         else if(BeUSA.equals("Oil"))
-            game.GetCurrentLevel().getPlayer().get(i).Bee();
+            game.GetCurrentLevel().getPlayer().get(i-1).USA();
         else System.out.println("You're not BEE-ing USA");
     }
 
@@ -62,7 +62,7 @@ public class Beta_Test {
             String[] cmd = str.split(" ");
             if(cmd[0].equals("Move")) {
 
-               int num = Integer.parseInt(cmd[1].substring(1,cmd[1].length()-1));
+               int num = Integer.parseInt(cmd[1].substring(1));
                char dir ;
                dir = cmd[2].charAt(0);
                switch (dir){
@@ -87,7 +87,7 @@ public class Beta_Test {
                 List();
             else if(cmd[0].equals("Put")){
                 int num = Integer.parseInt(cmd[1].substring(1));
-                Put(num,cmd[1]);
+                Put(num,cmd[2]);
             }
             else if(cmd[0].equals("Exit"))
                 running = false;
