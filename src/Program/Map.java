@@ -185,6 +185,10 @@ public class Map {
         System.out.println("< SetCounterWeight");
     }
 
+    public ArrayList<Player> getPlayer(){
+        return players;
+    }
+
 
 
 
