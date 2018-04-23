@@ -78,7 +78,10 @@ public class Beta_Test {
             if(cmd[0].equals("Move")) {
 
                int num = Integer.parseInt(cmd[1].substring(1));
-              // if(num-1>game.GetCurrentLevel().getPlayer().size()) return;
+               if(num>game.GetCurrentLevel().getPlayer().size()) {
+                   System.out.println("Wrong input.");
+                   return;
+               }
 
 
                   if(cmd[2].equals("U"))
@@ -101,7 +104,10 @@ public class Beta_Test {
                 List();
             else if(cmd[0].equals("Put")){
                 int num = Integer.parseInt(cmd[1].substring(1));
-                //if(num>=game.GetCurrentLevel().getPlayer().size()) return;
+                if(num>game.GetCurrentLevel().getPlayer().size()){
+                    System.out.println("Wrong input.");
+                    return;
+                }
                 Put(num,cmd[2]);
             }
             else if(cmd[0].equals("Exit"))
