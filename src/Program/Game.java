@@ -11,7 +11,7 @@ import static Program.Main.tabolo;
  */
 public class Game {
 
-    private ArrayList<String> levels;
+    private ArrayList<String> levels = new ArrayList<>();
     private int currentLvl = 0;
     /**
      * Default constructor
@@ -19,7 +19,9 @@ public class Game {
     public Game() {
 
         //todo beolvasni a fileneveket
-        levels.add("Map.Txt");
+
+        levels.add("Map.txt");
+
     }
 
 
@@ -64,16 +66,19 @@ public class Game {
 
 
                 }
+
+            //currentlevel.tiles[N+2][0].SetNeighbour(up,currentlevel.tiles[N+1][0]);
+            //currentlevel.tiles[0][M+2].SetNeighbour(left,currentlevel.tiles[0][M+1]);
             for (int i = 0; i<=N+1;i++)
             {
                 currentlevel.tiles[i][0].SetNeighbour(right,currentlevel.tiles[i][1]);
-                currentlevel.tiles[i][M+2].SetNeighbour(left,currentlevel.tiles[i][M+1]);
+                currentlevel.tiles[i][M+1].SetNeighbour(left,currentlevel.tiles[i][M+1]);
             }
 
             for (int i = 0; i<=M+1;i++)
             {
                 currentlevel.tiles[0][i].SetNeighbour(down,currentlevel.tiles[1][i]);
-                currentlevel.tiles[N+2][i].SetNeighbour(up,currentlevel.tiles[N+1][i]);
+                currentlevel.tiles[N+1][i].SetNeighbour(up,currentlevel.tiles[N+1][i]);
             }
 
             for (int i = 1;i<=N;i++)
@@ -85,9 +90,12 @@ public class Game {
                     currentlevel.tiles[i][j].SetNeighbour(down,currentlevel.tiles[i+1][j]);
                 }
 
+                int swtch = 0;
+                int plyr = 0;
             for (int i = 0; i<=N+1; i++)
                 for (int j=0 ; j<=M+1;j++)
                 {
+                    int indx;
                     int seg;
                     seg = br.read();
                     char c = (char) seg;
@@ -95,8 +103,10 @@ public class Game {
                         case 'P':
                             Player p = new Player();
                             currentlevel.tiles[i][j].Add(p);
-                            seg = br.read();
-                            currentlevel.AddPlayer(p,seg);
+                            indx = br.read();
+                            currentlevel.AddPlayer(p,plyr);
+                            plyr++;
+                            System.out.println(plyr);
 
                             break;
                         case 'B':
@@ -113,12 +123,16 @@ public class Game {
                             currentlevel.tiles[i][j].Add(new Goal());
                             break;
                         case 'S':
-                            seg = br.read();
-                            currentlevel.tiles[i][j].Add(swk.get(seg));
+                            indx = br.read() ;
+
+                            currentlevel.tiles[i][j].Add(swk.get(swtch));
+                            swtch++;
+
                             break;
-                        case 'T':
+                        case 'T': // nem mükszik
                             seg = br.read();
                             Hole h = new Hole(false);
+                            System.out.println("FASZAFSAFSAFSAFSAFSAFSAFSAFSA");
                             currentlevel.tiles[i][j].Add(h);
                             swk.get(seg).Add(h);
                             break;

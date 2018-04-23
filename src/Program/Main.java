@@ -34,7 +34,7 @@ public class Main {
                     //Alphatest
                     break;
                 case 2:
-                    //betatest
+                    Beta_Test Beta = new Beta_Test();
                     break;
 
                 case -1:
