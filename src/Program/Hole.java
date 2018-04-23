@@ -20,7 +20,7 @@ public class Hole extends Thing {
 
     @Override
     public String toString() {
-        return "Hole ";
+        return (active)?"Hole ":"hole ";
     }
     /**
      * Azt tárolja, hogy a lyuk aktív-e (lyukként viselkedik-e).

@@ -89,21 +89,20 @@ public class Game {
                     currentlevel.tiles[i][j].SetNeighbour(down,currentlevel.tiles[i+1][j]);
                 }
 
-                int swtch = 0;
-                int plyr = 0;
+
 
                 int cycle = 1;
                 
             for (int i = 0; i<=N+1; i++)
                 for (int j=0 ; j<=M+1;j++)
                 {
-                    int indx;
+
                     int seg;
                     seg = br.read();
 
                     char c = (char) seg;
 
-                    if(cycle == 14){
+                    if(cycle == M+2){
                         String line  = br.readLine();
                         System.out.println(line);
                         cycle = 0;
@@ -114,9 +113,9 @@ public class Game {
                             Player p = new Player();
                             currentlevel.tiles[i][j].Add(p);
 
-                            currentlevel.AddPlayer(p,plyr);
-                            plyr++;
-                            System.out.println(plyr);
+                            currentlevel.AddPlayer(p,seg-48-1);
+                            //plyr++;
+                           // System.out.println(seg-48);
 
                             break;
                         case 'B':
@@ -135,8 +134,8 @@ public class Game {
                         case 'S':
                             seg = br.read() ;
 
-                            currentlevel.tiles[i][j].Add(swk.get(swtch));
-                            swtch++;
+                            currentlevel.tiles[i][j].Add(swk.get(seg-48-1));
+                           // swtch++;
 
                             break;
                         case 'T':
@@ -183,6 +182,9 @@ public class Game {
         /**
          * kiirja a kepernyore hogy vege van, aztan kidob menube
          */
+
+        System.out.println("Game Over");
+
 
         tabolo(tabber);
         tabber--;

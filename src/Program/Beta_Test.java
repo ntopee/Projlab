@@ -116,6 +116,14 @@ public class Beta_Test {
                 System.out.println("Wrong input.");
     }
 
+  /*  public void setRunning(boolean b){
+        running= b;
+    }
+
+    public boolean getRunning(){
+        return running;
+    }*/
+
 
 
 }
