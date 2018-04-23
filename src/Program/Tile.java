@@ -31,7 +31,7 @@ public class Tile {
      */
     public Tile(Program.Map m) { map = m; }
 
-
+    public Tile(){}
 
     /**
      * A cellán elhelyezkedő dolgok kollekciója.
