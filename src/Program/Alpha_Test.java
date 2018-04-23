@@ -123,6 +123,29 @@ public class Alpha_Test {
         T1.SetNeighbour(Direction.right,tile);
         tile.SetNeighbour(Direction.left,T1);
 
+        System.out.println("\n------------------------------");
+        System.out.println("Parancsok:");
+        System.out.println("------------------------------\n\n");
+
+        System.out.println("Add <opció> <opció>... \n" +
+                "   -----   Switch után kell szám, ami azonosítja a Switch-et. Pl: Switch2 \n" +
+                "   -----   Ha aktiválható lyukat szeretnétek, akkor előszőr a Switch - et adjátok meg az azonosítóval együtt,\n" +
+                "           majd a lyukakat a megfelelő azonosítóval.\n" +
+                "           Pl:\n" +
+                "               Add Switch3\n" +
+                "               Add Hole3\n" +
+                "           Hole-t lehet azonosító nélkül is, ilyenkor egy Switch nélküli, nyitott lyuk kerül a pályára.\n");
+        System.out.println("Put <opció - Oil or Honey>");
+        System.out.println("List");
+        System.out.println("Move");
+        System.out.println("Back\n");
+        System.out.println("A program jelenleg még nem kezeli a kis- és nagybetűket.\n" +
+                "Ezért igyekezzetek karakter pontosan beírni a parancsokat. Sorry\n");
+        System.out.println("Sok olyan tesztesetet nem fed le,\n" +
+                " amik nem fordulhatnak elő egy normális sokoban játék közben.\n" +
+                "Pl: Ugyanarra a mezőre egy ládát és egy falat tesztek.\n");
+
+
         while (true){
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
             String str = br.readLine();

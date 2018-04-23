@@ -32,7 +32,7 @@ public class Main {
             char c = (char) i;
             switch (c) {
                 case 'A':
-                    //Alphatest
+                    Alpha_Test.Start();
                     break;
                 case 'B':
                     Beta_Test Beta = new Beta_Test();
