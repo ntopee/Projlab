@@ -27,9 +27,9 @@ public class Alpha_Test {
                 if (s.equals("Honey"))
                     tile.SetHoney(1.45);
 
-                if (s.length() >= 6) {
-                    if ((s.substring(0, 5).equals("Hole")) && (s.length() > 6)) {
-                        int i = Integer.parseInt(s.substring(6, s.length() - 1));
+                if (s.contains("Hole")){
+                    if (s.length() > 4) {
+                        int i = Integer.parseInt(s.substring(4, s.length()));
                         Hole hole = new Hole(false);
                         for (Tile t :
                                 tiles) {
@@ -41,19 +41,21 @@ public class Alpha_Test {
                             }
                         }
                         tile.Add(hole);
-                    } else if (s.substring(0, 5).equals("Hole"))
+                    }else
                         tile.Add(new Hole(true));
+
                 }
 
-                if (s.length() >= 5) {
-                    if (s.substring(0, 5).equals("Switch")) {
-                        tile.Add(new Switch(Integer.parseInt(s.substring(6, s.length() - 1))));
-                    }
+
+                if (s.contains("Switch")){
+                    tile.Add(new Switch(Integer.parseInt(s.substring(6, s.length()))));
                 }
+
+
             }
 
         }
-            Tile tmp = new Tile();
+            Tile tmp = new Tile(map);
             tile.SetNeighbour(Direction.right,tmp);
             tmp.SetNeighbour(Direction.left,tile);
             tiles.add(tmp);
@@ -86,29 +88,37 @@ public class Alpha_Test {
             System.out.print("| ");
             for (Thing thing :
                     t.GetThings()) {
-                System.out.println(thing.toString() + " ");
+                System.out.print(thing.toString() + " ");
             }
+            if (t.GetHoney() != 1)
+                System.out.print("Honey ");
+            if (t.GetOil() != 1)
+                System.out.print("Oil ");
         }
         System.out.println();
     }
 
     private static ArrayList<Tile> tiles;
 
-    private static Player p;
-
     private static Tile tile;
 
+    private static Player p;
+
+    private static Map map;
+
     static public void Start() throws IOException {
-
+        map = new Map(1,300);
         tiles = new ArrayList<>();
-        p = new Player();
+        p = new Player(100);
 
-        Tile T1 = new Tile();
+        map.AddPlayer(p,0);
+
+        Tile T1 = new Tile(map);
 
         T1.Add(p);
         tiles.add(T1);
 
-        tile = new Tile();
+        tile = new Tile(map);
         tiles.add(tile);
         T1.SetNeighbour(Direction.right,tile);
         tile.SetNeighbour(Direction.left,T1);
@@ -126,8 +136,12 @@ public class Alpha_Test {
                 Put(str);
             if (str.equals("Back"))
                 return;
+            if (map.getPlayer().size() == 0){
+                List();
+                System.out.println("Meghalt a játékos.");
+                return;
+            }
         }
     }
-
 
 }

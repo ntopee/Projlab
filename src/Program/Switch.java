@@ -20,6 +20,11 @@ public class Switch extends Thing {
 
     public Switch(int id){ ID = id; }
 
+    @Override
+    public String toString() {
+        return "Switch ";
+    }
+
     /**
      * Azoknak a lyukaknak a referenciáját tárolja, amelyeket az adott gomb befolyásolja.
      */
