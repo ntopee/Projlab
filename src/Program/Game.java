@@ -97,7 +97,7 @@ public class Game {
                     int indx;
                     int seg;
                     seg = br.read();
-                    System.out.println(seg);
+
                     char c = (char) seg;
                     switch (c){
                         case 'P':

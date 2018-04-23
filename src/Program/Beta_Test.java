@@ -24,6 +24,13 @@ public class Beta_Test {
 
     public void StartLevel(int i){
         game.Init(levels.get(i)); //több pálya lehetséges
+        System.out.println("Input commands:\n" +
+                "- Move pX D - to move player. X is the player's number (e.g. p1,p2,etc.) \n" +
+                "and D is a Direction (e.g. U, D, L, R for Up Down Left Right\n" +
+                "- Put pX Oil/Honey - to put Oil Or Honey with Player X\n" +
+                "- List - to List the current map\n" +
+                "- Exit - to Exit to main menu\n");
+
         while(running){
             try {
                 InputHandler();
