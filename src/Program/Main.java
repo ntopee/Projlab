@@ -16,28 +16,29 @@ public class Main {
 
     static public void Menu() throws IOException {
         while (true) {
-            System.out.println("Alpha teszt : 1\n" +
-                    "Beta teszt: 2\n" +
-                    "Exit: -1\n" +
-                    "Please enter the right number, then hit Enter.");
+            System.out.println("Alpha teszt : A\n" +
+                    "Beta teszt: B\n" +
+                    "Exit: E\n" +
+                    "Please enter the right character, then hit Enter.");
             BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
             int i = 0;
             try {
-                i = Integer.parseInt(br.readLine());
+                i = br.read();
+
             } catch (NumberFormatException nfe) {
                 System.err.println("Invalid Format!");
             }
-
-            switch (i) {
-                case 1:
+            char c = (char) i;
+            switch (c) {
+                case 'A':
                     //Alphatest
                     break;
-                case 2:
+                case 'B':
                     Beta_Test Beta = new Beta_Test();
                     break;
 
-                case -1:
+                case 'E':
                     System.out.println("Exit");
                     return;
                 default:
@@ -525,8 +526,8 @@ public class Main {
     public static void main(String args[]) throws IOException {
 
 
-        //Menu();
-        Alpha_Test.Start();
+        Menu();
+      //  Alpha_Test.Start();
 
         //Teszt();
 

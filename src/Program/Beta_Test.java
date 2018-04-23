@@ -24,6 +24,13 @@ public class Beta_Test {
 
     public void StartLevel(int i){
         game.Init(levels.get(i)); //több pálya lehetséges
+        System.out.println("Input commands:\n" +
+                "- Move pX D - to move player. X is the player's number (e.g. p1,p2,etc.) \n" +
+                "and D is a Direction (e.g. U, D, L, R for Up Down Left Right\n" +
+                "- Put pX Oil/Honey - to put Oil Or Honey with Player X\n" +
+                "- List - to List the current map\n" +
+                "- Exit - to Exit to main menu\n");
+
         while(running){
             try {
                 InputHandler();
@@ -43,7 +50,15 @@ public class Beta_Test {
     }
 
     public void List(){
+        int v = game.GetCurrentLevel().getTilesV();
+        int h = game.GetCurrentLevel().getTilesH();
+        for (int i = 0; i<=v-1;i++)
+            for (int j= 0; j<=h-1;j++)
+            {
+                //System.out.println(v+" "+h);
+                game.GetCurrentLevel().tiles[i][j].GetThings().toString();
 
+            }
     }
 
     public void Put(int i, String BeUSA){
@@ -63,6 +78,7 @@ public class Beta_Test {
             if(cmd[0].equals("Move")) {
 
                int num = Integer.parseInt(cmd[1].substring(1));
+               if(num>=game.GetCurrentLevel().getPlayer().size()) return;
                char dir ;
                dir = cmd[2].charAt(0);
                switch (dir){
@@ -87,6 +103,7 @@ public class Beta_Test {
                 List();
             else if(cmd[0].equals("Put")){
                 int num = Integer.parseInt(cmd[1].substring(1));
+                if(num>=game.GetCurrentLevel().getPlayer().size()) return;
                 Put(num,cmd[2]);
             }
             else if(cmd[0].equals("Exit"))

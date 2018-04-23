@@ -67,8 +67,7 @@ public class Game {
 
                 }
 
-            //currentlevel.tiles[N+2][0].SetNeighbour(up,currentlevel.tiles[N+1][0]);
-            //currentlevel.tiles[0][M+2].SetNeighbour(left,currentlevel.tiles[0][M+1]);
+
             for (int i = 0; i<=N+1;i++)
             {
                 currentlevel.tiles[i][0].SetNeighbour(right,currentlevel.tiles[i][1]);
@@ -98,12 +97,13 @@ public class Game {
                     int indx;
                     int seg;
                     seg = br.read();
+
                     char c = (char) seg;
                     switch (c){
                         case 'P':
                             Player p = new Player();
                             currentlevel.tiles[i][j].Add(p);
-                            indx = br.read();
+                            seg = br.read();
                             currentlevel.AddPlayer(p,plyr);
                             plyr++;
                             System.out.println(plyr);
@@ -123,7 +123,7 @@ public class Game {
                             currentlevel.tiles[i][j].Add(new Goal());
                             break;
                         case 'S':
-                            indx = br.read() ;
+                            seg = br.read() ;
 
                             currentlevel.tiles[i][j].Add(swk.get(swtch));
                             swtch++;
@@ -131,10 +131,11 @@ public class Game {
                             break;
                         case 'T': // nem mükszik
                             seg = br.read();
+                            seg = seg-48;
                             Hole h = new Hole(false);
-                            System.out.println("FASZAFSAFSAFSAFSAFSAFSAFSAFSA");
+
                             currentlevel.tiles[i][j].Add(h);
-                            swk.get(seg).Add(h);
+                            swk.get(seg-1).Add(h);
                             break;
                         case 'H':
                             currentlevel.tiles[i][j].Add(new Hole(true));
