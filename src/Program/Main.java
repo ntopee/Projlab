@@ -572,7 +572,9 @@ public class Main extends  Application{
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("start.fxml"));
         primaryStage.setTitle("Killer Sokoban by S20ftv3r_Pr0j3kt_M@st3r2");
-        primaryStage.setScene(new Scene(root));
+        Scene scene = new Scene(root);
+        primaryStage.setScene(scene);
+
         primaryStage.show();
     }
 }
