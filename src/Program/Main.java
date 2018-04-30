@@ -1,10 +1,22 @@
 package Program;
 
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class Main {
+public class Main extends  Application{
+
     static public void tabolo(int n){
 
         for (int i =0; i<n; i++)            //Csak a kiírás szépségét segítő függvény
@@ -15,6 +27,7 @@ public class Main {
     static public int tabber;
 
     static public void Menu() throws IOException { // menu megvalositasa
+
         while (true) {
             System.out.println("Alpha teszt : A\n" +
                     "Beta teszt: B\n" +
@@ -525,7 +538,7 @@ public class Main {
 */
     public static void main(String args[]) throws IOException {
 
-
+   launch(args);
         Menu(); //menu elinditasa
       //  Alpha_Test.Start();
 
@@ -552,5 +565,14 @@ public class Main {
         System.out.println("\n------------------\nSzekvencia\n-------------------\n");
         p.Move(Direction.right);*/
 
+    }
+
+
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("start.fxml"));
+        primaryStage.setTitle("Killer Sokoban by S20ftv3r_Pr0j3kt_M@st3r2");
+        primaryStage.setScene(new Scene(root));
+        primaryStage.show();
     }
 }

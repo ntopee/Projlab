@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Program.JavaFx">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="607.0">
+         <children>
+            <Button fx:id="btn_play" layoutX="274.0" layoutY="175.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text="Play" />
+            <Button fx:id="btn_exit" layoutX="274.0" layoutY="207.0" mnemonicParsing="false" onAction="#press_btn_exit" prefHeight="25.0" prefWidth="60.0" text="Exit" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

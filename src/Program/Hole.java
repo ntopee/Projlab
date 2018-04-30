@@ -124,6 +124,15 @@ public class Hole extends Thing {
 
 
     private void LocalNeighbourTeller(ArrayList<Thing> AL){
+        //ArrayList<Thing> AL = new ArrayList<Thing>();
+
+
+        tile.AddThingsFromDirectionToList(Direction.down,AL);
+        tile.AddThingsFromDirectionToList(Direction.up,AL);
+        tile.AddThingsFromDirectionToList(Direction.left,AL);
+        tile.AddThingsFromDirectionToList(Direction.right,AL);
+
+        LocalNeighbourTeller(AL);
 
         for (int i = 0; i<AL.size(); i++)
             if(AL.get(i) instanceof Box) {
@@ -147,15 +156,7 @@ public class Hole extends Thing {
 
     private void NeighbourTeller(){
 
-        ArrayList<Thing> AL = new ArrayList<Thing>();
 
-
-        tile.AddThingsFromDirectionToList(Direction.down,AL);
-        tile.AddThingsFromDirectionToList(Direction.up,AL);
-        tile.AddThingsFromDirectionToList(Direction.left,AL);
-        tile.AddThingsFromDirectionToList(Direction.right,AL);
-
-        LocalNeighbourTeller(AL);
 
     }
 }
