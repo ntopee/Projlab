@@ -22,6 +22,7 @@ public class JavaFx {
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+
         window.setScene(scene);
         window.show();
     }
@@ -35,5 +36,8 @@ public class JavaFx {
 
         window.setScene(scene);
         window.show();
+    }
+    public void hoover_img(ActionEvent event){
+       System.out.println("hoovered");
     }
 }
