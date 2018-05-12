@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
@@ -40,6 +41,17 @@ public class JavaFx {
 
     public void press_btn_play(ActionEvent event) throws IOException{
         Parent hs = FXMLLoader.load(getClass().getResource("SelectScene.fxml"));
+        Scene scene = new Scene(hs);
+
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        window.setScene(scene);
+        window.show();
+
+    }
+
+    public void press_btn_level1(ActionEvent event) throws IOException{
+        Parent hs = FXMLLoader.load(getClass().getResource("level1.fxml"));
         Scene scene = new Scene(hs);
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
