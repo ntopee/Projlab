@@ -52,7 +52,7 @@ public class JavaFx {
     public void press_btn_level1(ActionEvent event) throws IOException{
         Parent hs = FXMLLoader.load(getClass().getResource("level1.fxml"));
         Scene scene = new Scene(hs);
-
+        
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         window.setScene(scene);

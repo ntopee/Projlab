@@ -1,5 +1,7 @@
 package Program;
 
+import javafx.scene.Scene;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -114,6 +116,10 @@ public class Beta_Test {
                 running = false;
             else
                 System.out.println("Wrong input.");
+    }
+
+    public static void Start(Scene scene, String level){
+        
     }
 
 }
