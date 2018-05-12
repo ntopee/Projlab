@@ -8,6 +8,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -124,17 +126,24 @@ public class Beta_Test {
     public static void Start(Scene scene, String level, BorderPane pane){
         game = new Game();
         game.Init(level);
+        initDraw(scene, pane);
+        //StartLevel();
+    }
+
+    public static void initDraw(Scene scene, BorderPane pane){
 
         Canvas canvas= new Canvas();
         pane.setCenter(canvas);
         Button back5 = new Button("Back");
         pane.setTop(back5);
+
+        //Back button vissza a menube
         back5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 Parent hs = null;
                 try {
-                    hs = FXMLLoader.load(getClass().getResource("start.fxml"));
+                   hs = FXMLLoader.load(getClass().getResource("start.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -147,13 +156,20 @@ public class Beta_Test {
             }
         });
 
+        //gomblenyomások eventkezelője
+        //TODO gombra lekérdezi melyik playert mozgassa, és elmozdítja abba az irányba
+        scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
+            public void handle(KeyEvent event) {
+                if(event.getCode()== KeyCode.A) System.out.println("Player1 LEFT");
+                else if(event.getCode()== KeyCode.W) System.out.println("player1 UP");
+                else if(event.getCode()== KeyCode.S) System.out.println("player1 DOWN");
+                else if(event.getCode()== KeyCode.D) System.out.println("player1 RIGHT");
+            }
+        });
 
 
-
-
-
-
-
-        //StartLevel();
     }
+
+
+
 }
