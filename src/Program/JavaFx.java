@@ -5,7 +5,10 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
@@ -50,8 +53,20 @@ public class JavaFx {
     }
 
     public void press_btn_level1(ActionEvent event) throws IOException{
-        Parent hs = FXMLLoader.load(getClass().getResource("level1.fxml"));
-        Scene scene = new Scene(hs);
+        //Parent hs = FXMLLoader.load(getClass().getResource("level1.fxml"));
+        BorderPane pane = new BorderPane();
+        Scene scene = new Scene(pane);
+
+        //ezt kell kb. megirni betaban
+        Canvas canvas= new Canvas();
+
+        pane.setCenter(canvas);
+        Button b = new Button();
+        pane.setTop(b);
+        //beta vege
+
+        //ide kell Beta cucc hivasa a Scene gecivel, meg hogy melyik textfajlbol toltse mapet
+
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
