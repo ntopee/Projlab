@@ -203,12 +203,16 @@ public class Map {
         return tilesH;
     }
 
-    public void setCanvas(Canvas cv){ canvas = cv; }
+    public void setCanvas(Canvas cv){
+        canvas = cv;
+        canvas.setHeight(tilesH*Game.TILE_SIZE);
+        canvas.setWidth(tilesV*Game.TILE_SIZE);
+    }
     public Canvas getCanvas() { return canvas; }
 
     public void DrawAll(Canvas canvas){
-        for (int i = 0; i < tilesH; i++){
-            for (int j = 0; j < tilesV; j++){
+        for (int i = 0; i < tilesV; i++){
+            for (int j = 0; j < tilesH; j++){
                 tiles[i][j].Draw(i,j,canvas); //Draw i,j helyett koordinatak
             }
         }

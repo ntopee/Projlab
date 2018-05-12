@@ -1,4 +1,6 @@
 package Program;
+import javafx.scene.canvas.Canvas;
+
 import java.io.*;
 import java.util.*;
 
@@ -24,7 +26,7 @@ public class Game {
         levels.add("level2.txt");
     }
 
-
+    public static double TILE_SIZE = 50;
 
 
     /**
@@ -167,6 +169,7 @@ public class Game {
          */
 
         System.out.println("< Init");
+
     }
 
     /**
@@ -252,5 +255,9 @@ public class Game {
 
     public Map GetCurrentLevel(){
         return currentlevel;
+    }
+
+    public void setMapCanvas(Canvas canvas){
+        currentlevel.setCanvas(canvas);
     }
 }
