@@ -1,4 +1,6 @@
 package Program;
+import javafx.scene.canvas.Canvas;
+
 import java.util.*;
 import java.util.Map;
 
@@ -162,5 +164,5 @@ public class Tile {
         }
     }
 
-
+    public void Draw(int i, int j, Canvas canvas){}
 }

@@ -1,6 +1,7 @@
 package Program;
-import java.util.*;
 
+import java.util.*;
+import javafx.scene.canvas.Canvas;
 import static Program.Main.tabber;
 import static Program.Main.tabolo;
 
@@ -52,9 +53,9 @@ public class Map {
     /**
      * A pályán található összes mező itt van eltárolva.
      */
-   public Tile[][] tiles;
+    public Tile[][] tiles;
 
-
+    private Canvas canvas;
 
     /**
      * Egy Tile-ra rárak egy új játékost, amit ugyanez a függvény hoz létre.
@@ -202,11 +203,15 @@ public class Map {
         return tilesH;
     }
 
+    public void setCanvas(Canvas cv){ canvas = cv; }
+    public Canvas getCanvas() { return canvas; }
 
-
-
-
-
-
+    public void DrawAll(Canvas canvas){
+        for (int i = 0; i < tilesH; i++){
+            for (int j = 0; j < tilesV; j++){
+                tiles[i][j].Draw(i,j,canvas); //Draw i,j helyett koordinatak
+            }
+        }
+    }
 
 }

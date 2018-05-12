@@ -1,5 +1,7 @@
 package Program;
 
+import javafx.scene.canvas.Canvas;
+
 import static Program.Main.tabber;
 import static Program.Main.tabolo;
 
@@ -16,9 +18,7 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
     /**
      * Default constructor
      */
-    public Thing() {
-
-    }
+    public Thing() { }
 
     public boolean getMovable() {
         return movable;
@@ -104,4 +104,6 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
         System.out.println("> PlayerPushedIntoIt");
     }
 
+
+    public void Draw(int x, int y, Canvas canvas){}
 }
