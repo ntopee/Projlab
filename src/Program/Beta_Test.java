@@ -127,15 +127,16 @@ public class Beta_Test {
         game = new Game();
         game.Init(level);
         initDraw(scene, pane);
-        //StartLevel();
     }
 
-    public static void initDraw(Scene scene, BorderPane pane){
+    private static void initDraw(Scene scene, BorderPane pane){
 
         Canvas canvas= new Canvas();
         pane.setCenter(canvas);
         Button back5 = new Button("Back");
         pane.setTop(back5);
+
+        game.setMapCanvas(canvas);
 
         //Back button vissza a menube
         back5.setOnAction(new EventHandler<ActionEvent>() {
@@ -160,10 +161,22 @@ public class Beta_Test {
         //TODO gombra konkrét függvényt hív, hogy player elmozduljon
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             public void handle(KeyEvent event) {
-                if(event.getCode()== KeyCode.A) System.out.println("Player1 LEFT");
-                else if(event.getCode()== KeyCode.W) System.out.println("player1 UP");
-                else if(event.getCode()== KeyCode.S) System.out.println("player1 DOWN");
-                else if(event.getCode()== KeyCode.D) System.out.println("player1 RIGHT");
+                if(event.getCode()== KeyCode.A) {
+                    Move(1,Direction.left);
+                    List();
+                }
+                else if(event.getCode()== KeyCode.W) {
+                    Move(1,Direction.up);
+                    List();
+                }
+                else if(event.getCode()== KeyCode.S) {
+                    Move(1,Direction.down);
+                    List();
+                }
+                else if(event.getCode()== KeyCode.D) {
+                    Move(1,Direction.right);
+                    List();
+                }
             }
         });
 
