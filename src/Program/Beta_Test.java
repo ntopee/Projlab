@@ -157,7 +157,7 @@ public class Beta_Test {
         });
 
         //gomblenyomások eventkezelője
-        //TODO gombra lekérdezi melyik playert mozgassa, és elmozdítja abba az irányba
+        //TODO gombra konkrét függvényt hív, hogy player elmozduljon
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             public void handle(KeyEvent event) {
                 if(event.getCode()== KeyCode.A) System.out.println("Player1 LEFT");
