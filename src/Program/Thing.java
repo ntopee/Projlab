@@ -105,5 +105,5 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
     }
 
 
-    public void Draw(int x, int y, Canvas canvas){}
+    public abstract void draw(int x, int y, Canvas canvas);
 }

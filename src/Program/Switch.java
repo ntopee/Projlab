@@ -1,4 +1,6 @@
 package Program;
+import javafx.scene.canvas.Canvas;
+
 import java.util.*;
 
 import static Program.Main.tabber;
@@ -53,6 +55,11 @@ public class Switch extends Thing {
         tabber--;
 
         System.out.println("< Switch HitBy Box");
+    }
+
+    @Override
+    public void draw(int x, int y, Canvas canvas) {
+
     }
 
     /**

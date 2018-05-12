@@ -1,5 +1,7 @@
 package Program;
 
+import javafx.scene.canvas.Canvas;
+
 import static Program.Main.tabber;
 import static Program.Main.tabolo;
 
@@ -36,6 +38,11 @@ public class Wall extends Obstacle {
         tabber--;
 
         System.out.println("< HitBy Box");
+    }
+
+    @Override
+    public void draw(int x, int y, Canvas canvas) {
+
     }
 
     /**

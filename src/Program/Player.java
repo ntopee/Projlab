@@ -1,5 +1,7 @@
 package Program;
 
+import javafx.scene.canvas.Canvas;
+
 import static Program.Main.tabber;
 import static Program.Main.tabolo;
 
@@ -225,6 +227,11 @@ public class Player extends Thing {
         tabber--;
 
         System.out.println("< PlayerPushedIntoIt");
+    }
+
+    @Override
+    public void draw(int x, int y, Canvas canvas) {
+
     }
 
 

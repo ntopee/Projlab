@@ -1,5 +1,7 @@
 package Program;
 
+import javafx.scene.canvas.Canvas;
+
 import static Program.Main.tabber;
 import static Program.Main.tabolo;
 
@@ -48,6 +50,11 @@ public class Goal extends Thing {
         tabber--;
 
         System.out.println("< Goal HitBy Box");
+    }
+
+    @Override
+    public void draw(int x, int y, Canvas canvas) {
+
     }
 
 }
