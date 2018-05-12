@@ -20,8 +20,8 @@ public class Game {
 
         //todo beolvasni a fileneveket
 
-        levels.add("Map.txt");
-
+        levels.add("level1.txt");
+        levels.add("level2.txt");
     }
 
 

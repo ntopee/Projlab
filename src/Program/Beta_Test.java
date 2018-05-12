@@ -1,27 +1,23 @@
 package Program;
 
+import javafx.scene.Scene;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.ArrayList;
 
 public class Beta_Test {
 
 
-    private Game game;
-    private ArrayList<String> levels = new ArrayList<>() ;
-    private boolean running = true;
+    private static Game game;
+    private static boolean running = true;
 
 
     public Beta_Test(){
         game = new Game();
-
-        levels.add( game.getLevels().get(0));
-        StartLevel(0);
     }
 
-    public void StartLevel(int i){
-        game.Init(levels.get(i)); //több pálya lehetséges
+    private static void StartLevel(){
         System.out.println("Input commands:\n" +
                 "- Move pX D - to move player. X is the player's number (e.g. p1,p2,etc.) \n" +
                 "and D is a Direction (e.g. U, D, L, R for Up Down Left Right\n" +
@@ -43,12 +39,12 @@ public class Beta_Test {
 
     }
 
-    public void Move(int i , Direction d){ //A megfelelo playert a megfelelo iranyba elmozditja
+    private static void Move(int i, Direction d){ //A megfelelo playert a megfelelo iranyba elmozditja
         System.out.println(i+""+d);
         game.GetCurrentLevel().getPlayer().get(i-1).Move(d);
     }
 
-    public void List(){ //kiirja a palya jelenlegi allasat
+    private static void List(){ //kiirja a palya jelenlegi allasat
         int h = game.GetCurrentLevel().getTilesH();
         int v = game.GetCurrentLevel().getTilesV();
         for (int i = 0; i<h;i++) {
@@ -61,7 +57,7 @@ public class Beta_Test {
         }
     }
 
-    public void Put(int i, String BeUSA){ //mezet vagy olajat rak a player tile-jara
+    private static void Put(int i, String BeUSA){ //mezet vagy olajat rak a player tile-jara
         if(BeUSA.equals("Honey"))
             game.GetCurrentLevel().getPlayer().get(i-1).Bee();
         else if(BeUSA.equals("Oil"))
@@ -69,7 +65,7 @@ public class Beta_Test {
         else System.out.println("You're not BEE-ing USA");
     }
 
-    public void InputHandler() throws IOException { //a konzolon bejovo commandokra csinal valamit
+    private static void InputHandler() throws IOException { //a konzolon bejovo commandokra csinal valamit
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
 
@@ -114,6 +110,12 @@ public class Beta_Test {
                 running = false;
             else
                 System.out.println("Wrong input.");
+    }
+
+    public static void Start(Scene scene, String level){
+        game = new Game();
+        game.Init(level);
+        StartLevel();
     }
 
 }
