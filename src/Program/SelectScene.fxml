@@ -11,7 +11,7 @@
    <children>
       <ImageView cache="true" fitHeight="150.0" fitWidth="200.0" layoutX="28.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../FxSources/lvl1.png" />
+            <Image url="@FxSources/lvl1.png" />
          </image>
       </ImageView>
       <Button layoutX="274.0" layoutY="200.0" mnemonicParsing="false" onAction="#press_btn_back" text="Back" />

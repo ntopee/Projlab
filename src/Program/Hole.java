@@ -13,7 +13,7 @@ public class Hole extends Thing {
     /**
      * Default constructor
      */
-    public Hole(boolean a) {
+     Hole(boolean a) {
         active = a;
         movable = true;
     }
@@ -93,7 +93,7 @@ public class Hole extends Thing {
 
     /**
      * Visszaadja az active attribútum aktuális értékét.
-     * @return
+     * @return active attribútum aktuális értéke.
      */
     public boolean GetActive() {
         tabber++;
