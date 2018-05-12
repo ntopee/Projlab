@@ -41,6 +41,8 @@ public class JavaFx {
         window.show();
     }
 
+
+
     public void press_btn_play(ActionEvent event) throws IOException{
         Parent hs = FXMLLoader.load(getClass().getResource("SelectScene.fxml"));
         Scene scene = new Scene(hs);
@@ -57,16 +59,7 @@ public class JavaFx {
         BorderPane pane = new BorderPane();
         Scene scene = new Scene(pane);
 
-        //ezt kell kb. megirni betaban
-        Canvas canvas= new Canvas();
-
-        pane.setCenter(canvas);
-        Button b = new Button();
-        pane.setTop(b);
-        //beta vege
-
-        //ide kell Beta cucc hivasa a Scene gecivel, meg hogy melyik textfajlbol toltse mapet
-
+        Beta_Test.Start(scene, "level1.txt", pane);
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 

@@ -1,6 +1,15 @@
 package Program;
 
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.control.Button;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -112,10 +121,39 @@ public class Beta_Test {
                 System.out.println("Wrong input.");
     }
 
-    public static void Start(Scene scene, String level){
+    public static void Start(Scene scene, String level, BorderPane pane){
         game = new Game();
         game.Init(level);
-        StartLevel();
-    }
 
+        Canvas canvas= new Canvas();
+        pane.setCenter(canvas);
+        Button back5 = new Button("Back");
+        pane.setTop(back5);
+        back5.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                Parent hs = null;
+                try {
+                    hs = FXMLLoader.load(getClass().getResource("start.fxml"));
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                Scene scene = new Scene(hs);
+
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                window.setScene(scene);
+                window.show();
+            }
+        });
+
+
+
+
+
+
+
+
+        //StartLevel();
+    }
 }
