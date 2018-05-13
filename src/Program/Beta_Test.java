@@ -67,8 +67,17 @@ public class Beta_Test {
     private static void topDraw(Scene scene, BorderPane pane){
         //allapotsav
         Button back5 = new Button("Back");
+        back5.setStyle("-fx-background-color: #000000;" +
+                "-fx-font-weight: bold;" +
+                "-fx-text-fill: red");
         Button control=new Button("Controls");
+        control.setStyle("-fx-background-color: #000000;" +
+                "-fx-font-weight: bold;" +
+                "-fx-text-fill: red");
         VBox buttonbox=new VBox();
+        buttonbox.setStyle("-fx-alignment: center, center;-fx-spacing: 10,10;");
+
+
         buttonbox.getChildren().addAll(control, back5);
 
         HBox hb= new HBox();
@@ -82,6 +91,10 @@ public class Beta_Test {
 
         VBox vbleft= new VBox();
         VBox vbright=new VBox();
+        vbleft.setSpacing(10);
+        vbleft.setPadding(new Insets(10,10,10,15));
+        vbright.setSpacing(10);
+        vbright.setPadding(new Insets(10,15,10,10));
         vbleft.setAlignment(Pos.TOP_LEFT);
         vbright.setAlignment((Pos.TOP_RIGHT));
 
@@ -144,7 +157,7 @@ public class Beta_Test {
         control.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                ControlsWindow.display("rip");
+                ControlsWindow.display();
             }
         });
 
