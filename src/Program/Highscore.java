@@ -1,5 +1,6 @@
 package Program;
 
+import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -34,6 +35,7 @@ public class Highscore {
 
     }
 
+    public Highscore(){}
     public Highscore(java.util.ArrayList<Score> hs) {
         this.hs = hs;
     }
@@ -56,7 +58,18 @@ public class Highscore {
         return list;
     }
 
-    public class Score {
+    public ObservableList<Score> getObsList() {
+
+        ObservableList<Score> obs = FXCollections.observableArrayList();
+
+       for(Score s : hs){
+           obs.add(s);
+        }
+
+        return obs;
+    }
+
+    public static class Score {
 
         public final SimpleStringProperty name;
         public final SimpleIntegerProperty point;
@@ -64,6 +77,30 @@ public class Highscore {
         public Score(String name, Integer point) {
             this.name = new SimpleStringProperty(name);
             this.point = new SimpleIntegerProperty(point);
+        }
+
+        public String getName() {
+            return name.get();
+        }
+
+        public SimpleStringProperty nameProperty() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name.set(name);
+        }
+
+        public int getPoint() {
+            return point.get();
+        }
+
+        public SimpleIntegerProperty pointProperty() {
+            return point;
+        }
+
+        public void setPoint(int point) {
+            this.point.set(point);
         }
     }
 }
