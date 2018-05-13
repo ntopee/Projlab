@@ -1,6 +1,8 @@
 package Program;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 
 import java.util.*;
 import java.util.Map;
@@ -168,7 +170,12 @@ public class Tile {
     public void Draw(int x, int y, Canvas canvas){
        //TODO tile kirajzolas(huni és oil)
 
-
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        String filePath = "file:FxSources/box.png";
+        Image image = new Image(filePath);
+        System.out.println(x + " " + y);
+        gc.setFill(Color.GRAY);
+        gc.fillRect(x, y, Game.TILE_SIZE, Game.TILE_SIZE);
         for (Thing t: things) {
             t.draw(x,y,canvas);
         }

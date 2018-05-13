@@ -1,6 +1,9 @@
 package Program;
 
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 
 import static Program.Main.tabber;
 import static Program.Main.tabolo;
@@ -54,7 +57,12 @@ public class Goal extends Thing {
 
     @Override
     public void draw(int x, int y, Canvas canvas) {
-
+        GraphicsContext gc = canvas.getGraphicsContext2D();
+        String filePath = "file:FxSources/box.png";
+        Image image = new Image(filePath);
+        System.out.println(x + " " + y);
+        gc.setFill(Color.GREEN);
+        gc.fillRect(x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 
 }
