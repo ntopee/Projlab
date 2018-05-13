@@ -93,7 +93,6 @@ public class Box extends Thing {
 
                 movable = CheckMovable();
                 if(!movable) {
-                    tile.GetMap().DecreaseNumOfBoxes();
                     NeighbourMovableChecker();
 
                  }
@@ -125,7 +124,6 @@ public class Box extends Thing {
             movable = CheckMovable();
 
             if(!movable) {
-                    tile.GetMap().DecreaseNumOfBoxes();
                     NeighbourMovableChecker();
             }
 
@@ -205,6 +203,9 @@ public class Box extends Thing {
 
         //Ha a lenti vagy fenti neighbour es a jobboldali vagy baloldali
         // neighbour moveable-je false, akkor false erteket ad vissza a fgv.
+
+        if ((this.movable) && ((!down || !up) && (!right  || !left)))
+            tile.GetMap().DecreaseNumOfBoxes();
 
        return !((!down || !up) && (!right  || !left));
 
