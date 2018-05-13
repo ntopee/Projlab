@@ -189,7 +189,7 @@ public class Beta_Test {
                     game.GetCurrentLevel().DrawAll();
 
                 }
-
+                if (game.GetCurrentLevel().getPlayersController().size()>1)
                 if(event.getCode()== KeyCode.J) {
                     Move(2,Direction.left);
                     game.GetCurrentLevel().DrawAll();
@@ -220,6 +220,71 @@ public class Beta_Test {
                     game.GetCurrentLevel().DrawAll();
 
                 }
+
+                if (game.GetCurrentLevel().getPlayersController().size()>2)
+                    if(event.getCode()== KeyCode.LEFT) {
+                        Move(3,Direction.left);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.UP ) {
+                        Move(3,Direction.up);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.DOWN ) {
+                        Move(3,Direction.down);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.RIGHT ) {
+                        Move(3,Direction.right);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.SHIFT ) {
+                        Put(3, "Honey");
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.CONTROL ) {
+                        Put(3, "Oil");
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+
+                if (game.GetCurrentLevel().getPlayersController().size()>3)
+                    if(event.getCode()== KeyCode.NUMPAD4) {
+                        Move(4,Direction.left);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.NUMPAD8 ) {
+                        Move(4,Direction.up);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.NUMPAD5 ) {
+                        Move(4,Direction.down);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.NUMPAD6 ) {
+                        Move(4,Direction.right);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.NUMPAD7 ) {
+                        Put(4, "Honey");
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.NUMPAD9 ) {
+                        Put(4, "Oil");
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+
                 Beta_Test.DrawPoints();
                 if(Game.isEndGame())
                 {
