@@ -164,12 +164,12 @@ public class Tile {
         }
     }
 
-    public void Draw(int i, int j, Canvas canvas){
+    public void Draw(int x, int y, Canvas canvas){
        //TODO tile kirajzolas(huni és oil)
 
 
         for (Thing t: things) {
-            t.draw(i,j,canvas);
+            t.draw(x,y,canvas);
         }
     }
 }

@@ -180,7 +180,7 @@ public class Player extends Thing {
         tabber--;
 
         System.out.println("< Move");
-
+        this.tile.GetMap().CheckEndGame();
         this.tile.GetMap().DrawAll();
     }
 

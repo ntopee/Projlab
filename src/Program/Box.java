@@ -1,6 +1,8 @@
 package Program;
 
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 
@@ -388,7 +390,10 @@ public class Box extends Thing {
 
     @Override
     public void draw(int x, int y, Canvas canvas) {
-
+        /*GraphicsContext gc = canvas.getGraphicsContext2D();
+        String filePath = "file:FxSources/box.png";
+        Image image = new Image(filePath);
+        gc.drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);*/
     }
 
     public void setMovable(boolean B){
