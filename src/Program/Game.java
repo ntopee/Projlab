@@ -38,8 +38,7 @@ public class Game {
      * A jelenlegi pályának egy referenciáját tárolja el, arra jó,
      * hogy mindig tudjuk, melyik pálya van most “használatban”.
      */
-    private Map currentlevel;
-
+    private static Map currentlevel;
 
     /**
      * Betölti a megfelelő pályát a játékba.
@@ -181,7 +180,10 @@ public class Game {
          */
         endGame = true;
 
-
+        for (Player p :
+                currentlevel.getPlayer()) {
+            currentlevel.getPlayersController().get(currentlevel.getPlayersController().indexOf(p)).SetPoints(p.GetPoints());
+        }
         System.out.println("Game Over");
 
     }
