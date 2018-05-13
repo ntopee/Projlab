@@ -1,5 +1,6 @@
 package Program;
 
+import com.sun.javafx.collections.ObservableListWrapper;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -55,6 +56,16 @@ public class Highscore {
         }
 
         return list;
+    }
+
+    public ObservableList<Score> getObsList() {
+
+        ObservableList<Score> obs = FXCollections.observableArrayList();
+
+        System.out.println("Namee" + hs.get(0).name);
+        obs.add(hs.get(0));
+
+        return obs;
     }
 
     public static class Score {
