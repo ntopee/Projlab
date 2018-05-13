@@ -75,7 +75,7 @@ public class Beta_Test {
         HBox hb= new HBox();
         hb.setPadding(new Insets(15, 12, 15, 12));
         hb.setSpacing(50);
-        hb.setStyle("-fx-background-color: #f78257;");
+        hb.setStyle("-fx-font-size: 15; -fx-background-color: #f78257; -fx-font-weight: bold;");
 
         Region reg1=new Region();
         Region reg2=new Region();
@@ -90,6 +90,7 @@ public class Beta_Test {
         //pontok
         HBox p1h=new HBox();
         Label p1 = new Label("Player 1: ");
+
         Label p1points= new Label("0");
         p1h.getChildren().addAll(p1, p1points);
         p1points.textProperty().bind(po1.asString());
