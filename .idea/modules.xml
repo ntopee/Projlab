@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1_main.iml" filepath="$PROJECT_DIR$/.idea/modules/1_main.iml" group="1" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/1_test.iml" filepath="$PROJECT_DIR$/.idea/modules/1_test.iml" group="1" />
-      <module fileurl="file://$PROJECT_DIR$/Projlab.iml" filepath="$PROJECT_DIR$/Projlab.iml" />
+      <module fileurl="file://$PROJECT_DIR$/KillerSokoban.iml" filepath="$PROJECT_DIR$/KillerSokoban.iml" />
     </modules>
   </component>
 </project>

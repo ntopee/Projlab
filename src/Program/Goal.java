@@ -57,11 +57,8 @@ public class Goal extends Thing {
 
     @Override
     public void draw(int x, int y, Canvas canvas) {
-        GraphicsContext gc = canvas.getGraphicsContext2D();
-        String filePath = "file:FxSources/box.png";
-        Image image = new Image(filePath);
-        gc.setFill(Color.GREEN);
-        gc.fillRect(x, y, Game.TILE_SIZE, Game.TILE_SIZE);
+        Image image = new Image(getClass().getResourceAsStream("FxSources/goal.png"));
+        canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 
 }

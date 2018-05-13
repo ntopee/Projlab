@@ -171,8 +171,6 @@ public class Tile {
        //TODO tile kirajzolas(huni és oil)
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        String filePath = "file:FxSources/box.png";
-        Image image = new Image(filePath);
         gc.setFill(Color.GRAY);
         gc.fillRect(x, y, Game.TILE_SIZE, Game.TILE_SIZE);
         for (Thing t: things) {

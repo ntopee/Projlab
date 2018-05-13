@@ -218,6 +218,7 @@ public class Map {
                 tiles[i][j].Draw((j)*Game.TILE_SIZE,(i)*Game.TILE_SIZE, canvas);
             }
         }
+
     }
 
 }
