@@ -128,7 +128,7 @@ public class Hole extends Thing {
 
     private void NeighbourTeller(){
         ArrayList<Thing> AL = new ArrayList<Thing>();
-        
+
         tile.AddThingsFromDirectionToList(Direction.down,AL);
         tile.AddThingsFromDirectionToList(Direction.up,AL);
         tile.AddThingsFromDirectionToList(Direction.left,AL);
