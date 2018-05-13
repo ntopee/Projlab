@@ -144,6 +144,7 @@ public class Beta_Test {
         back5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
+                Game.setEndGame(false);
                 Parent hs = null;
                 try {
                    hs = FXMLLoader.load(getClass().getResource("start.fxml"));

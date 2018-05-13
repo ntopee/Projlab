@@ -247,6 +247,8 @@ public class Game {
         currentlevel.setCanvas(canvas);
     }
 
+    public static void setEndGame(boolean b){ endGame = b; }
+
     public static boolean isEndGame() {
         return endGame;
     }

@@ -130,8 +130,11 @@ public class Tile {
     public void Draw(int x, int y, Canvas canvas){
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
-        gc.setFill(Color.GRAY);
+        gc.setFill(Color.DARKGRAY);
         gc.fillRect(x, y, Game.TILE_SIZE, Game.TILE_SIZE);
+
+        gc.setFill(Color.LIGHTGRAY);
+        gc.fillRect(x+1, y+1, Game.TILE_SIZE-1, Game.TILE_SIZE-1);
 
 
         if(honey!=1) {
