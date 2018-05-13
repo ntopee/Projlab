@@ -204,6 +204,7 @@ public class Game {
                     switch (c){
                         case 'P':
                             seg = br.read();
+                            System.out.println(seg-48);
                             Player p = new Player(seg-48);
                             currentlevel.tiles[i][j].Add(p);
 
