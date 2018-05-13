@@ -89,10 +89,7 @@ public class Box extends Thing {
 
 
     public void HitBy(Box b, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);
 
-        System.out.println("> Box HitBy Box");
         double tmp = Force-weight*tile.GetOil()*tile.GetHoney();
         if (!this.movable || (tmp<=0))
             b.HitBy(this,Game.GetOpposite(d), Player.maximumPlayerStrength);
@@ -108,10 +105,6 @@ public class Box extends Thing {
 
             }
 
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Box HitBy Box");
     }
 
     /**
@@ -121,9 +114,7 @@ public class Box extends Thing {
      * @param Force Az utkozes ereje
      */
     public void HitBy(Player p, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> Box HitBy Player");
+
         double tmp = Force-weight*tile.GetOil()*tile.GetHoney();
         if (!this.movable || tmp <= 0){
             p.Move(Game.GetOpposite(d));
@@ -140,29 +131,20 @@ public class Box extends Thing {
 
 
             }
-        tabolo(tabber);
-        tabber--;
 
-        System.out.println("< Box HitBy Player");
     }
 
     /**
      * Akkor hívódik meg, ha a láda leesik egy lyukon. A láda eltűnik a pályáról.
      */
     public void Die() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> Die Box");
 
         tile.Remove(this);
         this.valid = false;
         this.isOnGoal = false;
         this.movable = false;
         tile.GetMap().DecreaseNumOfBoxes();
-        tabolo(tabber);
-        tabber--;
 
-        System.out.println("< Die Box");
     }
 
     /**
@@ -172,16 +154,9 @@ public class Box extends Thing {
      * @param Force Az utkozes ereje
      */
     public void HitBy(Obstacle o, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> Box HitBy Obstacle");
 
         Step(d, Force);
 
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Box HitBy Obstacle");
     }
 
     /**
@@ -191,11 +166,6 @@ public class Box extends Thing {
      * @return
      */
     public boolean CheckMovable() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> CheckMovable");
-        // TODO implement here -- meg kell nézni hogy két szomszédos szomszédja movable-e.
-       
 
         ArrayList<Thing> D = new ArrayList<Thing>();
         ArrayList<Thing> U = new ArrayList<Thing>();
@@ -233,10 +203,6 @@ public class Box extends Thing {
           |  b  |    |  O  |     |  b  |     |  O  |
          */
 
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< CheckMovable");
         //Ha a lenti vagy fenti neighbour es a jobboldali vagy baloldali
         // neighbour moveable-je false, akkor false erteket ad vissza a fgv.
 
@@ -249,15 +215,6 @@ public class Box extends Thing {
      * @return
      */
     public boolean GetisOnGoal() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> GetisOnGoal");
-
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< GetisOnGoal");
         return isOnGoal;
     }
 
@@ -265,9 +222,6 @@ public class Box extends Thing {
      * Beállitja az isOnGoal értékét.
      */
     public void SetisOnGoal() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> SetisOnGoal");
 
         if (isOnGoal)
             tile.GetMap().SetGoalCounter(tile.GetMap().GetGoalCounter()-1);
@@ -275,25 +229,14 @@ public class Box extends Thing {
             tile.GetMap().SetGoalCounter(tile.GetMap().GetGoalCounter()+1);
 
         isOnGoal = !isOnGoal;
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< SetisOnGoal");
     }
 
     /**
      * Átállítja a valid attribútumot a mostani érték ellenkezőjére.
      */
     public void SetValid() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> SetValid");
         if (valid)
             valid = false;
-        tabolo(tabber);
-        tabber--;
-        ;
-        System.out.println("< SetValid");
     }
 
     /**
@@ -301,16 +244,6 @@ public class Box extends Thing {
      * @return
      */
     public boolean GetValid() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> GetValid");
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< GetValid");
-
-
        return valid;
     }
 
@@ -319,20 +252,13 @@ public class Box extends Thing {
      * @param d
      */
     public void AddPoint(Direction d) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> AddPoint");
-        
+
         Tile t = tile.GetNeighbour(d);
 
         for (Thing i : t.GetThings()) {
             i.AddPoint(d);
         }
 
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< AddPoint");
     }
 
     /**
@@ -358,7 +284,6 @@ public class Box extends Thing {
 
     private void NeighbourMovableChecker(){
 
-
         ArrayList<Thing> AL = new ArrayList<Thing>();
 
 
@@ -366,8 +291,6 @@ public class Box extends Thing {
         tile.AddThingsFromDirectionToList(Direction.up,AL);
         tile.AddThingsFromDirectionToList(Direction.left,AL);
         tile.AddThingsFromDirectionToList(Direction.right,AL);
-
-
 
         for (Thing t: AL) {
             if(t instanceof  Box)
@@ -378,22 +301,13 @@ public class Box extends Thing {
     }
 
     public void PlayerPushedIntoIt(Player p) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> PlayerPushedIntoIt");
         p.Die();
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("> PlayerPushedIntoIt");
     }
 
     @Override
     public void draw(int x, int y, Canvas canvas) {
         Image image = new Image(getClass().getResourceAsStream("FxSources/box.png"));
         canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
-
     }
 
     public void setMovable(boolean B){
@@ -402,16 +316,6 @@ public class Box extends Thing {
 
 
     public int getWeight(){
-
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> GetWeight");
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< GetWeight");
-
         return weight;
     }
 }
