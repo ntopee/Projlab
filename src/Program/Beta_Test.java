@@ -137,7 +137,7 @@ public class Beta_Test {
         pane.setTop(back5);
 
         game.setMapCanvas(canvas);
-
+        game.GetCurrentLevel().DrawAll();
         //Back button vissza a menube
         back5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
