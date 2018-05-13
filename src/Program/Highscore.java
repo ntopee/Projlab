@@ -62,8 +62,9 @@ public class Highscore {
 
         ObservableList<Score> obs = FXCollections.observableArrayList();
 
-        System.out.println("Namee" + hs.get(0).name);
-        obs.add(hs.get(0));
+       for(Score s : hs){
+           obs.add(s);
+        }
 
         return obs;
     }
