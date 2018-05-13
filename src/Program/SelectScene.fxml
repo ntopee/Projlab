@@ -7,12 +7,11 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Program.JavaFx">
    <children>
-      <ImageView fx:id="level1" cache="true" fitHeight="150.0" fitWidth="200.0" layoutX="28.0" layoutY="14.0" onMouseClicked="#press_btn_level1" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="level1" cache="true" fitHeight="150.0" fitWidth="200.0" layoutX="15.0" layoutY="14.0" onMouseClicked="#press_btn_le" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@FxSources/lvl1.png" />
          </image>
       </ImageView>
-      <Button layoutX="274.0" layoutY="200.0" mnemonicParsing="false" onAction="#press_btn_back" text="Back" />
-      <Button layoutX="88.0" layoutY="139.0" mnemonicParsing="false" onAction="#press_btn_level1" text="Level 1" />
+      <Button layoutX="246.0" layoutY="361.0" mnemonicParsing="false" onAction="#press_btn_back" prefHeight="25.0" prefWidth="108.0" text="Back" />
    </children>
 </AnchorPane>
