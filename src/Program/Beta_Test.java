@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,9 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -34,7 +33,7 @@ public class Beta_Test {
     }
 
     private static void Move(int i, Direction d){ //A megfelelo playert a megfelelo iranyba elmozditja
-        //System.out.println(i+""+d);
+        System.out.println(i+""+d);
         if (game.GetCurrentLevel().getPlayer().indexOf(game.GetCurrentLevel().getPlayersController().get(i-1)) != -1)
         game.GetCurrentLevel().getPlayersController().get(i-1).Move(d);
     }
@@ -57,10 +56,16 @@ public class Beta_Test {
         initDraw(scene, pane);
     }
 
-    static Integer po1=0,po2=0,po3=0,po4=0;
+    static SimpleIntegerProperty po1=new SimpleIntegerProperty(0);
+    static SimpleIntegerProperty po2=new SimpleIntegerProperty(0);
+    static SimpleIntegerProperty po3=new SimpleIntegerProperty(0);
+    static SimpleIntegerProperty po4=new SimpleIntegerProperty(0);
     static void DrawPoints(){
-        po1=game.GetCurrentLevel().getPlayersController().get(0).GetPoints();
-        //System.out.println(po1);
+        int i=game.GetCurrentLevel().getPlayersController().size();
+        if(0<i)po1.setValue(game.GetCurrentLevel().getPlayersController().get(0).GetPoints());
+        if(1<i)po2.setValue(game.GetCurrentLevel().getPlayersController().get(1).GetPoints());
+        if(2<i)po3.setValue(game.GetCurrentLevel().getPlayersController().get(2).GetPoints());
+        if(3<i)po4.setValue(game.GetCurrentLevel().getPlayersController().get(3).GetPoints());
     }
 
 
@@ -70,40 +75,51 @@ public class Beta_Test {
         HBox hb= new HBox();
         hb.setPadding(new Insets(15, 12, 15, 12));
         hb.setSpacing(50);
-        hb.setStyle("-fx-background-color: #ff6600;");
+        hb.setStyle("-fx-font-size: 15; -fx-background-color: #f78257; -fx-font-weight: bold;");
+
+        Region reg1=new Region();
+        Region reg2=new Region();
+
 
         VBox vbleft= new VBox();
         VBox vbright=new VBox();
-
+        vbleft.setAlignment(Pos.TOP_LEFT);
+        vbright.setAlignment((Pos.TOP_RIGHT));
 
 
         //pontok
         HBox p1h=new HBox();
         Label p1 = new Label("Player 1: ");
+
         Label p1points= new Label("0");
         p1h.getChildren().addAll(p1, p1points);
-        p1points.textProperty().bind(new SimpleIntegerProperty(po1).asString());
+        p1points.textProperty().bind(po1.asString());
 
         HBox p2h=new HBox();
         Label p2 = new Label("Player 2: ");
         Label p2points= new Label("0");
         p2h.getChildren().addAll(p2, p2points);
+        p2points.textProperty().bind(po2.asString());
 
         HBox p3h=new HBox();
         Label p3 = new Label("Player 3: ");
         Label p3points= new Label("0");
         p3h.getChildren().addAll(p3, p3points);
+        p3points.textProperty().bind(po3.asString());
 
         HBox p4h=new HBox();
         Label p4 = new Label("Player 4: ");
         Label p4points= new Label("0");
         p4h.getChildren().addAll(p4, p4points);
+        p4points.textProperty().bind(po4.asString());
 
 
         vbleft.getChildren().addAll(p1h, p2h);
         vbright.getChildren().addAll(p3h, p4h);
 
-        hb.getChildren().addAll(vbleft, back5, vbright);
+        hb.getChildren().addAll(vbleft,reg1,  back5, reg2, vbright);
+        HBox.setHgrow(reg1, Priority.ALWAYS);
+        HBox.setHgrow(reg2, Priority.ALWAYS);
         pane.setTop(hb);
 
         //Back button vissza a menube
@@ -142,7 +158,7 @@ public class Beta_Test {
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             public void handle(KeyEvent event) {
                 if(Game.isEndGame())return;
-                Beta_Test.DrawPoints();
+
                 if(event.getCode()== KeyCode.A) {
                     Move(1,Direction.left);
                     game.GetCurrentLevel().DrawAll();
@@ -204,7 +220,7 @@ public class Beta_Test {
                     game.GetCurrentLevel().DrawAll();
 
                 }
-
+                Beta_Test.DrawPoints();
                 if(Game.isEndGame())
                 {
                     game.GetCurrentLevel().drawEndGame(game.GetCurrentLevel().getCanvas());
