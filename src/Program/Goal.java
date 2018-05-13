@@ -38,7 +38,7 @@ public class Goal extends Thing {
            if(!b.CheckMovable())
                tile.GetMap().SetCounterWeight(
                    tile.GetMap().GetCounterWeight()+1);
-            tile.GetMap().CheckEndGame();
+            //tile.GetMap().CheckEndGame();
 
     }
 
