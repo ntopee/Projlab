@@ -78,5 +78,29 @@ public class Highscore {
             this.name = new SimpleStringProperty(name);
             this.point = new SimpleIntegerProperty(point);
         }
+
+        public String getName() {
+            return name.get();
+        }
+
+        public SimpleStringProperty nameProperty() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name.set(name);
+        }
+
+        public int getPoint() {
+            return point.get();
+        }
+
+        public SimpleIntegerProperty pointProperty() {
+            return point;
+        }
+
+        public void setPoint(int point) {
+            this.point.set(point);
+        }
     }
 }
