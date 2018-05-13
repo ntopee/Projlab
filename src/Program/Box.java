@@ -32,6 +32,8 @@ public class Box extends Thing {
 
     private final int maximumBoxWeight = 25;
 
+    private boolean neighboursChecked = false;
+
     /**
      * Default constructor
      */
@@ -190,8 +192,10 @@ public class Box extends Thing {
         for (int i = 0; i<L.size(); i++)
             if(!L.get(i).getMovable()) left = false;
 
+
         for (int i = 0; i<R.size(); i++)
             if(!R.get(i).getMovable()) right = false;
+
 
         /*
         felulnezet:
@@ -204,8 +208,11 @@ public class Box extends Thing {
         //Ha a lenti vagy fenti neighbour es a jobboldali vagy baloldali
         // neighbour moveable-je false, akkor false erteket ad vissza a fgv.
 
-        if ((this.movable) && ((!down || !up) && (!right  || !left)))
+        if ((this.movable) && ((!down || !up) && (!right  || !left))){
             tile.GetMap().DecreaseNumOfBoxes();
+
+        }
+
 
        return !((!down || !up) && (!right  || !left));
 
@@ -293,11 +300,23 @@ public class Box extends Thing {
         tile.AddThingsFromDirectionToList(Direction.left,AL);
         tile.AddThingsFromDirectionToList(Direction.right,AL);
 
+
+
         for (Thing t: AL) {
-            if(t instanceof  Box)
+            if(t instanceof  Box) {
                 t.setMovable(((Box) t).CheckMovable());
+
+            }
         }
 
+        neighboursChecked = true;
+
+        for (Thing t : AL) {
+            if (t instanceof Box){
+                if (!t.movable && !((Box) t).neighboursChecked)
+                ((Box) t).NeighbourMovableChecker();
+            }
+        }
        
     }
 
