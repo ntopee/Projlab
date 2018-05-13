@@ -9,8 +9,8 @@ import javafx.scene.image.Image;
  */
 public class Player extends Thing {
 
-    private final double HONEY = 1.45;
-    private final double OIL = 0.55;
+    private final double HONEY = 2.45;
+    private final double OIL = (1/2.45);
     Image image = new Image(getClass().getResourceAsStream("FxSources/player.png"));
     @Override
     public String toString() {
@@ -43,21 +43,8 @@ public class Player extends Thing {
         movable = true;
     }
 
-
-    /**
-     * Paraméteres konstruktor, így megadható a player ereje
-     * @param Strength a munkás ereje
-     */
-    public Player(int Strength){
-            movable = true;
-            if(!(Strength<minimumPlayerStrength || Strength>maximumPlayerStrength)){
-            this.strength = Strength;
-            }
-            else {
-                this.strength = avaragePlayerStrength;
-                System.err.println("The value is inappropriate, the player's strength is set to 50");
-            }
-
+    public Player(int index){
+        image = new Image(getClass().getResourceAsStream("FxSources/player" + index + ".png"));
     }
 
     /**

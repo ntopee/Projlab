@@ -90,8 +90,8 @@ public class Game {
 
 
 
-                int cycle = 1;
-                
+            int cycle = 1;
+
             for (int i = 0; i<=N+1; i++)
                 for (int j=0 ; j<=M+1;j++)
                 {
@@ -113,8 +113,9 @@ public class Game {
                             currentlevel.tiles[i][j].Add(p);
 
                             currentlevel.AddPlayer(p,seg-48-1);
+                            currentlevel.AddPlayerToController(p, seg-48-1);
                             //plyr++;
-                           // System.out.println(seg-48);
+                            // System.out.println(seg-48);
 
                             break;
                         case 'B':
@@ -135,7 +136,7 @@ public class Game {
                             seg = br.read() ;
 
                             currentlevel.tiles[i][j].Add(swk.get(seg-48-1));
-                           // swtch++;
+                            // swtch++;
 
                             break;
                         case 'T':
@@ -162,11 +163,7 @@ public class Game {
 
         //filename.betolt
 
-        *//**
-         * filename alapjan betolti a palyat
-         *//*
-
-    }*/
+   }*/
 
     /**
      * Megállítja a játékot (mivel vége van),
@@ -321,7 +318,7 @@ public class Game {
                     switch (c){
                         case 'P':
                             seg = br.read();
-                            Player p = new Player();
+                            Player p = new Player(seg-48);
                             currentlevel.tiles[i][j].Add(p);
 
                             currentlevel.AddPlayer(p,seg-48-1);
