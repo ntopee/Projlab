@@ -1,6 +1,7 @@
 package Program;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
 import java.util.*;
@@ -132,6 +133,12 @@ public class Tile {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.GRAY);
         gc.fillRect(x, y, Game.TILE_SIZE, Game.TILE_SIZE);
+
+
+        if(honey!=1) {
+            Image image = new Image(getClass().getResourceAsStream("FxSources/honey.png"));
+            canvas.getGraphicsContext2D().drawImage(image, x, y, 15, 15);
+        }
         for (Thing t: things) {
             t.draw(x,y,canvas);
         }

@@ -163,22 +163,33 @@ public class Beta_Test {
         //TODO gombra konkrét függvényt hív, hogy player elmozduljon
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             public void handle(KeyEvent event) {
-                if(event.getCode()== KeyCode.A && !game.isEndGame()) {
+
+                if(event.getCode()== KeyCode.A) {
                     Move(1,Direction.left);
                     game.GetCurrentLevel().DrawAll();
 
                 }
-                else if(event.getCode()== KeyCode.W && !game.isEndGame()) {
+                else if(event.getCode()== KeyCode.W) {
                     Move(1,Direction.up);
                     game.GetCurrentLevel().DrawAll();
 
                 }
-                else if(event.getCode()== KeyCode.S && !game.isEndGame()) {
+                else if(event.getCode()== KeyCode.S) {
                     Move(1,Direction.down);
                     game.GetCurrentLevel().DrawAll();
 
                 }
-                else if(event.getCode()== KeyCode.D && !game.isEndGame()) {
+                else if(event.getCode()== KeyCode.D) {
+                    Move(1,Direction.right);
+                    game.GetCurrentLevel().DrawAll();
+
+                }
+                else if(event.getCode()== KeyCode.Q) {
+                    Beta_Test.Put(1,"Honey");
+                    game.GetCurrentLevel().DrawAll();
+
+                }
+                else if(event.getCode()== KeyCode.E) {
                     Move(1,Direction.right);
                     game.GetCurrentLevel().DrawAll();
 
