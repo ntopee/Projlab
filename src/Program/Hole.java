@@ -115,54 +115,6 @@ public class Hole extends Thing {
 
 
     private void LocalNeighbourTeller(ArrayList<Thing> AL){
-        //ArrayList<Thing> AL = new ArrayList<Thing>();
-
-/*
-        tile.AddThingsFromDirectionToList(Direction.down,AL);
-        tile.AddThingsFromDirectionToList(Direction.up,AL);
-        tile.AddThingsFromDirectionToList(Direction.left,AL);
-        tile.AddThingsFromDirectionToList(Direction.right,AL);*/
-
-        //LocalNeighbourTeller(AL);
-
-       /* for (int i = 0; i<AL.size(); i++)
-            if(AL.get(i) instanceof Box) {
-
-
-                if ((!AL.get(i).getMovable()) &&
-                        (((Box) AL.get(i)).GetisOnGoal())) {
-                    AL.get(i).setMovable(((Box) AL.get(i)).CheckMovable());
-                    if (AL.get(i).getMovable()) {
-                        tile.GetMap().SetCounterWeight(
-                                tile.GetMap().GetCounterWeight() - 1);
-                        tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes() + 1);
-                    }
-                }
-                else
-                    AL.get(i).setMovable(((Box) AL.get(i)).CheckMovable());
-            }*/
-
-        /*for (Thing t :
-                AL) {
-            if (t instanceof Box) {
-                boolean b = ((Box) t).CheckMovable();
-                if (t.getMovable() != b){
-                    t.setMovable(b);
-                    if (b){
-                        tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes()+1);
-                    }
-
-                    ArrayList<Thing> al = new ArrayList<>();
-                    tile.AddThingsFromDirectionToList(Direction.down,al);
-                    tile.AddThingsFromDirectionToList(Direction.up,al);
-                    tile.AddThingsFromDirectionToList(Direction.left,al);
-                    tile.AddThingsFromDirectionToList(Direction.right,al);
-
-                    LocalNeighbourTeller(al);
-                }
-            }
-        }*/
-
         for (Thing t :
                 AL) {
             if (t instanceof Box){
