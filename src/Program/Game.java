@@ -26,7 +26,7 @@ public class Game {
         levels.add("level2.txt");
     }
 
-    public static double TILE_SIZE = 50;
+    public static int TILE_SIZE = 50;
 
 
     /**
@@ -73,13 +73,13 @@ public class Game {
             for (int i = 0; i<=N+1;i++)
             {
                 currentlevel.tiles[i][0].SetNeighbour(right,currentlevel.tiles[i][1]);
-                currentlevel.tiles[i][M+1].SetNeighbour(left,currentlevel.tiles[i][M+1]);
+                currentlevel.tiles[i][M+1].SetNeighbour(left,currentlevel.tiles[i][M]);
             }
 
             for (int i = 0; i<=M+1;i++)
             {
                 currentlevel.tiles[0][i].SetNeighbour(down,currentlevel.tiles[1][i]);
-                currentlevel.tiles[N+1][i].SetNeighbour(up,currentlevel.tiles[N+1][i]);
+                currentlevel.tiles[N+1][i].SetNeighbour(up,currentlevel.tiles[N][i]);
             }
 
             for (int i = 1;i<=N;i++)

@@ -181,6 +181,7 @@ public class Player extends Thing {
 
         System.out.println("< Move");
 
+        this.tile.GetMap().DrawAll();
     }
 
     /**

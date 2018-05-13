@@ -210,10 +210,10 @@ public class Map {
     }
     public Canvas getCanvas() { return canvas; }
 
-    public void DrawAll(Canvas canvas){
-        for (int i = 0; i < tilesV; i++){
-            for (int j = 0; j < tilesH; j++){
-                tiles[i][j].Draw(i,j,canvas); //Draw i,j helyett koordinatak
+    public void DrawAll(){
+        for (int i = 1; i < tilesH; i++){
+            for (int j = 1; j < tilesV; j++){
+                tiles[i][j].Draw(i*Game.TILE_SIZE,j*Game.TILE_SIZE,canvas);
             }
         }
     }
