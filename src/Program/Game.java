@@ -70,7 +70,7 @@ public class Game {
             highscore.hs.add(score);
         }
 
-
+        
     }
 
     /**
