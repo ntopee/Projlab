@@ -34,6 +34,7 @@ public class Highscore {
 
     }
 
+    public Highscore(){}
     public Highscore(java.util.ArrayList<Score> hs) {
         this.hs = hs;
     }
@@ -56,7 +57,7 @@ public class Highscore {
         return list;
     }
 
-    public class Score {
+    public static class Score {
 
         public final SimpleStringProperty name;
         public final SimpleIntegerProperty point;
