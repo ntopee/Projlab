@@ -1,16 +1,23 @@
 package Program;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
@@ -50,17 +57,55 @@ public class Beta_Test {
         initDraw(scene, pane);
     }
 
-    private static void initDraw(Scene scene, BorderPane pane){
+    static Integer po1=0,po2=0,po3=0,po4=0;
+    static void DrawPoints(){
+        po1=game.GetCurrentLevel().getPlayersController().get(0).GetPoints();
+        System.out.println(game.GetCurrentLevel().getPlayersController().get(0).GetPoints());
+    }
 
 
-
-        Canvas canvas= new Canvas();
-        pane.setCenter(canvas);
+    private static void topDraw(Scene scene, BorderPane pane){
+        //allapotsav
         Button back5 = new Button("Back");
-        pane.setTop(back5);
+        HBox hb= new HBox();
+        hb.setPadding(new Insets(15, 12, 15, 12));
+        hb.setSpacing(50);
+        hb.setStyle("-fx-background-color: #ff6600;");
 
-        game.setMapCanvas(canvas);
-        game.GetCurrentLevel().DrawAll();
+        VBox vbleft= new VBox();
+        VBox vbright=new VBox();
+
+
+
+        //pontok
+        HBox p1h=new HBox();
+        Label p1 = new Label("Player 1: ");
+        Label p1points= new Label("0");
+        p1h.getChildren().addAll(p1, p1points);
+        //p1points.textProperty().bindBidirectional();
+
+        HBox p2h=new HBox();
+        Label p2 = new Label("Player 2: ");
+        Label p2points= new Label("0");
+        p2h.getChildren().addAll(p2, p2points);
+
+        HBox p3h=new HBox();
+        Label p3 = new Label("Player 3: ");
+        Label p3points= new Label("0");
+        p3h.getChildren().addAll(p3, p3points);
+
+        HBox p4h=new HBox();
+        Label p4 = new Label("Player 4: ");
+        Label p4points= new Label("0");
+        p4h.getChildren().addAll(p4, p4points);
+
+
+        vbleft.getChildren().addAll(p1h, p2h);
+        vbright.getChildren().addAll(p3h, p4h);
+
+        hb.getChildren().addAll(vbleft, back5, vbright);
+        pane.setTop(hb);
+
         //Back button vissza a menube
         back5.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -68,7 +113,7 @@ public class Beta_Test {
                 Game.setEndGame(false);
                 Parent hs = null;
                 try {
-                   hs = FXMLLoader.load(getClass().getResource("start.fxml"));
+                    hs = FXMLLoader.load(getClass().getResource("start.fxml"));
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -81,13 +126,23 @@ public class Beta_Test {
             }
         });
 
+    }
+
+    private static void initDraw(Scene scene, BorderPane pane){
+
+        Canvas canvas= new Canvas();
+        pane.setCenter(canvas);
+
+        topDraw(scene, pane);
+        game.setMapCanvas(canvas);
+        game.GetCurrentLevel().DrawAll();
 
         game.GetCurrentLevel().DrawAll();
         //gomblenyomások eventkezelője
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             public void handle(KeyEvent event) {
                 if(Game.isEndGame())return;
-
+                Beta_Test.DrawPoints();
                 if(event.getCode()== KeyCode.A) {
                     Move(1,Direction.left);
                     game.GetCurrentLevel().DrawAll();
