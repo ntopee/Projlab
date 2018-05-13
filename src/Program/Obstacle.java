@@ -1,8 +1,5 @@
 package Program;
 
-import static Program.Main.tabber;
-import static Program.Main.tabolo;
-
 /**
  * Olyan objektumok a pályán, amelyeken sem játékos, sem doboz nem tud átmenni.
  */
@@ -27,16 +24,7 @@ public abstract class Obstacle extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> Obstacle HitBy Box");
-
         b.HitBy(this,Game.GetOpposite(d), Player.maximumPlayerStrength);
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Obstacle HitBy Box");
     }
 
     /**
@@ -46,27 +34,10 @@ public abstract class Obstacle extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Player p, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> Obstacle HitBy Player");
-
         p.Move(Game.GetOpposite(d));
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Obstacle HitBy Player");
     }
 
     public void PlayerPushedIntoIt(Player p) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> PlayerPushedIntoIt");
         p.Die();
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("> PlayerPushedIntoIt");
     }
 }

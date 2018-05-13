@@ -1,13 +1,8 @@
 package Program;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 
 import java.util.*;
-
-import static Program.Main.tabber;
-import static Program.Main.tabolo;
 
 /**
  * Vannak olyan lyukak, amelyek padlónak látszanak, de egy gomb lenyomására aktiválódnak.
@@ -47,17 +42,7 @@ public class Switch extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> Switch HitBy Box");
-
         this.Activate();
-
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Switch HitBy Box");
     }
 
     @Override
@@ -70,18 +55,9 @@ public class Switch extends Thing {
      * Meghívja az összes, a switch-hez tartozó Hole SetActive() függvényét.
      */
     private void Activate() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> Activate");
         for (Hole i : holes) {
             i.SetActive();
         }
-
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Activate");
     }
 
     public int getID(){ return ID; }

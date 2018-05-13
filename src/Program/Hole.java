@@ -1,14 +1,9 @@
 package Program;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
-
-import static Program.Main.tabber;
-import static Program.Main.tabolo;
 
 /**
  * Ha egy másik objektum kerül arra a mezőre, amelyiken lyuk van, akkor leesik a lyukba, és meghívja rá a Remove metódust
@@ -38,17 +33,13 @@ public class Hole extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Player p, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);//Ez nem kb ugyan az mint a player PushedintoIt? valahogy a két függvényt kéne mergelni valamilyen néven #bende
-        System.out.println("> Hole HitBy Player");          //Full maskor hivodik meg, mivel nem tudunk instanceof-ot hasznalni, ezert nem tudjuk hogy minek hivjuk a fuggvenyeit.
+
+        //Ez nem kb ugyan az mint a player PushedintoIt? valahogy a két függvényt kéne mergelni valamilyen néven #bende
+        //Full maskor hivodik meg, mivel nem tudunk instanceof-ot hasznalni, ezert nem tudjuk hogy minek hivjuk a fuggvenyeit.
         if (active)
             p.Die();
 
         tile.GetMap().CheckEndGame();
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Hole HitBy Player");
     }
 
     /**
@@ -57,30 +48,19 @@ public class Hole extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> Hole HitBy Box");
+
         if (active){
             b.Die();
-
         }
-
 
         tile.GetMap().CheckEndGame();
 
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Hole HitBy Box");
     }
 
     /**
      * Az active attribútumot az aktuális értékének az ellentettjére állítja.
      */
     public void SetActive() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> SetActive");
 
         active = !active;
         if (active) {
@@ -90,10 +70,6 @@ public class Hole extends Thing {
             NeighbourTeller();
         }
 
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< SetActive");
     }
 
     /**
@@ -101,30 +77,15 @@ public class Hole extends Thing {
      * @return active attribútum aktuális értéke.
      */
     public boolean GetActive() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> GetActive");
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< GetActive");
         return active;
     }
 
     public void PlayerPushedIntoIt(Player p) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> PlayerPushedIntoIt");
         if (active)
             p.Die();
 
         tile.GetMap().CheckEndGame();
 
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("> PlayerPushedIntoIt");
     }
 
     @Override

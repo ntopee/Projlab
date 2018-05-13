@@ -2,10 +2,6 @@ package Program;
 
 import java.util.*;
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-
-import static Program.Main.tabber;
-import static Program.Main.tabolo;
 
 /**
  *  Tárolja a Tile-okat, amikből maga a pálya felépül.
@@ -63,10 +59,7 @@ public class Map {
      * Egy Tile-ra rárak egy új játékost, amit ugyanez a függvény hoz létre.
      */
     public void AddPlayer(Player p,int N) {
-        System.out.println("> AddPlayer");
-        // TODO implement here
         players.add(N,p);
-        System.out.println("< AddPlayer");
     }
 
     /**
@@ -74,15 +67,7 @@ public class Map {
      * @param p Eltávolítandó Player referenciája.
      */
     public void RemovePlayer(Player p) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> RemovePlayer");
         players.remove(p);
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< RemovePlayer");
     }
 
     /**
@@ -90,14 +75,6 @@ public class Map {
      * @return
      */
     public int GetNumOfMBoxes() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> GetNumOfMBoxes");
-
-
-        tabber--;
-        tabolo(tabber);
-        System.out.println("< GetNumOfMBoxes");
         return num_of_movable_boxes;
     }
 
@@ -106,9 +83,7 @@ public class Map {
      * @param n Erre az értékre állítja be a num_of_movable_boxes értékét.
      */
     public void SetNumOfMBoxes(int n) {
-        System.out.println("> SetNumOfMBoxes");
         num_of_movable_boxes = n;
-        System.out.println("< SetNumOfMBoxes");
     }
 
     public void DecreaseNumOfBoxes(){
@@ -120,14 +95,6 @@ public class Map {
      * @return
      */
     public int GetGoalCounter() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> GetGoalCounter");
-
-
-        tabolo(tabber);
-        tabber--;
-        System.out.println("< GetGoalCounter");
         return goalcounter;
     }
 
@@ -136,14 +103,7 @@ public class Map {
      * @param n
      */
     public void SetGoalCounter(int n) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> SetGoalCounter");
         goalcounter = n;
-
-        tabolo(tabber);
-        tabber--;
-        System.out.println("< SetGoalCounter");
     }
 
     /**
@@ -153,27 +113,11 @@ public class Map {
      * akkor meghívja az EndGame() függvényt.
      */
     public void CheckEndGame() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> CheckEndGame");
         if ( (players.size() == 0) || (goalcounter == (num_of_movable_boxes + counterweight)) || (num_of_movable_boxes == 0))
             Game.EndGame();
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< CheckEndGame");
     }
 
     public int GetCounterWeight() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> GetCounterWeight");
-
-        tabolo(tabber);
-        tabber--;
-        System.out.println("< GetCounterWeight");
-
         return counterweight;
     }
 
@@ -182,15 +126,7 @@ public class Map {
      * @param n
      */
     public void SetCounterWeight(int n) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> SetCounterWeight");
-
         counterweight = n;
-
-        tabolo(tabber);
-        tabber--;
-        System.out.println("< SetCounterWeight");
     }
 
     public ArrayList<Player> getPlayer(){

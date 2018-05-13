@@ -5,8 +5,6 @@ import java.io.*;
 import java.util.*;
 
 import static Program.Direction.*;
-import static Program.Main.tabber;
-import static Program.Main.tabolo;
 
 /**
  * A játékot reprezentálja, mapeket tölt be.
@@ -45,8 +43,6 @@ public class Game {
      * Betölti a megfelelő pályát a játékba.
      */
     public void Init(String filename) {
-        System.out.println("> Init");
-        // TODO implement here
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -168,8 +164,6 @@ public class Game {
          * filename alapjan betolti a palyat
          */
 
-        System.out.println("< Init");
-
     }
 
     /**
@@ -178,20 +172,13 @@ public class Game {
      * és ez alapján a nyertest is “kihirdeti”.
      */
     public static void EndGame() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> EndGame");
-        // TODO implement here
+
         /**
          * kiirja a kepernyore hogy vege van, aztan kidob menube
          */
 
         System.out.println("Game Over");
 
-
-        tabolo(tabber);
-        tabber--;
-        System.out.println("< EndGame");
     }
 
     /**
@@ -199,8 +186,6 @@ public class Game {
      * és meghívja az init() függvényt.
      */
     public void NextLevel() {
-        System.out.println("> NextLevel");
-        // TODO implement here
 
         if (currentLvl != levels.size())
             currentLvl++;
@@ -212,21 +197,17 @@ public class Game {
          * meghiv egy initet a kovi levellel
          */
 
-        System.out.println("< NextLevel");
     }
 
     /**
      * Újraindítja az aktuális pályát.
      */
     public void RestartLevel() {
-        System.out.println("> RestartLevel");
-        // TODO implement here
 
         Init(levels.get(currentLvl));
         /**
          * meghivja az initet ugyanazzal a filename-el
          */
-        System.out.println("< RestartLevel");
     }
 
     /**

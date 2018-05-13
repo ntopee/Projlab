@@ -1,12 +1,7 @@
 package Program;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
-
-import static Program.Main.tabber;
-import static Program.Main.tabolo;
 
 /**
  * Felelős azért, hogy a játékos ne tudjon rajta átmenni, a dobozt ne tudjuk áttolni. A saját Tile-án egyedüli objektumnak kell lennie.
@@ -32,15 +27,7 @@ public class Pillar extends Obstacle {
      * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> Pillar HitBy Box");
         super.HitBy(b,d, Force);
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Pillar HitBy Box");
     }
 
     @Override
@@ -56,15 +43,7 @@ public class Pillar extends Obstacle {
      * @param d Ütközés iránya.
      */
     public void HitBy(Player p, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> Pillar HitBy Player");
         super.HitBy(p,d, Force);
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Pillar HitBy Player");
     }
 
 }

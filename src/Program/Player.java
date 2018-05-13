@@ -1,12 +1,7 @@
 package Program;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
-
-import static Program.Main.tabber;
-import static Program.Main.tabolo;
 
 /**
  * A karakter mozgását valósítja meg, egy paraméterként kapott irány szerint.
@@ -86,10 +81,6 @@ public class Player extends Thing {
      * @param Force Az utkozes ereje
      */
     public void HitBy(Box b, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> Player HitBy Box");
-        
         Tile t = tile.GetNeighbour(d);
         
         tile.Remove(this);
@@ -100,27 +91,14 @@ public class Player extends Thing {
             if (!i.equals(this))
                 i.PlayerPushedIntoIt(this);
         }
-
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Player HitBy Box");
     }
 
     /**
      * Meghal az adott játékos.
      */
     public void Die() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> Die Player");
         tile.Remove(this);
         tile.GetMap().RemovePlayer(this);
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Die Player");
     }
 
     /**
@@ -128,15 +106,7 @@ public class Player extends Thing {
      * @param d Megadja hogy melyik irányban van a pontszerző játékos.
      */
     public void AddPoint(Direction d) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> AddPoint");
         points++;
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< AddPoint");
     }
 
     /**
@@ -146,17 +116,7 @@ public class Player extends Thing {
      * @param Force Az utkozes ereje
      */
     public void HitBy(Player p, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);
-
-        System.out.println("> Player HitBy Player");
         p.Move(Game.GetOpposite(d));
-
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Player HitBy Player");
     }
 
     /**
@@ -164,9 +124,6 @@ public class Player extends Thing {
      * @param d Mozgás iránya.
      */
     public void Move(Direction d) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> Move");
 
         Tile t = tile.GetNeighbour(d);
 
@@ -178,13 +135,7 @@ public class Player extends Thing {
                 i.HitBy(this, d, strength);
 
         }
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Move");
         this.tile.GetMap().CheckEndGame();
-        //this.tile.GetMap().DrawAll();
     }
 
     /**
@@ -192,14 +143,6 @@ public class Player extends Thing {
      * @return visszaadja a játékos pontszámát
      */
     public int GetPoints() {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> GetPoints");
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< GetPoints");
         return points;
     }
 
@@ -208,29 +151,11 @@ public class Player extends Thing {
      * @param n Beállítja hogy mennyi pontja van a játékosnak.
      */
     public void SetPoints(int n) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> SetPoints");
         points = n;
-
-        tabolo(tabber);
-        tabber--;
-
-
-        System.out.println("< SetPoints");
     }
 
     public void PlayerPushedIntoIt(Player p) {
-        tabber--;
-        tabolo(tabber);
-        System.out.println("> PlayerPushedIntoIt");
-
         p.Die();
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< PlayerPushedIntoIt");
     }
 
     @Override
@@ -241,16 +166,7 @@ public class Player extends Thing {
 
 
     public int GetStregth(){
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> GetStrength");
-
-        tabolo(tabber);
-        tabber--;
-
         System.out.println("< GetStrength");
-
-
         return strength;
     }
 

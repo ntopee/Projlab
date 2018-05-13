@@ -1,14 +1,9 @@
 package Program;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
-
-import static Program.Main.tabber;
-import static Program.Main.tabolo;
 
 /**
  *A játékban található ládákat reprezentálja.

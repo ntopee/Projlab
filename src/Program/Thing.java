@@ -1,10 +1,6 @@
 package Program;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-
-import static Program.Main.tabber;
-import static Program.Main.tabolo;
 
 /**
  *A Thing objektumok azok az objektumok, amelyek “rajta vannak” egy Tile-on.
@@ -47,15 +43,6 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
      * @param Force Az utkozes ereje
      */
     public void HitBy(Player p, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);
-
-        System.out.println("> HitBy Player");
-        // TODO implement here
-
-        tabolo(tabber);
-        tabber--;
-        System.out.println("< HitBy Player");
     }
 
     /**
@@ -66,23 +53,12 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
      * @param Force Az utkozes ereje.
      */
     public void HitBy(Box b, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> HitBy Box");
-        // TODO implement here
-
-        tabolo(tabber);
-        tabber--;
-        System.out.println("< HitBy Box");
     }
 
     /**
      * Egy cellán elhelyezkedő dolog megsemmisítése.
      */
     public void Die() {
-        System.out.println("> Die");
-        // TODO implement here
-        System.out.println("< Die");
     }
 
     /**
@@ -90,9 +66,6 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
      * @param d Magadja hogy melyik irányban van a pontszerző játékos.
      */
     public void AddPoint(Direction d) {
-        System.out.println("> AddPoint");
-        // TODO implement here
-        System.out.println("< AddPoint");
     }
 
     /**
@@ -100,9 +73,6 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
      * @param p Player referencia.
      */
     public void PlayerPushedIntoIt(Player p) {
-        System.out.println("> PlayerPushedIntoIt");
-        // TODO implement here
-        System.out.println("> PlayerPushedIntoIt");
     }
 
 

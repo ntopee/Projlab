@@ -1,12 +1,7 @@
 package Program;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
-
-import static Program.Main.tabber;
-import static Program.Main.tabolo;
 
 /**
  * Olyan mezőket képvisel, amelyekre a ládákat kell tolni a pontszerzéshez.
@@ -34,9 +29,6 @@ public class Goal extends Thing {
      * @param d Ütközés iránya.
      */
     public void HitBy(Box b, Direction d, double Force) {
-        tabber++;
-        tabolo(tabber);
-        System.out.println("> Goal HitBy Box");
 
         if(b.GetValid()) {
             b.SetValid();
@@ -48,11 +40,6 @@ public class Goal extends Thing {
                    tile.GetMap().GetCounterWeight()+1);
             tile.GetMap().CheckEndGame();
 
-
-        tabolo(tabber);
-        tabber--;
-
-        System.out.println("< Goal HitBy Box");
     }
 
     @Override
