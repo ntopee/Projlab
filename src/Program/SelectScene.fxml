@@ -5,10 +5,14 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="402.0" prefWidth="598.0" style="-fx-background-color: #FFA500;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Program.JavaFx">
+<AnchorPane prefHeight="402.0" prefWidth="598.0" style="-fx-background-color: #FF8C00;" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Program.JavaFx">
    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b134d26" height="113.0" layoutX="77.0" layoutY="246.0" stroke="#a16101" strokeType="INSIDE" strokeWidth="3.0" width="446.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b144f26" height="113.0" layoutX="77.0" layoutY="14.0" stroke="#a16101" strokeType="INSIDE" strokeWidth="3.0" width="446.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#0b134d26" height="110.0" layoutX="77.0" layoutY="130.0" stroke="#a16101" strokeType="INSIDE" strokeWidth="3.0" width="446.0" />
       <Button layoutX="246.0" layoutY="361.0" mnemonicParsing="false" onAction="#press_btn_back" prefHeight="25.0" prefWidth="108.0" style="-fx-background-color: #000000;" text="Back" textFill="#ff0808" />
       <Label layoutX="246.0" layoutY="14.0" prefHeight="25.0" prefWidth="108.0" text="Single player">
          <font>
@@ -30,17 +34,17 @@
             <Image url="@FxSources/hard.jpg" />
          </image>
       </ImageView>
-      <Label layoutX="254.0" layoutY="241.0" prefHeight="22.0" prefWidth="92.0" text="Four player">
+      <Label layoutX="253.0" layoutY="246.0" prefHeight="22.0" prefWidth="92.0" text="Four player">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <Label layoutX="255.0" layoutY="133.0" prefHeight="22.0" prefWidth="90.0" text="Two player">
+      <Label layoutX="254.0" layoutY="127.0" prefHeight="22.0" prefWidth="90.0" text="Two player">
          <font>
             <Font name="System Bold" size="17.0" />
          </font>
       </Label>
-      <ImageView fx:id="iv4" fitHeight="92.0" fitWidth="114.0" layoutX="101.0" layoutY="160.0" onMouseClicked="#press_image" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="iv4" fitHeight="92.0" fitWidth="114.0" layoutX="101.0" layoutY="149.0" onMouseClicked="#press_image" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@FxSources/easy.jpg" />
          </image>
@@ -50,7 +54,7 @@
             <Image url="@FxSources/easy.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="iv5" fitHeight="82.0" fitWidth="114.0" layoutX="243.0" layoutY="159.0" onMouseClicked="#press_image" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="iv5" fitHeight="82.0" fitWidth="114.0" layoutX="243.0" layoutY="149.0" onMouseClicked="#press_image" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@FxSources/medium.jpg" />
          </image>
@@ -60,7 +64,7 @@
             <Image url="@FxSources/medium.jpg" />
          </image>
       </ImageView>
-      <ImageView fx:id="iv6" fitHeight="82.0" fitWidth="114.0" layoutX="386.0" layoutY="160.0" onMouseClicked="#press_image" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="iv6" fitHeight="82.0" fitWidth="114.0" layoutX="386.0" layoutY="149.0" onMouseClicked="#press_image" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@FxSources/hard.jpg" />
          </image>
