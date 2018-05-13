@@ -6,13 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
-
 public class Main extends  Application{
 
-    public static void main(String args[]) throws IOException {
+    public static void main(String args[]) {
         launch(args);
     }
 
