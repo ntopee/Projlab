@@ -128,7 +128,6 @@ public class Tile {
     }
 
     public void Draw(int x, int y, Canvas canvas){
-       //TODO tile kirajzolas(huni és oil)
 
         GraphicsContext gc = canvas.getGraphicsContext2D();
         gc.setFill(Color.GRAY);
@@ -137,8 +136,14 @@ public class Tile {
 
         if(honey!=1) {
             Image image = new Image(getClass().getResourceAsStream("FxSources/honey.png"));
-            canvas.getGraphicsContext2D().drawImage(image, x, y, 15, 15);
+            canvas.getGraphicsContext2D().drawImage(image, x, y, 18, 18);
         }
+
+        if(oil!=1) {
+            Image image = new Image(getClass().getResourceAsStream("FxSources/oil.png"));
+            canvas.getGraphicsContext2D().drawImage(image, x+32, y, 18, 18);
+        }
+
         for (Thing t: things) {
             t.draw(x,y,canvas);
         }

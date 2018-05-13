@@ -162,10 +162,9 @@ public class Beta_Test {
 
         game.GetCurrentLevel().DrawAll();
         //gomblenyomások eventkezelője
-        //TODO gombra konkrét függvényt hív, hogy player elmozduljon
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             public void handle(KeyEvent event) {
-
+                if(Game.isEndGame())return;
 
                 if(event.getCode()== KeyCode.A) {
                     Move(1,Direction.left);
@@ -187,8 +186,18 @@ public class Beta_Test {
                     game.GetCurrentLevel().DrawAll();
 
                 }
+                else if(event.getCode()== KeyCode.Q ) {
+                    Put(1, "Honey");
+                    game.GetCurrentLevel().DrawAll();
 
-                if(game.isEndGame())
+                }
+                else if(event.getCode()== KeyCode.E ) {
+                    Put(1, "Oil");
+                    game.GetCurrentLevel().DrawAll();
+
+                }
+
+                if(Game.isEndGame())
                 {
                     game.GetCurrentLevel().drawEndGame(game.GetCurrentLevel().getCanvas());
                     return;
