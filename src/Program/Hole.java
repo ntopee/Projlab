@@ -4,6 +4,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.image.Image;
 
 import java.util.ArrayList;
+import java.util.ConcurrentModificationException;
 
 /**
  * Ha egy másik objektum kerül arra a mezőre, amelyiken lyuk van, akkor leesik a lyukba, és meghívja rá a Remove metódust
@@ -64,9 +65,11 @@ public class Hole extends Thing {
 
         active = !active;
         if (active) {
-            for (Thing i : tile.GetThings())
-                if (!i.equals(this))
-                    i.Die();
+            try {
+                for (Thing i : tile.GetThings())
+                    if (!i.equals(this))
+                        i.Die();
+            }catch (ConcurrentModificationException e){}
             NeighbourTeller();
         }
 
@@ -104,7 +107,7 @@ public class Hole extends Thing {
         tile.AddThingsFromDirectionToList(Direction.left,AL);
         tile.AddThingsFromDirectionToList(Direction.right,AL);
 
-        LocalNeighbourTeller(AL);
+        //LocalNeighbourTeller(AL);
 
         for (int i = 0; i<AL.size(); i++)
             if(AL.get(i) instanceof Box) {

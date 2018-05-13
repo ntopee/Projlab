@@ -54,7 +54,7 @@ public class Switch extends Thing {
     /**
      * Meghívja az összes, a switch-hez tartozó Hole SetActive() függvényét.
      */
-    private void Activate() {
+    public void Activate() {
         for (Hole i : holes) {
             i.SetActive();
         }

@@ -115,6 +115,11 @@ public class Box extends Thing {
             p.Move(Game.GetOpposite(d));
         }
         else{
+            for (Thing t :
+                    tile.GetThings()) {
+                if (t instanceof Switch)
+                    ((Switch) t).Activate();
+            }
             Step(d,tmp);
 
             movable = CheckMovable();
