@@ -59,12 +59,6 @@ public class Game {
         }
         System.out.println("Game Over");
 
-
-        for (Player p : currentlevel.getPlayersController()) {
-            System.out.println(p.GetPoints());
-        }
-
-
     }
 
     /**
@@ -197,8 +191,7 @@ public class Game {
                     char c = (char) seg;
 
                     if(cycle == M+2){
-                        String line  = br.readLine();
-                        System.out.println(line);
+                        br.readLine();
                         cycle = 0;
                     }
                     switch (c){
@@ -209,8 +202,6 @@ public class Game {
 
                             currentlevel.AddPlayer(p,seg-48-1);
                             currentlevel.AddPlayerToController(p, seg-48-1);
-                            //plyr++;
-                            // System.out.println(seg-48);
 
                             break;
                         case 'B':
@@ -231,7 +222,6 @@ public class Game {
                             seg = br.read() ;
 
                             currentlevel.tiles[i][j].Add(swk.get(seg-48-1));
-                            // swtch++;
 
                             break;
                         case 'T':
