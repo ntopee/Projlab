@@ -1,6 +1,7 @@
 package Program;
 
 import javafx.application.Application;
+import javafx.event.Event;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -55,7 +56,7 @@ public class JavaFx {
 
     }
 
-    public void press_btn_level1(ActionEvent event) throws IOException{
+    public void press_btn_le(Event event) throws IOException{
         //Parent hs = FXMLLoader.load(getClass().getResource("level1.fxml"));
         BorderPane pane = new BorderPane();
         Scene scene = new Scene(pane);
