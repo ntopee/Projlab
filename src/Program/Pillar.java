@@ -48,7 +48,6 @@ public class Pillar extends Obstacle {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         String filePath = "file:FxSources/box.png";
         Image image = new Image(filePath);
-        System.out.println(x + " " + y);
         gc.setFill(Color.YELLOW);
         gc.fillRect(x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }

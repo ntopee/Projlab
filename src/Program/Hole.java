@@ -132,7 +132,6 @@ public class Hole extends Thing {
         GraphicsContext gc = canvas.getGraphicsContext2D();
         String filePath = "file:FxSources/box.png";
         Image image = new Image(filePath);
-        System.out.println(x + " " + y);
         gc.setFill(Color.BLACK);
         gc.fillRect(x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }
