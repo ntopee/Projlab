@@ -97,6 +97,7 @@ public class Player extends Thing {
      * Meghal az adott játékos.
      */
     public void Die() {
+        //tile.GetMap().getPlayersController().get()
         tile.Remove(this);
         tile.GetMap().RemovePlayer(this);
     }

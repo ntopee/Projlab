@@ -98,7 +98,7 @@ public class Hole extends Thing {
             canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
         }
         else{
-            Image image = new Image(getClass().getResourceAsStream("FxSources/holeoff.png"));
+            Image image = new Image(getClass().getResourceAsStream("FxSources/holeon.png"));
             canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
         }
     }
