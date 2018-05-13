@@ -6,6 +6,7 @@ import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,9 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
@@ -78,9 +77,14 @@ public class Beta_Test {
         hb.setSpacing(50);
         hb.setStyle("-fx-background-color: #f78257;");
 
+        Region reg1=new Region();
+        Region reg2=new Region();
+
+
         VBox vbleft= new VBox();
         VBox vbright=new VBox();
-
+        vbleft.setAlignment(Pos.TOP_LEFT);
+        vbright.setAlignment((Pos.TOP_RIGHT));
 
 
         //pontok
@@ -112,7 +116,9 @@ public class Beta_Test {
         vbleft.getChildren().addAll(p1h, p2h);
         vbright.getChildren().addAll(p3h, p4h);
 
-        hb.getChildren().addAll(vbleft, back5, vbright);
+        hb.getChildren().addAll(vbleft,reg1,  back5, reg2, vbright);
+        HBox.setHgrow(reg1, Priority.ALWAYS);
+        HBox.setHgrow(reg2, Priority.ALWAYS);
         pane.setTop(hb);
 
         //Back button vissza a menube
@@ -151,7 +157,7 @@ public class Beta_Test {
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             public void handle(KeyEvent event) {
                 if(Game.isEndGame())return;
-                Beta_Test.DrawPoints();
+
                 if(event.getCode()== KeyCode.A) {
                     Move(1,Direction.left);
                     game.GetCurrentLevel().DrawAll();
@@ -213,7 +219,7 @@ public class Beta_Test {
                     game.GetCurrentLevel().DrawAll();
 
                 }
-
+                Beta_Test.DrawPoints();
                 if(Game.isEndGame())
                 {
                     game.GetCurrentLevel().drawEndGame(game.GetCurrentLevel().getCanvas());
