@@ -14,7 +14,7 @@ public class Goal extends Thing {
     public Goal() {
         movable = true;
     }
-
+    Image image = new Image(getClass().getResourceAsStream("FxSources/goal.png"));
     @Override
     public String toString() {
         return "Goal ";
@@ -44,7 +44,7 @@ public class Goal extends Thing {
 
     @Override
     public void draw(int x, int y, Canvas canvas) {
-        Image image = new Image(getClass().getResourceAsStream("FxSources/goal.png"));
+
         canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 

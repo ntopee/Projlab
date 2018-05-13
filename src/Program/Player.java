@@ -11,7 +11,7 @@ public class Player extends Thing {
 
     private final double HONEY = 1.45;
     private final double OIL = 0.55;
-
+    Image image = new Image(getClass().getResourceAsStream("FxSources/player.png"));
     @Override
     public String toString() {
         return "Player";
@@ -161,7 +161,7 @@ public class Player extends Thing {
 
     @Override
     public void draw(int x, int y, Canvas canvas) {
-        Image image = new Image(getClass().getResourceAsStream("FxSources/player.png"));
+
         canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 

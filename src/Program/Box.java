@@ -15,7 +15,7 @@ public class Box extends Thing {
         return "Box ";
     }
 
-
+    Image image = new Image(getClass().getResourceAsStream("FxSources/box.png"));
     /**
      * az atlagos lada tomege
      */
@@ -306,7 +306,7 @@ public class Box extends Thing {
 
     @Override
     public void draw(int x, int y, Canvas canvas) {
-        Image image = new Image(getClass().getResourceAsStream("FxSources/box.png"));
+
         canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 

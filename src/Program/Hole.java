@@ -18,7 +18,8 @@ public class Hole extends Thing {
         active = a;
         movable = true;
     }
-
+    Image imageh = new Image(getClass().getResourceAsStream("FxSources/hole.png"));
+    Image imageho = new Image(getClass().getResourceAsStream("FxSources/holeon.png"));
     @Override
     public String toString() {
         return (active)?"Hole ":"hole ";
@@ -94,12 +95,12 @@ public class Hole extends Thing {
     @Override
     public void draw(int x, int y, Canvas canvas) {
         if (active) {
-            Image image = new Image(getClass().getResourceAsStream("FxSources/hole.png"));
-            canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
+
+            canvas.getGraphicsContext2D().drawImage(imageh, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
         }
         else{
-            Image image = new Image(getClass().getResourceAsStream("FxSources/holeon.png"));
-            canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
+
+            canvas.getGraphicsContext2D().drawImage(imageho, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
         }
     }
 

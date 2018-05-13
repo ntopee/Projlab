@@ -7,7 +7,7 @@ import javafx.scene.image.Image;
  * A raktár építőeleme, nem tudunk rajta átmenni, dobozt áttolni. Ezzel ki tudjuk jelölni egy pálya határvonalát, játékteret biztosítva a játékosoknak.
  */
 public class Wall extends Obstacle {
-
+     Image image = new Image(getClass().getResourceAsStream("FxSources/wall.png"));
     /**
      * Default constructor
      */
@@ -31,7 +31,7 @@ public class Wall extends Obstacle {
 
     @Override
     public void draw(int x, int y, Canvas canvas) {
-        Image image = new Image(getClass().getResourceAsStream("FxSources/wall.png"));
+
         canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 

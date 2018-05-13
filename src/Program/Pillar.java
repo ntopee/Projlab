@@ -14,7 +14,7 @@ public class Pillar extends Obstacle {
     public Pillar() {
         super();
     }
-
+    Image image = new Image(getClass().getResourceAsStream("FxSources/pillar.png"));
     @Override
     public String toString() {
         return "Pillar ";
@@ -32,7 +32,7 @@ public class Pillar extends Obstacle {
 
     @Override
     public void draw(int x, int y, Canvas canvas) {
-        Image image = new Image(getClass().getResourceAsStream("FxSources/pillar.png"));
+
         canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 

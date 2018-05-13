@@ -17,7 +17,7 @@ public class Switch extends Thing {
 
         movable = true;
     }
-
+    Image image = new Image(getClass().getResourceAsStream("FxSources/switch.png"));
     public Switch(int id){ ID = id; }
 
     @Override
@@ -47,7 +47,7 @@ public class Switch extends Thing {
 
     @Override
     public void draw(int x, int y, Canvas canvas) {
-        Image image = new Image(getClass().getResourceAsStream("FxSources/switch.png"));
+
         canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 
