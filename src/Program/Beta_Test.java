@@ -60,7 +60,7 @@ public class Beta_Test {
     static Integer po1=0,po2=0,po3=0,po4=0;
     static void DrawPoints(){
         po1=game.GetCurrentLevel().getPlayersController().get(0).GetPoints();
-        System.out.println(game.GetCurrentLevel().getPlayersController().get(0).GetPoints());
+        System.out.println(po1);
     }
 
 
@@ -82,7 +82,7 @@ public class Beta_Test {
         Label p1 = new Label("Player 1: ");
         Label p1points= new Label("0");
         p1h.getChildren().addAll(p1, p1points);
-        //p1points.textProperty().bindBidirectional();
+        p1points.textProperty().bind(new SimpleIntegerProperty(po1).asString());
 
         HBox p2h=new HBox();
         Label p2 = new Label("Player 2: ");
