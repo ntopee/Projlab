@@ -44,6 +44,8 @@ public class Player extends Thing {
     }
 
     public Player(int index){
+        this.strength = 50;
+        movable = true;
         image = new Image(getClass().getResourceAsStream("FxSources/player" + index + ".png"));
     }
 
@@ -51,7 +53,7 @@ public class Player extends Thing {
      * Az adott játékos pontjait tárolja.
      */
     private int points;
-    
+
     /**
      *
      * Az adott játékos erejét tárolja
