@@ -1,6 +1,5 @@
 package Program;
 
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,12 +15,9 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class Beta_Test {
 
@@ -33,7 +29,6 @@ public class Beta_Test {
     }
 
     private static void Move(int i, Direction d){ //A megfelelo playert a megfelelo iranyba elmozditja
-        System.out.println(i+""+d);
         if (game.GetCurrentLevel().getPlayer().indexOf(game.GetCurrentLevel().getPlayersController().get(i-1)) != -1)
         game.GetCurrentLevel().getPlayersController().get(i-1).Move(d);
     }
@@ -72,6 +67,10 @@ public class Beta_Test {
     private static void topDraw(Scene scene, BorderPane pane){
         //allapotsav
         Button back5 = new Button("Back");
+        Button control=new Button("Controls");
+        VBox buttonbox=new VBox();
+        buttonbox.getChildren().addAll(control, back5);
+
         HBox hb= new HBox();
         hb.setPadding(new Insets(15, 12, 15, 12));
         hb.setSpacing(50);
@@ -117,7 +116,7 @@ public class Beta_Test {
         vbleft.getChildren().addAll(p1h, p2h);
         vbright.getChildren().addAll(p3h, p4h);
 
-        hb.getChildren().addAll(vbleft,reg1,  back5, reg2, vbright);
+        hb.getChildren().addAll(vbleft,reg1,  buttonbox, reg2, vbright);
         HBox.setHgrow(reg1, Priority.ALWAYS);
         HBox.setHgrow(reg2, Priority.ALWAYS);
         pane.setTop(hb);
@@ -139,6 +138,13 @@ public class Beta_Test {
 
                 window.setScene(scene);
                 window.show();
+            }
+        });
+
+        control.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ControlsWindow.display("rip");
             }
         });
 
@@ -189,7 +195,7 @@ public class Beta_Test {
                     game.GetCurrentLevel().DrawAll();
 
                 }
-
+                if (game.GetCurrentLevel().getPlayersController().size()>1)
                 if(event.getCode()== KeyCode.J) {
                     Move(2,Direction.left);
                     game.GetCurrentLevel().DrawAll();
@@ -220,6 +226,71 @@ public class Beta_Test {
                     game.GetCurrentLevel().DrawAll();
 
                 }
+
+                if (game.GetCurrentLevel().getPlayersController().size()>2)
+                    if(event.getCode()== KeyCode.LEFT) {
+                        Move(3,Direction.left);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.UP ) {
+                        Move(3,Direction.up);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.DOWN ) {
+                        Move(3,Direction.down);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.RIGHT ) {
+                        Move(3,Direction.right);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.SHIFT ) {
+                        Put(3, "Honey");
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.CONTROL ) {
+                        Put(3, "Oil");
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+
+                if (game.GetCurrentLevel().getPlayersController().size()>3)
+                    if(event.getCode()== KeyCode.NUMPAD4) {
+                        Move(4,Direction.left);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.NUMPAD8 ) {
+                        Move(4,Direction.up);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.NUMPAD5 ) {
+                        Move(4,Direction.down);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.NUMPAD6 ) {
+                        Move(4,Direction.right);
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.NUMPAD7 ) {
+                        Put(4, "Honey");
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+                    else if(event.getCode()== KeyCode.NUMPAD9 ) {
+                        Put(4, "Oil");
+                        game.GetCurrentLevel().DrawAll();
+
+                    }
+
                 Beta_Test.DrawPoints();
                 if(Game.isEndGame())
                 {
