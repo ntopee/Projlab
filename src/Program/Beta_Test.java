@@ -157,29 +157,31 @@ public class Beta_Test {
             }
         });
 
+
+        game.GetCurrentLevel().DrawAll();
         //gomblenyomások eventkezelője
         //TODO gombra konkrét függvényt hív, hogy player elmozduljon
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             public void handle(KeyEvent event) {
-                if(event.getCode()== KeyCode.A) {
+                if(event.getCode()== KeyCode.A && !game.isEndGame()) {
                     Move(1,Direction.left);
                     game.GetCurrentLevel().DrawAll();
-                    List();
+
                 }
-                else if(event.getCode()== KeyCode.W) {
+                else if(event.getCode()== KeyCode.W && !game.isEndGame()) {
                     Move(1,Direction.up);
                     game.GetCurrentLevel().DrawAll();
-                    List();
+
                 }
-                else if(event.getCode()== KeyCode.S) {
+                else if(event.getCode()== KeyCode.S && !game.isEndGame()) {
                     Move(1,Direction.down);
                     game.GetCurrentLevel().DrawAll();
-                    List();
+
                 }
-                else if(event.getCode()== KeyCode.D) {
+                else if(event.getCode()== KeyCode.D && !game.isEndGame()) {
                     Move(1,Direction.right);
                     game.GetCurrentLevel().DrawAll();
-                    List();
+
                 }
             }
         });
