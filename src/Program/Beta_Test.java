@@ -165,11 +165,8 @@ public class Beta_Test {
         //TODO gombra konkrét függvényt hív, hogy player elmozduljon
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             public void handle(KeyEvent event) {
-                if(game.isEndGame())
-                {
-                    game.GetCurrentLevel().drawEndGame(game.GetCurrentLevel().getCanvas());
-                    return;
-                }
+
+
                 if(event.getCode()== KeyCode.A) {
                     Move(1,Direction.left);
                     game.GetCurrentLevel().DrawAll();
@@ -189,6 +186,12 @@ public class Beta_Test {
                     Move(1,Direction.right);
                     game.GetCurrentLevel().DrawAll();
 
+                }
+
+                if(game.isEndGame())
+                {
+                    game.GetCurrentLevel().drawEndGame(game.GetCurrentLevel().getCanvas());
+                    return;
                 }
 
 

@@ -122,7 +122,7 @@ public class Map {
 
     public void drawEndGame(Canvas canvas){
         Image image = new Image(getClass().getResourceAsStream("FxSources/game_over.png"));
-        canvas.getGraphicsContext2D().drawImage(image, canvas.getWidth()/2, canvas.getHeight()/2, Game.TILE_SIZE, Game.TILE_SIZE);
+        canvas.getGraphicsContext2D().drawImage(image, canvas.getWidth()/4, canvas.getHeight()/4, canvas.getWidth()/2, canvas.getHeight()/2);
 
     }
 
