@@ -11,7 +11,7 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
     public String toString() {
         return "Thing";
     }
-
+    
     /**
      * Default constructor
      */
