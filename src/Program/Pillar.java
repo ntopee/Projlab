@@ -1,6 +1,7 @@
 package Program;
 
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 
 import static Program.Main.tabber;
 import static Program.Main.tabolo;

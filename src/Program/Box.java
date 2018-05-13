@@ -394,7 +394,8 @@ public class Box extends Thing {
         String filePath = "file:FxSources/box.png";
         Image image = new Image(filePath);
         System.out.println(x + " " + y);
-        gc.drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
+        gc.fillRect(x, y,Game.TILE_SIZE, Game.TILE_SIZE);
+        //gc.drawImage(image, y, x, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 
     public void setMovable(boolean B){

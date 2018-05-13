@@ -2,6 +2,8 @@ package Program;
 
 import java.util.*;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
+
 import static Program.Main.tabber;
 import static Program.Main.tabolo;
 
@@ -211,9 +213,9 @@ public class Map {
     public Canvas getCanvas() { return canvas; }
 
     public void DrawAll(){
-        for (int i = 1; i < tilesH; i++){
-            for (int j = 1; j < tilesV; j++){
-                tiles[i][j].Draw((i)*Game.TILE_SIZE,(j)*Game.TILE_SIZE,canvas);
+        for (int i = 0; i < tilesH; i++){
+            for (int j = 0; j < tilesV; j++){
+                tiles[i][j].Draw((j)*Game.TILE_SIZE,(i)*Game.TILE_SIZE, canvas);
             }
         }
     }

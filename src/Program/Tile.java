@@ -1,5 +1,6 @@
 package Program;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 
 import java.util.*;
 import java.util.Map;
