@@ -30,7 +30,7 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
      */
 
 
-    
+
     boolean movable;
 
     /**
