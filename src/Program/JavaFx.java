@@ -56,18 +56,46 @@ public class JavaFx {
 
     }
 
-    public void press_btn_le(Event event) throws IOException{
-        //Parent hs = FXMLLoader.load(getClass().getResource("level1.fxml"));
+    public void press_image(MouseEvent event) throws IOException{
+        System.out.println(event.getPickResult().getIntersectedNode().getId());
         BorderPane pane = new BorderPane();
         Scene scene = new Scene(pane);
 
-        Beta_Test.Start(scene, "level1.txt", pane);
+        String filename="level1.txt";
+        switch(event.getPickResult().getIntersectedNode().getId()){
+            case("iv2"):
+                filename="level2.txt";
+                break;
+            case("iv3"):
+                filename="level3.txt";
+                break;
+            case("iv4"):
+                filename="level4.txt";
+                break;
+            case("iv5"):
+                filename="level5.txt";
+                break;
+            case("iv6"):
+                filename="level6.txt";
+                break;
+            case("iv7"):
+                filename="level7.txt";
+                break;
+            case("iv8"):
+                filename="level8.txt";
+                break;
+            case("iv9"):
+                filename="level9.txt";
+                break;
+            default:
+                break;
+        }
+
+        Beta_Test.Start(scene, filename, pane);
 
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-
         window.setScene(scene);
         window.show();
-
-    }
+        }
 
 }
