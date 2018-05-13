@@ -3,6 +3,7 @@ package Program;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
+import javafx.scene.paint.Color;
 
 import java.util.ArrayList;
 
@@ -394,8 +395,8 @@ public class Box extends Thing {
         String filePath = "file:FxSources/box.png";
         Image image = new Image(filePath);
         System.out.println(x + " " + y);
-        gc.fillRect(x, y,Game.TILE_SIZE, Game.TILE_SIZE);
-        //gc.drawImage(image, y, x, Game.TILE_SIZE, Game.TILE_SIZE);
+        gc.setFill(Color.BROWN);
+        gc.fillRect(x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 
     public void setMovable(boolean B){
