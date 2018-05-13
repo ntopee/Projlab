@@ -213,7 +213,7 @@ public class Map {
     public void DrawAll(){
         for (int i = 1; i < tilesH; i++){
             for (int j = 1; j < tilesV; j++){
-                tiles[i][j].Draw(i*Game.TILE_SIZE,j*Game.TILE_SIZE,canvas);
+                tiles[i][j].Draw((i)*Game.TILE_SIZE,(j)*Game.TILE_SIZE,canvas);
             }
         }
     }

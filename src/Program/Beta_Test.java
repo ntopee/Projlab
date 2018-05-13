@@ -163,18 +163,22 @@ public class Beta_Test {
             public void handle(KeyEvent event) {
                 if(event.getCode()== KeyCode.A) {
                     Move(1,Direction.left);
+                    game.GetCurrentLevel().DrawAll();
                     List();
                 }
                 else if(event.getCode()== KeyCode.W) {
                     Move(1,Direction.up);
+                    game.GetCurrentLevel().DrawAll();
                     List();
                 }
                 else if(event.getCode()== KeyCode.S) {
                     Move(1,Direction.down);
+                    game.GetCurrentLevel().DrawAll();
                     List();
                 }
                 else if(event.getCode()== KeyCode.D) {
                     Move(1,Direction.right);
+                    game.GetCurrentLevel().DrawAll();
                     List();
                 }
             }

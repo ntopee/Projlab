@@ -181,7 +181,7 @@ public class Player extends Thing {
 
         System.out.println("< Move");
         this.tile.GetMap().CheckEndGame();
-        this.tile.GetMap().DrawAll();
+        //this.tile.GetMap().DrawAll();
     }
 
     /**
