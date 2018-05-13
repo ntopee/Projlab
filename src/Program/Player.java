@@ -93,9 +93,7 @@ public class Player extends Thing {
      * Hozzáad a játékos pontszámához egyet.
      * @param d Megadja hogy melyik irányban van a pontszerző játékos.
      */
-    public void AddPoint(Direction d) {
-        points++;
-    }
+    public void AddPoint(Direction d) { points++; }
 
     /**
      * Player-ként ütközik egy másik Player-rel.

@@ -142,7 +142,7 @@ public class Hole extends Thing {
                     AL.get(i).setMovable(((Box) AL.get(i)).CheckMovable());
             }*/
 
-        for (Thing t :
+        /*for (Thing t :
                 AL) {
             if (t instanceof Box) {
                 boolean b = ((Box) t).CheckMovable();
@@ -151,18 +151,41 @@ public class Hole extends Thing {
                     if (b){
                         tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes()+1);
                     }
-                    
+
                     ArrayList<Thing> al = new ArrayList<>();
                     tile.AddThingsFromDirectionToList(Direction.down,al);
                     tile.AddThingsFromDirectionToList(Direction.up,al);
                     tile.AddThingsFromDirectionToList(Direction.left,al);
                     tile.AddThingsFromDirectionToList(Direction.right,al);
 
-                    LocalNeighbourTeller(AL);
+                    LocalNeighbourTeller(al);
+                }
+            }
+        }*/
+
+        for (Thing t :
+                AL) {
+            if (t instanceof Box){
+                if (!t.getMovable()){
+                    t.setMovable(true);
+                    tile.GetMap().SetNumOfMBoxes(tile.GetMap().GetNumOfMBoxes()+1);
+
+                    ArrayList<Thing> al = new ArrayList<>();
+                    t.tile.AddThingsFromDirectionToList(Direction.down,al);
+                    t.tile.AddThingsFromDirectionToList(Direction.up,al);
+                    t.tile.AddThingsFromDirectionToList(Direction.left,al);
+                    t.tile.AddThingsFromDirectionToList(Direction.right,al);
+                    LocalNeighbourTeller(al);
                 }
             }
         }
 
+        for (Thing t :
+                AL) {
+            if (t instanceof Box){
+                t.setMovable(((Box) t).CheckMovable());
+            }
+        }
     }
 
 
