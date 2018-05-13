@@ -180,6 +180,8 @@ public class Game {
          * kiirja a kepernyore hogy vege van, aztan kidob menube
          */
         endGame = true;
+
+
         System.out.println("Game Over");
 
     }

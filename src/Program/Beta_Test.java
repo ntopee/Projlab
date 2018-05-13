@@ -131,6 +131,8 @@ public class Beta_Test {
 
     private static void initDraw(Scene scene, BorderPane pane){
 
+
+
         Canvas canvas= new Canvas();
         pane.setCenter(canvas);
         Button back5 = new Button("Back");
@@ -164,38 +166,38 @@ public class Beta_Test {
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             public void handle(KeyEvent event) {
 
+
                 if(event.getCode()== KeyCode.A) {
                     Move(1,Direction.left);
                     game.GetCurrentLevel().DrawAll();
 
                 }
-                else if(event.getCode()== KeyCode.W) {
+                else if(event.getCode()== KeyCode.W ) {
                     Move(1,Direction.up);
                     game.GetCurrentLevel().DrawAll();
 
                 }
-                else if(event.getCode()== KeyCode.S) {
+                else if(event.getCode()== KeyCode.S ) {
                     Move(1,Direction.down);
                     game.GetCurrentLevel().DrawAll();
 
                 }
-                else if(event.getCode()== KeyCode.D) {
+                else if(event.getCode()== KeyCode.D ) {
                     Move(1,Direction.right);
                     game.GetCurrentLevel().DrawAll();
 
                 }
-                else if(event.getCode()== KeyCode.Q) {
-                    Beta_Test.Put(1,"Honey");
-                    game.GetCurrentLevel().DrawAll();
 
+                if(game.isEndGame())
+                {
+                    game.GetCurrentLevel().drawEndGame(game.GetCurrentLevel().getCanvas());
+                    return;
                 }
-                else if(event.getCode()== KeyCode.E) {
-                    Move(1,Direction.right);
-                    game.GetCurrentLevel().DrawAll();
 
-                }
+
             }
         });
+
 
 
     }
