@@ -1,6 +1,5 @@
 package Program;
 
-import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,12 +15,9 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.*;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class Beta_Test {
 
@@ -71,6 +67,10 @@ public class Beta_Test {
     private static void topDraw(Scene scene, BorderPane pane){
         //allapotsav
         Button back5 = new Button("Back");
+        Button control=new Button("Controls");
+        VBox buttonbox=new VBox();
+        buttonbox.getChildren().addAll(control, back5);
+
         HBox hb= new HBox();
         hb.setPadding(new Insets(15, 12, 15, 12));
         hb.setSpacing(50);
@@ -116,7 +116,7 @@ public class Beta_Test {
         vbleft.getChildren().addAll(p1h, p2h);
         vbright.getChildren().addAll(p3h, p4h);
 
-        hb.getChildren().addAll(vbleft,reg1,  back5, reg2, vbright);
+        hb.getChildren().addAll(vbleft,reg1,  buttonbox, reg2, vbright);
         HBox.setHgrow(reg1, Priority.ALWAYS);
         HBox.setHgrow(reg2, Priority.ALWAYS);
         pane.setTop(hb);
@@ -138,6 +138,13 @@ public class Beta_Test {
 
                 window.setScene(scene);
                 window.show();
+            }
+        });
+
+        control.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent event) {
+                ControlsWindow.display("rip");
             }
         });
 
