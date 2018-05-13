@@ -35,7 +35,7 @@ public class Goal extends Thing {
             b.AddPoint(Game.GetOpposite(d));
         }
             b.SetisOnGoal();
-           if(b.CheckMovable() == false)
+           if(!b.CheckMovable())
                tile.GetMap().SetCounterWeight(
                    tile.GetMap().GetCounterWeight()+1);
             tile.GetMap().CheckEndGame();

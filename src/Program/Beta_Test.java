@@ -34,7 +34,7 @@ public class Beta_Test {
     }
 
     private static void Move(int i, Direction d){ //A megfelelo playert a megfelelo iranyba elmozditja
-        System.out.println(i+""+d);
+        //System.out.println(i+""+d);
         if (game.GetCurrentLevel().getPlayer().indexOf(game.GetCurrentLevel().getPlayersController().get(i-1)) != -1)
         game.GetCurrentLevel().getPlayersController().get(i-1).Move(d);
     }
@@ -60,7 +60,7 @@ public class Beta_Test {
     static Integer po1=0,po2=0,po3=0,po4=0;
     static void DrawPoints(){
         po1=game.GetCurrentLevel().getPlayersController().get(0).GetPoints();
-        System.out.println(po1);
+        //System.out.println(po1);
     }
 
 

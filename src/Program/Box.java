@@ -315,6 +315,9 @@ public class Box extends Thing {
         movable = B;
     }
 
+    public boolean getMovable(){
+        return movable;
+    }
 
     public int getWeight(){
         return weight;
