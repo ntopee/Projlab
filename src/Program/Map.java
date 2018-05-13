@@ -2,6 +2,7 @@ package Program;
 
 import java.util.*;
 import javafx.scene.canvas.Canvas;
+import javafx.scene.image.Image;
 
 /**
  *  Tárolja a Tile-okat, amikből maga a pálya felépül.
@@ -113,8 +114,16 @@ public class Map {
      * akkor meghívja az EndGame() függvényt.
      */
     public void CheckEndGame() {
-        if ( (players.size() == 0) || (goalcounter == (num_of_movable_boxes + counterweight))  || (num_of_movable_boxes == 0))
+        if ( (players.size() == 0) || (goalcounter == (num_of_movable_boxes + counterweight))  || (num_of_movable_boxes == 0)) {
+
             Game.EndGame();
+        }
+    }
+
+    public void drawEndGame(Canvas canvas){
+        Image image = new Image(getClass().getResourceAsStream("FxSources/game_over.png"));
+        canvas.getGraphicsContext2D().drawImage(image, canvas.getWidth()/2, canvas.getHeight()/2, Game.TILE_SIZE, Game.TILE_SIZE);
+
     }
 
     public int GetCounterWeight() {
