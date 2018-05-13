@@ -9,11 +9,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
+import javafx.stage.Window;
 
 import java.io.IOException;
 
@@ -23,13 +29,36 @@ public class JavaFx {
         System.exit(0);
     }
     public void press_btn_highscore(ActionEvent event) throws IOException {
-        Parent hs = FXMLLoader.load(getClass().getResource("Highscore.fxml"));
-        Scene scene = new Scene(hs);
 
-        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
+        Stage window = new Stage();
+
+
+        window.setTitle("Highscore ");
+        window.initModality(Modality.APPLICATION_MODAL);
+
+
+
+        TableColumn<Highscore, String> namecolumn= new TableColumn<>("Name");
+        namecolumn.setCellValueFactory(new PropertyValueFactory<>("name"));
+        namecolumn.setMinWidth(250);
+
+        TableColumn<Highscore, Integer> scorecolumn = new TableColumn<>("Point");
+        scorecolumn.setCellValueFactory(new PropertyValueFactory<>("point"));
+
+        TableView table= new TableView<>();
+
+
+        table.setItems(Game.getHighscore());
+        table.getColumns().addAll(namecolumn, scorecolumn);
+
+        VBox layout = new VBox();
+        layout.getChildren().add(table);
+
+        Scene scene= new Scene(layout, 300, 270);
         window.setScene(scene);
-        window.show();
+        window.showAndWait();
+
     }
 
     public void press_btn_back(ActionEvent event) throws IOException {

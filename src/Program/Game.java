@@ -1,4 +1,5 @@
 package Program;
+import javafx.collections.ObservableList;
 import javafx.scene.canvas.Canvas;
 
 import javax.swing.*;
@@ -263,5 +264,9 @@ public class Game {
          * filename alapjan betolti a palyat
          */
 
+    }
+
+    public static ObservableList<Highscore.Score> getHighscore() {
+        return highscore.getObsList();
     }
 }
