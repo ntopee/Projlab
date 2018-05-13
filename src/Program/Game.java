@@ -183,8 +183,15 @@ public class Game {
         for (Player p :
                 currentlevel.getPlayer()) {
             currentlevel.getPlayersController().get(currentlevel.getPlayersController().indexOf(p)).SetPoints(p.GetPoints());
+
         }
         System.out.println("Game Over");
+
+
+        for (Player p : currentlevel.getPlayersController()) {
+            System.out.println(p.GetPoints());
+        }
+
 
     }
 
