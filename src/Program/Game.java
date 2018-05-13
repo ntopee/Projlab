@@ -13,6 +13,8 @@ public class Game {
 
     private ArrayList<String> levels = new ArrayList<>();
     private int currentLvl = 0;
+
+    private static boolean endGame = false;
     /**
      * Default constructor
      */
@@ -118,6 +120,7 @@ public class Game {
                             break;
                         case 'B':
                             currentlevel.tiles[i][j].Add(new Box());
+                            currentlevel.SetNumOfMBoxes(currentlevel.GetNumOfMBoxes()+1);
                             break;
 
                         case 'O':
@@ -176,7 +179,7 @@ public class Game {
         /**
          * kiirja a kepernyore hogy vege van, aztan kidob menube
          */
-
+        endGame = true;
         System.out.println("Game Over");
 
     }
@@ -240,5 +243,9 @@ public class Game {
 
     public void setMapCanvas(Canvas canvas){
         currentlevel.setCanvas(canvas);
+    }
+
+    public static boolean isEndGame() {
+        return endGame;
     }
 }

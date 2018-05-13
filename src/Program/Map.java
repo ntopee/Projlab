@@ -113,7 +113,7 @@ public class Map {
      * akkor meghívja az EndGame() függvényt.
      */
     public void CheckEndGame() {
-        if ( (players.size() == 0) || (goalcounter == (num_of_movable_boxes + counterweight)) || (num_of_movable_boxes == 0))
+        if ( (players.size() == 0) || (goalcounter == (num_of_movable_boxes + counterweight))  || (num_of_movable_boxes == 0))
             Game.EndGame();
     }
 
