@@ -114,7 +114,6 @@ public class ControlsWindow {
         public String getEvent() {
             return event.get();
         }
-
         public SimpleStringProperty eventProperty() {
             return event;
         }
