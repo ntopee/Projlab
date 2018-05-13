@@ -1,6 +1,7 @@
 package Program;
 import javafx.scene.canvas.Canvas;
 
+import javax.swing.*;
 import java.io.*;
 import java.util.*;
 
@@ -11,6 +12,7 @@ import static Program.Direction.*;
  */
 public class Game {
 
+    private static Highscore highscore =new Highscore();
     private ArrayList<String> levels = new ArrayList<>();
     private int currentLvl = 0;
 
@@ -54,10 +56,19 @@ public class Game {
 
         for (Player p :
                 currentlevel.getPlayer()) {
-            currentlevel.getPlayersController().get(currentlevel.getPlayersController().indexOf(p)).SetPoints(p.GetPoints());
 
+            currentlevel.getPlayersController().get(currentlevel.getPlayersController().indexOf(p)).SetPoints(p.GetPoints());
         }
         System.out.println("Game Over");
+
+        //adatbekérés highscorehoz
+        for (Player p:
+                currentlevel.getPlayersController()) {
+            String name = JOptionPane.showInputDialog("What's your name?");
+            Highscore.Score score = new Highscore.Score(name, p.GetPoints());
+            highscore.hs.add(score);
+        }
+
 
     }
 
