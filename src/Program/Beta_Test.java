@@ -33,7 +33,6 @@ public class Beta_Test {
     }
 
     private static void Move(int i, Direction d){ //A megfelelo playert a megfelelo iranyba elmozditja
-        System.out.println(i+""+d);
         if (game.GetCurrentLevel().getPlayer().indexOf(game.GetCurrentLevel().getPlayersController().get(i-1)) != -1)
         game.GetCurrentLevel().getPlayersController().get(i-1).Move(d);
     }
