@@ -42,13 +42,11 @@ public class Map {
      */
     private int counterweight;
 
-
-
     /**
      * A player objektumok referenciái.
      */
     private ArrayList<Player> players = new ArrayList<>();
-
+    private ArrayList<Player> playersController = new ArrayList<>();
     /**
      * A pályán található összes mező itt van eltárolva.
      */
@@ -166,4 +164,15 @@ public class Map {
 
     }
 
+    public ArrayList<Player> getPlayersController() {
+        return playersController;
+    }
+
+    public void setPlayersController(ArrayList<Player> playersController) {
+        this.playersController = playersController;
+    }
+
+    public void AddPlayerToController(Player p,int N) {
+        playersController.add(N,p);
+    }
 }

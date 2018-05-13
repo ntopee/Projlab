@@ -44,7 +44,7 @@ public class Game {
     /**
      * Betölti a megfelelő pályát a játékba.
      */
-    public void Init(String filename) {
+    /*public void Init(String filename) {
 
         try {
             BufferedReader br = new BufferedReader(new FileReader(filename));
@@ -163,11 +163,11 @@ public class Game {
 
         //filename.betolt
 
-        /**
+        *//**
          * filename alapjan betolti a palyat
-         */
+         *//*
 
-    }
+    }*/
 
     /**
      * Megállítja a játékot (mivel vége van),
@@ -251,5 +251,131 @@ public class Game {
 
     public static boolean isEndGame() {
         return endGame;
+    }
+
+    public void Init(String filename) {
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader(filename));
+            int N = Integer.parseInt(br.readLine());
+            int M = Integer.parseInt(br.readLine());
+            int sdb = Integer.parseInt(br.readLine());
+            ArrayList<Switch> swk= new ArrayList<>();
+            for (int i = 0; i< sdb;i++)
+            {
+                Switch s = new Switch();
+                swk.add(s);
+            }
+            currentlevel = new Map(N+2,M+2);
+
+            for (int i = 0; i<=N+1; i++)
+                for (int j=0 ; j<=M+1;j++)
+                {
+                    currentlevel.tiles[i][j]=new Tile(currentlevel);
+
+
+                }
+
+
+            for (int i = 0; i<=N+1;i++)
+            {
+                currentlevel.tiles[i][0].SetNeighbour(right,currentlevel.tiles[i][1]);
+                currentlevel.tiles[i][M+1].SetNeighbour(left,currentlevel.tiles[i][M]);
+            }
+
+            for (int i = 0; i<=M+1;i++)
+            {
+                currentlevel.tiles[0][i].SetNeighbour(down,currentlevel.tiles[1][i]);
+                currentlevel.tiles[N+1][i].SetNeighbour(up,currentlevel.tiles[N][i]);
+            }
+
+            for (int i = 1;i<=N;i++)
+                for (int j= 1; j<=M;j++)
+                {
+                    currentlevel.tiles[i][j].SetNeighbour(left,currentlevel.tiles[i][j-1]);
+                    currentlevel.tiles[i][j].SetNeighbour(right,currentlevel.tiles[i][j+1]);
+                    currentlevel.tiles[i][j].SetNeighbour(up,currentlevel.tiles[i-1][j]);
+                    currentlevel.tiles[i][j].SetNeighbour(down,currentlevel.tiles[i+1][j]);
+                }
+
+
+
+            int cycle = 1;
+
+            for (int i = 0; i<=N+1; i++)
+                for (int j=0 ; j<=M+1;j++)
+                {
+
+                    int seg;
+                    seg = br.read();
+
+                    char c = (char) seg;
+
+                    if(cycle == M+2){
+                        String line  = br.readLine();
+                        System.out.println(line);
+                        cycle = 0;
+                    }
+                    switch (c){
+                        case 'P':
+                            seg = br.read();
+                            Player p = new Player();
+                            currentlevel.tiles[i][j].Add(p);
+
+                            currentlevel.AddPlayer(p,seg-48-1);
+                            currentlevel.AddPlayerToController(p, seg-48-1);
+                            //plyr++;
+                            // System.out.println(seg-48);
+
+                            break;
+                        case 'B':
+                            currentlevel.tiles[i][j].Add(new Box());
+                            currentlevel.SetNumOfMBoxes(currentlevel.GetNumOfMBoxes()+1);
+                            break;
+
+                        case 'O':
+                            currentlevel.tiles[i][j].Add(new Pillar());
+                            break;
+                        case '#':
+                            currentlevel.tiles[i][j].Add(new Wall());
+                            break;
+                        case 'G':
+                            currentlevel.tiles[i][j].Add(new Goal());
+                            break;
+                        case 'S':
+                            seg = br.read() ;
+
+                            currentlevel.tiles[i][j].Add(swk.get(seg-48-1));
+                            // swtch++;
+
+                            break;
+                        case 'T':
+                            seg = br.read();
+                            seg = seg-48;
+                            Hole h = new Hole(false);
+
+                            currentlevel.tiles[i][j].Add(h);
+                            swk.get(seg-1).Add(h);
+                            break;
+                        case 'H':
+
+                            currentlevel.tiles[i][j].Add(new Hole(true));
+                            break;
+
+
+                    }
+                    cycle++;
+
+                }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        //filename.betolt
+
+        /**
+         * filename alapjan betolti a palyat
+         */
+
     }
 }

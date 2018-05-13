@@ -93,8 +93,14 @@ public class Hole extends Thing {
 
     @Override
     public void draw(int x, int y, Canvas canvas) {
-        Image image = new Image(getClass().getResourceAsStream("FxSources/hole.png"));
-        canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
+        if (active) {
+            Image image = new Image(getClass().getResourceAsStream("FxSources/hole.png"));
+            canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
+        }
+        else{
+            Image image = new Image(getClass().getResourceAsStream("FxSources/holeoff.png"));
+            canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
+        }
     }
 
 

@@ -28,14 +28,19 @@ public class Beta_Test {
 
     private static void Move(int i, Direction d){ //A megfelelo playert a megfelelo iranyba elmozditja
         System.out.println(i+""+d);
-        game.GetCurrentLevel().getPlayer().get(i-1).Move(d);
+        if (game.GetCurrentLevel().getPlayer().indexOf(game.GetCurrentLevel().getPlayersController().get(i-1)) != -1)
+        game.GetCurrentLevel().getPlayersController().get(i-1).Move(d);
     }
 
     private static void Put(int i, String BeUSA){ //mezet vagy olajat rak a player tile-jara
-        if(BeUSA.equals("Honey"))
-            game.GetCurrentLevel().getPlayer().get(i-1).Bee();
-        else if(BeUSA.equals("Oil"))
-            game.GetCurrentLevel().getPlayer().get(i-1).USA();
+        if(BeUSA.equals("Honey")){
+            if (game.GetCurrentLevel().getPlayer().indexOf(game.GetCurrentLevel().getPlayersController().get(i-1)) != -1)
+                game.GetCurrentLevel().getPlayersController().get(i-1).Bee();
+        }
+        else if(BeUSA.equals("Oil")) {
+                if (game.GetCurrentLevel().getPlayer().indexOf(game.GetCurrentLevel().getPlayersController().get(i-1)) != -1)
+                    game.GetCurrentLevel().getPlayersController().get(i-1).USA();
+        }
         else System.out.println("You're not BEE-ing USA");
     }
 
