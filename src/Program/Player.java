@@ -52,8 +52,6 @@ public class Player extends Thing {
      */
     private int points;
 
-
-
     /**
      *
      * Az adott játékos erejét tárolja
