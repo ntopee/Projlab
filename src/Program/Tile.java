@@ -120,6 +120,9 @@ public class Tile {
 
     public void AddThingsFromDirectionToList(Direction d, ArrayList<Thing> AL){
         try {
+            for (Thing t : things) {
+                if(t instanceof Wall) return;
+            }
              AL.addAll(GetNeighbour(d).GetThings());
         }
             catch (NullPointerException except) {
