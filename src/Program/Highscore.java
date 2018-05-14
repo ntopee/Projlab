@@ -18,7 +18,7 @@ public class Highscore implements Serializable {
     public ArrayList<Score> hs = new ArrayList<>();
 
     public void write() {
-        hs.clear();
+
         try {
             FileWriter os = new FileWriter("Top.txt");
 
@@ -36,6 +36,7 @@ public class Highscore implements Serializable {
             return;
         }
 
+        hs.clear();
 
     }
 
