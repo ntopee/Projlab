@@ -10,6 +10,7 @@ import javafx.collections.ObservableList;
 import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Array;
+import java.nio.file.StandardOpenOption;
 import java.util.*;
 
 
@@ -20,8 +21,7 @@ public class Highscore implements Serializable {
     public void write() {
 
         try {
-            FileWriter os = new FileWriter("Top.txt");
-
+            FileWriter os = new FileWriter("Top.txt",true);
             BufferedWriter bf = new BufferedWriter(os);
             for (int i = 0; i < hs.size(); i++){
                 bf.write(toString2(i));
