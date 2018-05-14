@@ -86,19 +86,15 @@ public class Highscore implements Serializable {
     public ObservableList<Score> getObsList() {
 
        // read();
-       /* Collections.sort(hs, new Comparator<Score>() { //TODO sort max
+        Collections.sort(hs, new Comparator<Score>() {
             @Override
 
             public int compare(Score o1, Score o2) {
                 return o1.compareTo(o1,o2);
             }
-        });*/
-        ObservableList<Score> obs = FXCollections.observableArrayList();
-
-       for(Score s : hs){
-           obs.add(s);
-
-        }
+        });
+       ObservableList<Score> obs = FXCollections.observableArrayList();
+       obs.addAll(hs);
 
 
         return obs;
@@ -122,9 +118,9 @@ public class Highscore implements Serializable {
             if (o1.point.getValue() == o2.point.getValue()) {
                 return 0;
             } else if (o1.point.getValue() < o2.point.getValue()) {
-                return -1;
-            } else {
                 return 1;
+            } else {
+                return -1;
             }
         }
 
