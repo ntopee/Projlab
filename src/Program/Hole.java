@@ -118,7 +118,13 @@ public class Hole extends Thing {
         }
     }
 
-
+    /**
+     * Rekurziv fuggveny hivas.
+     * A NeighbourTeller-t egesziti ki.
+     * Lenyegeben csak vegig megy a lyuk kornyezeteben talalhato szomszedos dobozokon,
+     * es meghivja a CheckMobale-t.
+     * @param AL Egy Tile szomszedait tarolja.
+     */
     private void LocalNeighbourTeller(ArrayList<Thing> AL){
         for (Thing t :
                 AL) {
@@ -145,7 +151,10 @@ public class Hole extends Thing {
         }
     }
 
-
+    /**
+     * Amikor egy lyukat bekapcsolunk,
+     * akkor ez a fuggveny szol a szomszedos dobozoknak, hogy nezzek meg a mozgathatosagukat.
+     */
     private void NeighbourTeller(){
         ArrayList<Thing> AL = new ArrayList<Thing>();
 

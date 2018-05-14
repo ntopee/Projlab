@@ -46,12 +46,22 @@ public class Map {
      * A player objektumok referenciái.
      */
     private ArrayList<Player> players = new ArrayList<>();
+    /**
+     * Futas kozbeni hibat, javit ki.
+     * Eredetileg a players listat hasznaltuk arra hogy mozgassuk a jatekosokat,
+     * de amikor meghal egy jatekos, akkor torlodik a referenciaja.
+     * Ez azert baj, mert bonyolitana az iranyitast, es a pontok lekerdezeset.
+     * Ezert csinaltunk egy masik listat, amibe belemasoljuk a player referenciakat, es veluk egyutt a pontjaikat.
+     */
     private ArrayList<Player> playersController = new ArrayList<>();
     /**
      * A pályán található összes mező itt van eltárolva.
      */
     public Tile[][] tiles;
 
+    /**
+     * Ide rajzolunk
+     */
     private Canvas canvas;
 
     /**
@@ -118,6 +128,10 @@ public class Map {
         }
     }
 
+    /**
+     * Kirajzolja a jatek vegen a Game Over feliratot.
+     * @param canvas Ida rajzolja ki.
+     */
     public void drawEndGame(Canvas canvas){
         Image image = new Image(getClass().getResourceAsStream("FxSources/game_over.png"));
         canvas.getGraphicsContext2D().drawImage(image, canvas.getWidth()/4, canvas.getHeight()/4, canvas.getWidth()/2, canvas.getHeight()/2);
@@ -154,6 +168,10 @@ public class Map {
         canvas.setWidth(tilesV*Game.TILE_SIZE);
     }
     public Canvas getCanvas() { return canvas; }
+
+    /**
+     * Kirajzolja a map-ot, tile-onkent.
+     */
 
     public void DrawAll(){
         for (int i = 0; i < tilesH; i++){

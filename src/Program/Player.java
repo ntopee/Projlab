@@ -162,10 +162,16 @@ public class Player extends Thing {
         return strength;
     }
 
+    /**
+     * Mezet rak a mezore.
+     */
     public void Bee(){
         tile.SetHoney(HONEY);
     }
 
+    /**
+     * Olajat rak a mezore.
+     */
     public void USA(){
         tile.SetOil(OIL);
     }

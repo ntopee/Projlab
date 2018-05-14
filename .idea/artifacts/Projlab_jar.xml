@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Projlab:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Projlab_jar</output-path>
+    <root id="archive" name="Projlab.jar">
+      <element id="module-output" name="Projlab" />
+    </root>
+  </artifact>
+</component>
