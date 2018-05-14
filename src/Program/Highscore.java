@@ -1,23 +1,22 @@
 package Program;
 
-import com.sun.javafx.collections.ObservableListWrapper;
-import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.InternetHeaders;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
-import javax.swing.*;
 import java.io.*;
-import java.lang.reflect.Array;
-import java.nio.file.StandardOpenOption;
 import java.util.*;
 
-
+/**
+ * Highscore kezelésére használt osztály
+ */
 public class Highscore implements Serializable {
 
     public ArrayList<Score> hs = new ArrayList<>();
 
+    /**
+     * Fájlba írás
+     */
     public void write() {
 
         try {
@@ -26,10 +25,6 @@ public class Highscore implements Serializable {
             for (int i = 0; i < hs.size(); i++){
                 bf.write(toString2(i));
         }
-
-
-            //os.close();
-            //
             bf.close();
         } catch(IOException e) {
             e.printStackTrace();
@@ -40,17 +35,25 @@ public class Highscore implements Serializable {
 
     }
 
+    /**
+     * Serializáláshoz használt formátum
+     * @param i
+     * @return
+     */
     public String toString2(int i){
         return hs.get(i).name.getValue() + ","+hs.get(i).point.getValue()+"\r\n";
     }
 
+    public Highscore(){
+    }
 
-
-    public Highscore(){}
     public Highscore(java.util.ArrayList<Score> hs) {
         this.hs = hs;
     }
 
+    /**
+     * Beolvassa a highscore-t
+     */
     public void read() {
     hs.clear();
         try {
@@ -62,7 +65,6 @@ public class Highscore implements Serializable {
                 StringTokenizer st = new StringTokenizer(line,",");
 
                 while(st.hasMoreTokens()){
-
                     String name =st.nextToken();
                     Integer integer = Integer.valueOf(st.nextToken());
                     hs.add(new Score(name,integer));
@@ -77,18 +79,15 @@ public class Highscore implements Serializable {
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-
-
     }
 
-
-
+    /**
+     * Tableview miatt használt formátum
+     * @return
+     */
     public ObservableList<Score> getObsList() {
-
-       // read();
         Collections.sort(hs, new Comparator<Score>() {
             @Override
-
             public int compare(Score o1, Score o2) {
                 return o1.compareTo(o1,o2);
             }
@@ -96,14 +95,13 @@ public class Highscore implements Serializable {
        ObservableList<Score> obs = FXCollections.observableArrayList();
        obs.addAll(hs);
 
-
         return obs;
     }
 
 
-
-
-
+    /**
+     * alap score osztály
+     */
     public static class Score implements Serializable{
 
         public final transient SimpleStringProperty name;
