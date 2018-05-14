@@ -62,13 +62,15 @@ public class ControlsWindow {
                 new PropertyValueFactory<Temp, String>("p3")
         );
 
-        TableColumn pl4 = new TableColumn("Player 4");
+        TableColumn pl4 = new TableColumn("Player 4");                  //Gombok kiosztása
         pl4.setCellValueFactory(
                 new PropertyValueFactory<Temp, String>("p4")
         );
 
         TableColumn but = new TableColumn("Aktiváló gomb");
-
+        /**
+         * Informácó adása a játékosok irányításáról
+         */
         final ObservableList<Temp> data = FXCollections.observableArrayList(
                 new Temp("Fel", "W", "I", "UP", "NUM8"),
                 new Temp("Le", "S", "K", "DOWN", "NUM5"),
@@ -82,7 +84,9 @@ public class ControlsWindow {
         but.getColumns().addAll(pl1, pl2, pl3, pl4);
         table.getColumns().addAll(first, but);
 
-
+        /**
+         * Információs ablak
+         */
         VBox layout = new VBox(20);
         layout.setAlignment(Pos.CENTER);
         layout.setMinSize(150, 150);

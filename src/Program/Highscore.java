@@ -13,7 +13,9 @@ import java.lang.reflect.Array;
 import java.nio.file.StandardOpenOption;
 import java.util.*;
 
-
+/**
+ * Highscore vezetésére szolgáló osztály
+ */
 public class Highscore implements Serializable {
 
     public ArrayList<Score> hs = new ArrayList<>();
@@ -107,7 +109,10 @@ public class Highscore implements Serializable {
 
 
 
+    /**
+     * Highscore szerializálása
 
+     */
     public static class Score implements Serializable{
 
         public final transient SimpleStringProperty name;

@@ -45,7 +45,7 @@ public class Beta_Test {
         else System.out.println("You're not BEE-ing USA");
     }
 
-    public static void Start(Scene scene, String level, BorderPane pane){
+    public static void Start(Scene scene, String level, BorderPane pane){ //elindítja a játékot
         game = new Game();
         game.Init(level);
         initDraw(scene, pane);
@@ -63,7 +63,11 @@ public class Beta_Test {
         if(3<i)po4.setValue(game.GetCurrentLevel().getPlayersController().get(3).GetPoints());
     }
 
-
+    /**
+     * A játékfelület teteje
+     * @param scene
+     * @param pane
+     */
     private static void topDraw(Scene scene, BorderPane pane){
         //allapotsav
         Button back5 = new Button("Back");
@@ -163,6 +167,11 @@ public class Beta_Test {
 
     }
 
+    /**
+     * A játékfelület
+     * @param scene
+     * @param pane
+     */
     private static void initDraw(Scene scene, BorderPane pane){
 
         Canvas canvas= new Canvas();

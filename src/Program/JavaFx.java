@@ -22,7 +22,10 @@ import javafx.event.ActionEvent;
 import javafx.stage.Window;
 
 import java.io.IOException;
+/**
+ * gyakorlatilag a teljes menürendszer kezelése
 
+ */
 public class JavaFx {
 
     public void press_btn_exit(ActionEvent event){
