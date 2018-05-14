@@ -26,11 +26,15 @@ import java.io.IOException;
 public class JavaFx {
 
     public void press_btn_exit(ActionEvent event){
+
+
+
         System.exit(0);
     }
     public void press_btn_highscore(ActionEvent event) throws IOException {
 
 
+        Game.getHighscore2().read();
         Stage window = new Stage();
 
 
