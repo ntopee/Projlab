@@ -28,12 +28,19 @@ import java.io.IOException;
  */
 public class JavaFx {
 
+    /**
+     * Kilépés gomb
+     * @param event
+     */
     public void press_btn_exit(ActionEvent event){
-
-
-
         System.exit(0);
     }
+
+    /**
+     * Egy előugró ablakba kirajzolja a highscore-t
+     * @param event
+     * @throws IOException
+     */
     public void press_btn_highscore(ActionEvent event) throws IOException {
 
 
@@ -68,6 +75,11 @@ public class JavaFx {
 
     }
 
+    /**
+     * Vissza a menübe
+     * @param event
+     * @throws IOException
+     */
     public void press_btn_back(ActionEvent event) throws IOException {
 
         Parent hs = FXMLLoader.load(getClass().getResource("start.fxml"));
@@ -79,8 +91,11 @@ public class JavaFx {
         window.show();
     }
 
-
-
+    /**
+     * Play gomb, a pályaválasztóhoz irányít
+     * @param event
+     * @throws IOException
+     */
     public void press_btn_play(ActionEvent event) throws IOException{
         Parent hs = FXMLLoader.load(getClass().getResource("SelectScene.fxml"));
         Scene scene = new Scene(hs);
@@ -92,6 +107,11 @@ public class JavaFx {
 
     }
 
+    /**
+     * Pályaválasztó
+     * @param event
+     * @throws IOException
+     */
     public void press_image(MouseEvent event) throws IOException{
         System.out.println(event.getPickResult().getIntersectedNode().getId());
         BorderPane pane = new BorderPane();
