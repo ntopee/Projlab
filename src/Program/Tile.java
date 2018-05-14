@@ -130,6 +130,13 @@ public class Tile {
         }
     }
 
+    /**
+     * Kirazolja a mezot, es a rajta elhelyezkedo dolgokat.
+     * @param x X koordinata
+     * @param y Y koordinata
+     * @param canvas Ide rajzolja ki
+     */
+
     public void Draw(int x, int y, Canvas canvas){
 
         GraphicsContext gc = canvas.getGraphicsContext2D();

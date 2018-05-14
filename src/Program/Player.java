@@ -144,6 +144,12 @@ public class Player extends Thing {
         p.Die();
     }
 
+    /**
+     * Kirazolja a playert.
+     * @param x X koordinata
+     * @param y Y koordinata
+     * @param canvas Ide rajzolja ki
+     */
     @Override
     public void draw(int x, int y, Canvas canvas) {
 
