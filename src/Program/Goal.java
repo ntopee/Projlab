@@ -42,6 +42,13 @@ public class Goal extends Thing {
 
     }
 
+    /**
+     * Kirazolja a goalt.
+     * @param x X koordinata
+     * @param y Y koordinata
+     * @param canvas Ide rajzolja ki
+     */
+
     @Override
     public void draw(int x, int y, Canvas canvas) {
 

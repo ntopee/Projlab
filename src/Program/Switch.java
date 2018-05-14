@@ -45,6 +45,12 @@ public class Switch extends Thing {
         this.Activate();
     }
 
+    /**
+     * Kirazolja a switchet.
+     * @param x X koordinata
+     * @param y Y koordinata
+     * @param canvas Ide rajzolja ki
+     */
     @Override
     public void draw(int x, int y, Canvas canvas) {
 

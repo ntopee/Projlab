@@ -29,7 +29,12 @@ public class Pillar extends Obstacle {
     public void HitBy(Box b, Direction d, double Force) {
         super.HitBy(b,d, Force);
     }
-
+    /**
+     * Kirazolja a pillart.
+     * @param x X koordinata
+     * @param y Y koordinata
+     * @param canvas Ide rajzolja ki
+     */
     @Override
     public void draw(int x, int y, Canvas canvas) {
 

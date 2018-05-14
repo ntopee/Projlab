@@ -29,6 +29,13 @@ public class Wall extends Obstacle {
         super.HitBy(b,d, Force);
     }
 
+    /**
+     * Kirazolja a falat.
+     * @param x X koordinata
+     * @param y Y koordinata
+     * @param canvas Ide rajzolja ki
+     */
+
     @Override
     public void draw(int x, int y, Canvas canvas) {
 

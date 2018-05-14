@@ -32,6 +32,9 @@ public class Box extends Thing {
 
     private final int maximumBoxWeight = 25;
 
+    /**
+     * Egy rekurziv fuggveny leallito feltetelehez kell.
+     */
     private boolean neighboursChecked = false;
 
     /**
@@ -290,6 +293,9 @@ public class Box extends Thing {
             i.HitBy(this,d,Force);
     }
 
+    /**
+     * Amikor egy lada mozdithatatlanna valik, akkor az tudatja a szomszedaival is.
+     */
     private void NeighbourMovableChecker(){
 
         ArrayList<Thing> AL = new ArrayList<Thing>();
@@ -320,24 +326,47 @@ public class Box extends Thing {
        
     }
 
+    /**
+     * Amikor egy jatekost neki tolnak egy ladanak, akkor a jatekos kilapul.
+     * Ez a fuggveny szol a jatekosnak hogy haljon meg.
+     * @param p Player referencia.
+     */
     public void PlayerPushedIntoIt(Player p) {
         p.Die();
     }
 
+    /**
+     * Kirajzolja a ladat
+     * @param x X koordinata
+     * @param y Y koordinata
+     * @param canvas Ide rajyolja ki.
+     */
     @Override
     public void draw(int x, int y, Canvas canvas) {
 
         canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 
+    /**
+     * Setter a movable attributumnak
+     * @param B true/false
+     */
     public void setMovable(boolean B){
         movable = B;
     }
 
+    /**
+     * Getter a movable attributumnak
+     * @return movable
+     */
     public boolean getMovable(){
         return movable;
     }
 
+    /**
+     * Getter a tomegnek
+     * @return weight
+     */
     public int getWeight(){
         return weight;
     }

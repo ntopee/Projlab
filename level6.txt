@@ -5,7 +5,7 @@
 #      P1       #
 # T1GGT1  B O B H#
 #    S1   O  H  #
-# BBBB     G   #
+#  BBB     G   #
 #  T1      P2    #
 # H H H   H    #
 #   OS2   B     #
