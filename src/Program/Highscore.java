@@ -9,10 +9,7 @@ import javafx.collections.ObservableList;
 import javax.swing.*;
 import java.io.*;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Observable;
-
+import java.util.*;
 
 
 public class Highscore {
@@ -34,6 +31,7 @@ public class Highscore {
 
 
     }
+
 
     public Highscore(){}
     public Highscore(java.util.ArrayList<Score> hs) {
@@ -58,18 +56,33 @@ public class Highscore {
         return list;
     }
 
+
+
     public ObservableList<Score> getObsList() {
 
+        Collections.max(hs, new Comparator<Score>() { //TODO
+            @Override
+
+            public int compare(Score o1, Score o2) {
+                return o1.compareTo(o1,o2);
+            }
+        });
         ObservableList<Score> obs = FXCollections.observableArrayList();
 
        for(Score s : hs){
            obs.add(s);
+
         }
+
 
         return obs;
     }
 
-    public static class Score {
+
+
+
+
+    public static class Score{
 
         public final SimpleStringProperty name;
         public final SimpleIntegerProperty point;
@@ -77,6 +90,16 @@ public class Highscore {
         public Score(String name, Integer point) {
             this.name = new SimpleStringProperty(name);
             this.point = new SimpleIntegerProperty(point);
+        }
+
+        public int compareTo(Score o1, Score o2) {
+            if (o1.point.getValue() == o2.point.getValue()) {
+                return 0;
+            } else if (o1.point.getValue() < o2.point.getValue()) {
+                return -1;
+            } else {
+                return 1;
+            }
         }
 
         public String getName() {
@@ -102,5 +125,7 @@ public class Highscore {
         public void setPoint(int point) {
             this.point.set(point);
         }
+
+
     }
 }
