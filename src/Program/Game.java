@@ -14,6 +14,7 @@ import static Program.Direction.*;
 public class Game {
 
     private static Highscore highscore =new Highscore();
+    private static int magicCounter=0;
     private ArrayList<String> levels = new ArrayList<>();
     private int currentLvl = 0;
 
@@ -49,28 +50,30 @@ public class Game {
      * és ez alapján a nyertest is “kihirdeti”.
      */
     public static void EndGame() {
+if(magicCounter ==0) {
+    /**
+     * kiirja a kepernyore hogy vege van, aztan kidob menube
+     */
+    endGame = true;
 
-        /**
-         * kiirja a kepernyore hogy vege van, aztan kidob menube
-         */
-        endGame = true;
+    for (Player p :
+            currentlevel.getPlayer()) {
 
-        for (Player p :
-                currentlevel.getPlayer()) {
+        currentlevel.getPlayersController().get(currentlevel.getPlayersController().indexOf(p)).SetPoints(p.GetPoints());
+    }
+    System.out.println("Game Over");
 
-            currentlevel.getPlayersController().get(currentlevel.getPlayersController().indexOf(p)).SetPoints(p.GetPoints());
-        }
-        System.out.println("Game Over");
+    //adatbekérés highscorehoz
+    for (Player p :
+            currentlevel.getPlayersController()) {
+        String name = JOptionPane.showInputDialog("What's your name?");
+        Highscore.Score score = new Highscore.Score(name, p.GetPoints());
+        highscore.hs.add(score);
+    }
 
-        //adatbekérés highscorehoz
-        for (Player p:
-                currentlevel.getPlayersController()) {
-            String name = JOptionPane.showInputDialog("What's your name?");
-            Highscore.Score score = new Highscore.Score(name, p.GetPoints());
-            highscore.hs.add(score);
-        }
-
-        
+    highscore.write();
+    magicCounter ++;
+}
     }
 
     /**
@@ -145,7 +148,7 @@ public class Game {
      */
 
     public void Init(String filename) {
-
+    magicCounter =0;
         try {
             BufferedReader br = new BufferedReader(new FileReader(filename));
             int N = Integer.parseInt(br.readLine());
@@ -268,5 +271,9 @@ public class Game {
 
     public static ObservableList<Highscore.Score> getHighscore() {
         return highscore.getObsList();
+    }
+
+    public static Highscore getHighscore2() {
+        return highscore;
     }
 }
