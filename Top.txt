@@ -31,3 +31,7 @@ LOOP,6
 LKOL,0
 LacA,0
 Koki,0
+asd,2
+asd,0
+asd,0
+asd,0

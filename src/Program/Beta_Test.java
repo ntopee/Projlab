@@ -168,7 +168,7 @@ public class Beta_Test {
     }
 
     /**
-     * A játékfelület
+     * A játékfelülete
      * @param scene
      * @param pane
      */
