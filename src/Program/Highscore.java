@@ -1,6 +1,7 @@
 package Program;
 
 import com.sun.javafx.collections.ObservableListWrapper;
+import com.sun.xml.internal.messaging.saaj.packaging.mime.internet.InternetHeaders;
 import javafx.beans.property.SimpleIntegerProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -12,25 +13,36 @@ import java.lang.reflect.Array;
 import java.util.*;
 
 
-public class Highscore {
+public class Highscore implements Serializable {
 
     public ArrayList<Score> hs = new ArrayList<>();
 
-
-    public void write(ArrayList<Score> list) {
+    public void write() {
+        hs.clear();
         try {
-            FileOutputStream fileOut = new FileOutputStream( "TOP.ser");
-            ObjectOutputStream out = new ObjectOutputStream(fileOut);
-            out.writeObject(list);
-            out.close();
-            fileOut.close();
-            System.out.printf("Serialized data is saved");
-        } catch (IOException i) {
-            i.printStackTrace();
+            FileWriter os = new FileWriter("Top.txt");
+
+            BufferedWriter bf = new BufferedWriter(os);
+            for (int i = 0; i < hs.size(); i++){
+                bf.write(toString2(i));
+        }
+
+
+            //os.close();
+            //
+            bf.close();
+        } catch(IOException e) {
+            e.printStackTrace();
+            return;
         }
 
 
     }
+
+    public String toString2(int i){
+        return hs.get(i).name.getValue() + ","+hs.get(i).point.getValue()+"\r\n";
+    }
+
 
 
     public Highscore(){}
@@ -38,35 +50,48 @@ public class Highscore {
         this.hs = hs;
     }
 
-    public ArrayList<Score> read() {
-        ArrayList<Score> list = new ArrayList<Score>();
+    public void read() {
+hs.clear();
         try {
-            FileInputStream fileIn = new FileInputStream( "TOP.ser");
-            ObjectInputStream in = new ObjectInputStream(fileIn);
-            list = (ArrayList<Score>) in.readObject();
+            FileReader fileIn = new FileReader( "Top.txt");
+            BufferedReader in = new BufferedReader(fileIn);
+            String line;
+
+            while ((line = in.readLine()) != null){
+                StringTokenizer st = new StringTokenizer(line,",");
+
+                while(st.hasMoreTokens()){
+
+                    String name =st.nextToken();
+                    Integer integer = Integer.valueOf(st.nextToken());
+                    hs.add(new Score(name,integer));
+                }
+            }
+
             in.close();
             fileIn.close();
         } catch (IOException i) {
             i.printStackTrace();
 
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
-        return list;
+
     }
 
 
 
     public ObservableList<Score> getObsList() {
 
-        Collections.max(hs, new Comparator<Score>() { //TODO
+       // read();
+       /* Collections.sort(hs, new Comparator<Score>() { //TODO
             @Override
 
             public int compare(Score o1, Score o2) {
                 return o1.compareTo(o1,o2);
             }
-        });
+        });*/
         ObservableList<Score> obs = FXCollections.observableArrayList();
 
        for(Score s : hs){
@@ -82,10 +107,10 @@ public class Highscore {
 
 
 
-    public static class Score{
+    public static class Score implements Serializable{
 
-        public final SimpleStringProperty name;
-        public final SimpleIntegerProperty point;
+        public final transient SimpleStringProperty name;
+        public final transient SimpleIntegerProperty point;
 
         public Score(String name, Integer point) {
             this.name = new SimpleStringProperty(name);
