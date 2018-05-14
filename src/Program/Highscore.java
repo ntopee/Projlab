@@ -52,7 +52,7 @@ public class Highscore implements Serializable {
     }
 
     public void read() {
-hs.clear();
+    hs.clear();
         try {
             FileReader fileIn = new FileReader( "Top.txt");
             BufferedReader in = new BufferedReader(fileIn);
@@ -86,7 +86,7 @@ hs.clear();
     public ObservableList<Score> getObsList() {
 
        // read();
-       /* Collections.sort(hs, new Comparator<Score>() { //TODO
+       /* Collections.sort(hs, new Comparator<Score>() { //TODO sort max
             @Override
 
             public int compare(Score o1, Score o2) {
