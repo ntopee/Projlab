@@ -11,7 +11,7 @@ public class Player extends Thing {
 
     private final double HONEY = 2.45;
     private final double OIL = (1/2.45);
-    Image image = new Image(getClass().getResourceAsStream("FxSources/player.png"));
+    private Image image = new Image(getClass().getResourceAsStream("FxSources/player.png"));
     @Override
     public String toString() {
         return "Player";
@@ -22,11 +22,6 @@ public class Player extends Thing {
      */
 
     private final int avaragePlayerStrength = 50;
-
-    /**
-     * A munkas minimum ereje
-     */
-    private final int minimumPlayerStrength = 0;
 
 
     /**
@@ -39,12 +34,12 @@ public class Player extends Thing {
      * Default constructor
      */
     public Player() {
-        this.strength = 50;
+        this.strength = avaragePlayerStrength;
         movable = true;
     }
 
     public Player(int index){
-        this.strength = 50;
+        this.strength = avaragePlayerStrength;
         movable = true;
         image = new Image(getClass().getResourceAsStream("FxSources/player" + index + ".png"));
     }
@@ -154,12 +149,6 @@ public class Player extends Thing {
     public void draw(int x, int y, Canvas canvas) {
 
         canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
-    }
-
-
-    public int GetStregth(){
-        System.out.println("< GetStrength");
-        return strength;
     }
 
     /**

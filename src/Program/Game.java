@@ -77,35 +77,6 @@ public class Game {
     }
 
     /**
-     * Beállítja a soron következő pályát,
-     * és meghívja az init() függvényt.
-     */
-    public void NextLevel() {
-
-        if (currentLvl != levels.size())
-            currentLvl++;
-        else
-            currentLvl=0;
-
-        Init(levels.get(currentLvl));
-        /**
-         * meghiv egy initet a kovi levellel
-         */
-
-    }
-
-    /**
-     * Újraindítja az aktuális pályát.
-     */
-    public void RestartLevel() {
-
-        Init(levels.get(currentLvl));
-        /**
-         * meghivja az initet ugyanazzal a filename-el
-         */
-    }
-
-    /**
      * Egy adott iránynak megadja a vele ellenkező irányt.
      * @param d Direction, irány.
      * @return
@@ -123,10 +94,6 @@ public class Game {
             default:
                 return d;
         }
-    }
-
-    public ArrayList<String> getLevels() {
-        return levels;
     }
 
     public Map GetCurrentLevel(){

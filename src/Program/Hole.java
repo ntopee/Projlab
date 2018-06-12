@@ -1,7 +1,6 @@
 package Program;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 import java.util.ConcurrentModificationException;
@@ -18,8 +17,7 @@ public class Hole extends Thing {
         active = a;
         movable = true;
     }
-    Image imageh = new Image(getClass().getResourceAsStream("FxSources/hole.png"));
-    Image imageho = new Image(getClass().getResourceAsStream("FxSources/holeon.png"));
+
     @Override
     public String toString() {
         return (active)?"Hole ":"hole ";
@@ -85,14 +83,6 @@ public class Hole extends Thing {
 
     }
 
-    /**
-     * Visszaadja az active attribútum aktuális értékét.
-     * @return active attribútum aktuális értéke.
-     */
-    public boolean GetActive() {
-        return active;
-    }
-
     public void PlayerPushedIntoIt(Player p) {
         if (active)
             p.Die();
@@ -110,11 +100,11 @@ public class Hole extends Thing {
     public void draw(int x, int y, Canvas canvas) {
         if (active) {
 
-            canvas.getGraphicsContext2D().drawImage(imageh, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
+            canvas.getGraphicsContext2D().drawImage(Images.HoleImage, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
         }
         else{
 
-            canvas.getGraphicsContext2D().drawImage(imageho, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
+            canvas.getGraphicsContext2D().drawImage(Images.HoleimageO, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
         }
     }
 

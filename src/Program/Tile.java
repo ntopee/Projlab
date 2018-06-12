@@ -1,7 +1,6 @@
 package Program;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
-import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 
 import java.util.*;
@@ -21,8 +20,7 @@ public class Tile {
      * Egy olaj referencia, ha van a tile-on olaj.
      */
     private double oil = 1.0;
-    Image imageh = new Image(getClass().getResourceAsStream("FxSources/honey.png"));
-    Image imageo = new Image(getClass().getResourceAsStream("FxSources/oil.png"));
+
     /**
      * Egy mez referencia, ha van a tile-on mez.
      */
@@ -32,8 +30,6 @@ public class Tile {
      * Default constructor
      */
     public Tile(Program.Map m) { map = m; }
-
-    public Tile(){}
 
     /**
      * A cellán elhelyezkedő dolgok kollekciója.
@@ -149,12 +145,12 @@ public class Tile {
 
         if(honey!=1) {
 
-            canvas.getGraphicsContext2D().drawImage(imageh, x, y, 18, 18);
+            canvas.getGraphicsContext2D().drawImage(Images.HoneyImage, x, y, 18, 18);
         }
 
         if(oil!=1) {
 
-            canvas.getGraphicsContext2D().drawImage(imageo, x+32, y, 18, 18);
+            canvas.getGraphicsContext2D().drawImage(Images.OilImage, x+32, y, 18, 18);
         }
 
         for (Thing t: things) {

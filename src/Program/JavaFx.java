@@ -1,14 +1,9 @@
 package Program;
 
-import javafx.application.Application;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -19,7 +14,6 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 import javafx.event.ActionEvent;
-import javafx.stage.Window;
 
 import java.io.IOException;
 /**
@@ -112,7 +106,7 @@ public class JavaFx {
      * @param event
      * @throws IOException
      */
-    public void press_image(MouseEvent event) throws IOException{
+    public void press_image(MouseEvent event) {
         System.out.println(event.getPickResult().getIntersectedNode().getId());
         BorderPane pane = new BorderPane();
         Scene scene = new Scene(pane);

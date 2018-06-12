@@ -1,7 +1,6 @@
 package Program;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.image.Image;
 
 /**
  * Felelős azért, hogy a játékos ne tudjon rajta átmenni, a dobozt ne tudjuk áttolni. A saját Tile-án egyedüli objektumnak kell lennie.
@@ -14,7 +13,7 @@ public class Pillar extends Obstacle {
     public Pillar() {
         super();
     }
-    Image image = new Image(getClass().getResourceAsStream("FxSources/pillar.png"));
+
     @Override
     public String toString() {
         return "Pillar ";
@@ -38,7 +37,7 @@ public class Pillar extends Obstacle {
     @Override
     public void draw(int x, int y, Canvas canvas) {
 
-        canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
+        canvas.getGraphicsContext2D().drawImage(Images.PillarImage, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 
     /**

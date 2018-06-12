@@ -35,3 +35,10 @@ asd,2
 asd,0
 asd,0
 asd,0
+aa,0
+aaa,0
+,5
+asdwa,4
+wa,3
+null,5
+adsaw,2

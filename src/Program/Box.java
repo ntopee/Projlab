@@ -1,7 +1,6 @@
 package Program;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.image.Image;
 
 import java.util.ArrayList;
 
@@ -15,7 +14,7 @@ public class Box extends Thing {
         return "Box ";
     }
 
-    Image image = new Image(getClass().getResourceAsStream("FxSources/box.png"));
+    /*Image image = new Image(getClass().getResourceAsStream("FxSources/box.png"));*/
     /**
      * az atlagos lada tomege
      */
@@ -344,7 +343,7 @@ public class Box extends Thing {
     @Override
     public void draw(int x, int y, Canvas canvas) {
 
-        canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
+        canvas.getGraphicsContext2D().drawImage(Images.BoxImage, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 
     /**
@@ -363,11 +362,4 @@ public class Box extends Thing {
         return movable;
     }
 
-    /**
-     * Getter a tomegnek
-     * @return weight
-     */
-    public int getWeight(){
-        return weight;
-    }
 }

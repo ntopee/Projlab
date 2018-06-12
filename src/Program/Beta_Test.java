@@ -34,15 +34,19 @@ public class Beta_Test {
     }
 
     private static void Put(int i, String BeUSA){ //mezet vagy olajat rak a player tile-jara
-        if(BeUSA.equals("Honey")){
-            if (game.GetCurrentLevel().getPlayer().indexOf(game.GetCurrentLevel().getPlayersController().get(i-1)) != -1)
-                game.GetCurrentLevel().getPlayersController().get(i-1).Bee();
+        switch (BeUSA) {
+            case "Honey":
+                if (game.GetCurrentLevel().getPlayer().indexOf(game.GetCurrentLevel().getPlayersController().get(i - 1)) != -1)
+                    game.GetCurrentLevel().getPlayersController().get(i - 1).Bee();
+                break;
+            case "Oil":
+                if (game.GetCurrentLevel().getPlayer().indexOf(game.GetCurrentLevel().getPlayersController().get(i - 1)) != -1)
+                    game.GetCurrentLevel().getPlayersController().get(i - 1).USA();
+                break;
+            default:
+                System.out.println("You're not BEE-ing USA");
+                break;
         }
-        else if(BeUSA.equals("Oil")) {
-                if (game.GetCurrentLevel().getPlayer().indexOf(game.GetCurrentLevel().getPlayersController().get(i-1)) != -1)
-                    game.GetCurrentLevel().getPlayersController().get(i-1).USA();
-        }
-        else System.out.println("You're not BEE-ing USA");
     }
 
     public static void Start(Scene scene, String level, BorderPane pane){ //elindítja a játékot
@@ -51,11 +55,11 @@ public class Beta_Test {
         initDraw(scene, pane);
     }
 
-    static SimpleIntegerProperty po1=new SimpleIntegerProperty(0);
-    static SimpleIntegerProperty po2=new SimpleIntegerProperty(0);
-    static SimpleIntegerProperty po3=new SimpleIntegerProperty(0);
-    static SimpleIntegerProperty po4=new SimpleIntegerProperty(0);
-    static void DrawPoints(){
+    private static SimpleIntegerProperty po1=new SimpleIntegerProperty(0);
+    private static SimpleIntegerProperty po2=new SimpleIntegerProperty(0);
+    private static SimpleIntegerProperty po3=new SimpleIntegerProperty(0);
+    private static SimpleIntegerProperty po4=new SimpleIntegerProperty(0);
+    private static void DrawPoints(){
         int i=game.GetCurrentLevel().getPlayersController().size();
         if(0<i)po1.setValue(game.GetCurrentLevel().getPlayersController().get(0).GetPoints());
         if(1<i)po2.setValue(game.GetCurrentLevel().getPlayersController().get(1).GetPoints());
@@ -181,7 +185,6 @@ public class Beta_Test {
         game.setMapCanvas(canvas);
         game.GetCurrentLevel().DrawAll();
 
-        game.GetCurrentLevel().DrawAll();
         //gomblenyomások eventkezelője
         scene.addEventFilter(KeyEvent.KEY_PRESSED, new EventHandler<KeyEvent>() {
             public void handle(KeyEvent event) {

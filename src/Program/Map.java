@@ -154,14 +154,6 @@ public class Map {
         return players;
     }
 
-    public int getTilesV(){
-        return  tilesV;
-    }
-
-    public int getTilesH(){
-        return tilesH;
-    }
-
     public void setCanvas(Canvas cv){
         canvas = cv;
         canvas.setHeight(tilesH*Game.TILE_SIZE);
@@ -176,7 +168,7 @@ public class Map {
     public void DrawAll(){
         for (int i = 0; i < tilesH; i++){
             for (int j = 0; j < tilesV; j++){
-                tiles[i][j].Draw((j)*Game.TILE_SIZE,(i)*Game.TILE_SIZE, canvas);
+                tiles[i][j].Draw(j*Game.TILE_SIZE,i*Game.TILE_SIZE, canvas);
             }
         }
 
@@ -184,10 +176,6 @@ public class Map {
 
     public ArrayList<Player> getPlayersController() {
         return playersController;
-    }
-
-    public void setPlayersController(ArrayList<Player> playersController) {
-        this.playersController = playersController;
     }
 
     public void AddPlayerToController(Player p,int N) {

@@ -1,7 +1,6 @@
 package Program;
 
 import javafx.scene.canvas.Canvas;
-import javafx.scene.image.Image;
 
 /**
  * Olyan mezőket képvisel, amelyekre a ládákat kell tolni a pontszerzéshez.
@@ -14,7 +13,7 @@ public class Goal extends Thing {
     public Goal() {
         movable = true;
     }
-    Image image = new Image(getClass().getResourceAsStream("FxSources/goal.png"));
+    /*Image image = new Image(getClass().getResourceAsStream("FxSources/goal.png"));*/
     @Override
     public String toString() {
         return "Goal ";
@@ -52,7 +51,7 @@ public class Goal extends Thing {
     @Override
     public void draw(int x, int y, Canvas canvas) {
 
-        canvas.getGraphicsContext2D().drawImage(image, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
+        canvas.getGraphicsContext2D().drawImage(Images.GoalImage, x, y, Game.TILE_SIZE, Game.TILE_SIZE);
     }
 
 }
