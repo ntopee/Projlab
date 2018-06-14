@@ -29,8 +29,6 @@ public abstract class Thing { //Itt szerintem minden függvény kifejtése (syst
      * Megadja, hogy lehet-e még mozgatni az adott dolgot.
      */
 
-
-
     boolean movable;
 
     /**
